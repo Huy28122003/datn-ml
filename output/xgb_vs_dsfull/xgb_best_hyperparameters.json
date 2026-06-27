@@ -1,0 +1,7 @@
+{
+    "n_estimators": 150,
+    "max_depth": 8,
+    "learning_rate": 0.2,
+    "random_state": 42,
+    "eval_metric": "logloss"
+}

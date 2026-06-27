@@ -1,0 +1,169 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.*
+
+# Coverage
+.coverage
+htmlcov/
+
+```gitignore
+# =========================
+# Flutter / Dart
+# =========================
+
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+.pub-cache/
+build/
+
+# Generated files
+*.g.dart
+*.freezed.dart
+
+# Coverage
+coverage/
+
+# Logs
+*.log
+
+# =========================
+# IDE
+# =========================
+
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# macOS
+# =========================
+
+.DS_Store
+
+# =========================
+# Android
+# =========================
+
+**/android/.gradle
+**/android/captures/
+**/android/local.properties
+**/android/key.properties
+
+# Keystore
+*.jks
+*.keystore
+
+# =========================
+# iOS
+# =========================
+
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+
+# CocoaPods
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Podfile.lock
+
+# Xcode
+**/ios/Runner.xcworkspace/
+**/ios/xcuserdata/
+**/ios/*.xcuserstate
+
+# =========================
+# macOS Flutter
+# =========================
+
+**/macos/Flutter/ephemeral/
+**/macos/Pods/
+**/macos/Podfile.lock
+
+# =========================
+# Windows
+# =========================
+
+**/windows/flutter/ephemeral/
+
+# =========================
+# Linux
+# =========================
+
+**/linux/flutter/ephemeral/
+
+# =========================
+# Generated intl
+# =========================
+
+lib/generated/
+lib/l10n/generated/
+
+# =========================
+# Firebase
+# =========================
+
+google-services.json
+GoogleService-Info.plist
+firebase_app_id_file.json
+
+# =========================
+# Fastlane
+# =========================
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# =========================
+# Env files
+# =========================
+
+.env
+.env.*
+
+# =========================
+# Temporary
+# =========================
+
+tmp/
+temp/
+```

@@ -1,0 +1,17 @@
+{
+    "accuracy": 0.99919421531415,
+    "precision_phishing": 0.9988130123520902,
+    "recall_phishing": 0.9997772249656555,
+    "f1_score_phishing": 0.9992948860684332,
+    "cross_validation_mean": 0.9988166666666667,
+    "cross_validation_std": 0.00029533408577782003,
+    "auc_roc": 0.9999929324970975,
+    "features_count": 25,
+    "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 20,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "random_state": 42
+    }
+}

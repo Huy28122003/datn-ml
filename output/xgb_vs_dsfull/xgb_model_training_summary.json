@@ -1,0 +1,17 @@
+{
+    "accuracy": 0.9403835307388607,
+    "precision_phishing": 0.9270886075949367,
+    "recall_phishing": 0.8978424321673749,
+    "f1_score_phishing": 0.9122311716349747,
+    "cross_validation_mean": 0.9392646963430786,
+    "cross_validation_std": 0.0019819994952417963,
+    "auc_roc": 0.9832653657650545,
+    "features_count": 46,
+    "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 8,
+        "learning_rate": 0.2,
+        "random_state": 42,
+        "eval_metric": "logloss"
+    }
+}

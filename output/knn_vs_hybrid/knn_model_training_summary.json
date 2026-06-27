@@ -1,0 +1,8 @@
+{
+    "dataset_rows": 235794,
+    "dataset_cols": 56,
+    "features_count": 50,
+    "metric": "euclidean",
+    "algorithm": "auto",
+    "model_file_size_bytes": 94320675
+}
