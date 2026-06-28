@@ -1,311 +1,309 @@
 =========================================================================================================
-          BÁO CÁO KẾT QUẢ KIỂM THỬ PHÂN CẤP TÊN MIỀN & PHÂN TÍCH SUBDOMAIN (BATCH TEST)
+          BÁO CÁO PHÂN TÍCH GIẢ MẠO DOMAIN HÀNG LOẠT (THEO QUY TẮC PHÂN CẤP)
 =========================================================================================================
 Tổng số URL thử nghiệm:              293
-Tên miền chính thống khớp 100% (An toàn): 24 URLs
-Thời gian thực thi:                  46.26 giây
+Thời gian thực thi:                  57.42 giây
 ---------------------------------------------------------------------------------------------------------
-📊 THỐNG KÊ PHÂN LOẠI MỨC ĐỘ NGUY HIỂM DOMAIN CHÍNH (Nếu không khớp 100%):
-  🟢 Mức độ XANH (Thấp < 30%):             42 URLs
-  🟡 Mức độ VÀNG (Trung bình 30-50%):      122 URLs
-  🔴 Mức độ ĐỎ (Cao > 50%):                105 URLs
-  🔥 Tổng số ca Domain chính chứa thương hiệu: 147 URLs
-  🚨 Tổng số ca Subdomain chứa thương hiệu sạch: 18 URLs
+📊 THỐNG KÊ PHÂN LOẠI:
+  🟢 Đơn vị uy tín chính thức (Khớp 100%):            161 URLs
+  🔴 Mạo danh thương hiệu ở subdomain:                24 URLs
+  🔴 Quá giống đơn vị uy tín (Độ tương đồng >= 80%):  14 URLs
+  🟢 Khác biệt hoàn toàn / An toàn:                   94 URLs
 =========================================================================================================
 
-STT  | Domain chính                                  | Tên miền sạch giống nhất  | Lev Sim  | Phân loại Lev          | Chứa thương hiệu gốc?     | Trạng thái Subdomain
+STT  | Domain chính                                  | Tên miền sạch giống nhất  | Lev Sim  | Trạng thái & Cảnh báo phân cấp
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-1    | advana.lat                                    | pona.la                   |   50.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-2    | httpp-roblox.co                               | roblox.com                |   53.3% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-3    | omerguzelim.github.io                         | github.io                 |   42.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-4    | paguesempararbr.site                          | semparar.com.br           |   40.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'semparar')    | 🟢 AN TOÀN
-5    | spectrumwebmail22.systeme.io                  | systeme.io                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'systeme')     | 🟢 AN TOÀN
-6    | rodoviasabr.site                              | ecorodovias.com.br        |   38.9% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-7    | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-8    | rodovlas-freeflow-2vla.online                 | casinovla.online          |   44.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-9    | br-rodovias.shop                              | ecorodovias.com.br        |   50.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-10   | ckuygfdr.icu                                  | fdmr.icu                  |   50.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-11   | toki-gov-tr-fatih.vercel.app                  | vercel.app                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-12   | bancolaumentatucupo-net.vercel.app            | vercel.app                |   29.4% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-13   | yjasur039-cyber.github.io                     | github.io                 |   36.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-14   | sillomoo.site                                 | fimoo.site                |   69.2% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-15   | ipfs.io                                       | ipfs.io                   |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-16   | rbxmulti.net                                  | multi.ne.jp               |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'multi')       | 🟢 AN TOÀN
-17   | borderclick.com                               | borderclick.com           |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-18   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-19   | 8h723810.xyz                                  | tracker810.xyz            |   50.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-20   | imztoken.com                                  | latoken.com               |   75.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-21   | bp-web-whatsapp.com.cn                        | whatsapp-web.com          |   40.9% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-22   | sumitsrivastava01.github.io                   | github.io                 |   33.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-23   | sp10ct6-glurnex-biz-slatik-platem.pages.dev   | pages.dev                 |   20.9% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'pages')       | 🟢 AN TOÀN
-24   | canburnlikeacigarette.github.io               | github.io                 |   29.0% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-25   | sabiboys11211-cyber.github.io                 | github.io                 |   31.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-26   | xfinityrefunds.com                            | efunds.com                |   55.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'efunds')      | 🟢 AN TOÀN
-27   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-28   | iconce.com                                    | once.com                  |   80.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'once')        | 🔴 CẢNH BÁO (chứa 'roblox')
-29   | ilpendolo.it                                  | ilpendolaremagazine.it    |   50.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-30   | tribu-tax.cl                                  | tax.com                   |   33.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'tax')         | 🟢 AN TOÀN
-31   | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-32   | web-git-06-09-fixwebtdpallnetworksoptionupdat | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-33   | web-git-arc-chain-support-uniswap.vercel.app  | support-archiver.com      |   27.3% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-34   | nerdstarcode.github.io                        | github.io                 |   40.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-35   | web-git-06-09-fixwebtdpallnetworksoptionupdat | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-36   | qzz.io                                        | qzz.io                    |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-37   | ig.do                                         | song.do                   |   57.1% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-38   | galaxypedals.com                              | galaxypush.com            |   68.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-39   | dgyuehuiwan.com                               | iwan.com                  |   53.3% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'iwan')        | 🟢 AN TOÀN
-40   | twineapp.com                                  | chaineapp.com             |   76.9% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-41   | exodus-authorized.com                         | authorized.by             |   52.4% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'authorized')  | 🟢 AN TOÀN
-42   | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-43   | 24761a05n2-netizen.github.io                  | github.io                 |   32.1% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-44   | 1adt42o0cbo5.com                              | mo5.com                   |   37.5% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-45   | swapnil-2004.github.io                        | github.io                 |   40.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-46   | authia-rule.xyz                               | mafia-rules.net           |   46.7% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🔴 CẢNH BÁO (chứa 'paypal')
-47   | dlnllc.com                                    | pllc.ca                   |   50.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🔴 CẢNH BÁO (chứa 'docusign')
-48   | https-www-roblox.cc                           | roblox.cc                 |   47.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-49   | yeni-lisans.icu                               | uni-lions.com.tw          |   37.5% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-50   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-51   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-52   | bm03.ru                                       | 03.ru                     |   71.4% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa '03')          | 🟢 AN TOÀN
-53   | pub-f8fde659e2dc4783b121a5445d3d74c0.r2.dev   | r2.dev                    |   14.0% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'r2')          | 🟢 AN TOÀN
-54   | roblox.com.ug                                 | roblox.com.ug             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-55   | roblox.com.bi                                 | roblox.com                |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-56   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-57   | grayku.com                                    | payku.cl                  |   60.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-58   | toki-gov-tr-fatih.vercel.app                  | vercel.app                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-59   | shoptkpro.com                                 | hkpro.com                 |   69.2% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-60   | is.gd                                         | is.gd                     |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-61   | xptspecielty.com                              | rtspecialty.com           |   81.2% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-62   | ssusshi.com                                   | sushi.com                 |   81.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-63   | web-testing-dev-entry-gateway-uniswap.vercel. | ms-telemetry-gateway-us.c |   43.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-64   | web-testing-dev-entry-gateway-uniswap.vercel. | ms-telemetry-gateway-us.c |   43.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-65   | web-testing-dev-entry-gateway-uniswap.vercel. | ms-telemetry-gateway-us.c |   43.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-66   | web-testing-dev-entry-gateway-uniswap.vercel. | ms-telemetry-gateway-us.c |   43.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-67   | pruebabancoltarjeta1.vercel.app               | vercel.app                |   32.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-68   | tugcekaner.github.io                          | github.io                 |   45.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-69   | teachersamanthasilva.github.io                | github.io                 |   30.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-70   | estebangt1029.github.io                       | github.io                 |   39.1% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-71   | fabioldp.github.io                            | github.io                 |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-72   | 1188xinpujing.com                             | xinpujing9956888.com      |   45.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-73   | salathebox.com                                | thebox.com.pe             |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'thebox')      | 🟢 AN TOÀN
-74   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-75   | funtrip360.com                                | acevip360.com             |   64.3% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-76   | darlic.com                                    | garlic.com                |   90.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-77   | darlic.com                                    | garlic.com                |   90.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-78   | hulyacrk.github.io                            | github.io                 |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-79   | enlineagalicia.github.io                      | github.io                 |   37.5% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-80   | webtrafficguard2.com                          | trafficguard.ai           |   65.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'trafficguard') | 🟢 AN TOÀN
-81   | bdvenlineaw.github.io                         | github.io                 |   42.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-82   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-83   | securityreview.casa                           | thecityreview.com         |   63.2% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🔴 CẢNH BÁO (chứa 'linkedin')
-84   | roblox.com.bi                                 | roblox.com                |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-85   | crosss.top                                    | crosss.top                |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-86   | qes.my.id                                     | sis.my.id                 |   77.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-87   | secure-myxfinity-update.framer.website        | framer.website            |   36.8% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'framer')      | 🟢 AN TOÀN
-88   | amzonin.com                                   | siamzone.com              |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-89   | vwk.my.id                                     | sis.my.id                 |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-90   | extra-cyan-zfxl6ma9.edgeone.app               | edgeone.app               |   35.5% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'edgeone')     | 🟢 AN TOÀN
-91   | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-92   | webcindario.com                               | webcindario.com           |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-93   | fnworth.com                                   | lvnworth.com              |   83.3% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-94   | business-blue-tick-authorized-000012026v34.pa | business-tickets.com      |   30.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-95   | 7-0070hu.vercel.app                           | vercel.app                |   52.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-96   | pricefn.top                                   | pricefx.com               |   72.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-97   | google.com                                    | google.com                |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-98   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-99   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-100  | hjc23.net                                     | 123.net                   |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-101  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-102  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-103  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-104  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-105  | qorvanel-biz-lomvireta-k7t4pz19.pages.dev     | pages.dev                 |   22.0% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'pages')       | 🟢 AN TOÀN
-106  | fortinatexpress.shop                          | seoexpress.shop           |   60.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-107  | oblox.com.et                                  | roblox.com.et             |   92.3% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-108  | gokhanbyk.github.io                           | github.io                 |   47.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-109  | rbxliy.com                                    | rbx.com                   |   70.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'rbx')         | 🟢 AN TOÀN
-110  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-111  | servernotification.events                     | mailserver-notification.c |   59.3% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🔴 CẢNH BÁO (chứa 'spotify')
-112  | authorized-website-link.replit.app            | replit.app                |   29.4% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'replit')      | 🟢 AN TOÀN
-113  | bdvenlineaw.github.io                         | github.io                 |   42.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-114  | citibankonlline.com                           | citibankonline.com        |   94.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-115  | toki-gov-tr-konut1.vercel.app                 | vercel.app                |   34.5% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-116  | web-git-06-10-chorewebremovemultichaintokenux | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-117  | web-git-06-10-chorewebremovemultichaintokenux | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-118  | web-git-06-10-chorewebremovemultichaintokenux | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-119  | web-git-06-10-chorewebremovemultichaintokenux | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-120  | roblox.com.bn                                 | roblox.com.bn             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-121  | svrbancolombianeg.vercel.app                  | bancolombia.com           |   46.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'bancolombia') | 🟢 AN TOÀN
-122  | auth--apps-kucooin-sso---cdnn.webflow.io      | webflow.io                |   25.0% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'webflow')     | 🟢 AN TOÀN
-123  | recargabundles.com                            | adabundle.com             |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-124  | creditoenlineaecuador-2026-w-23--ecuadorcredi | ecuadorec.com             |   17.2% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-125  | nelienaei-7837--lineasnejj2.replit.app        | replit.app                |   26.3% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'replit')      | 🟢 AN TOÀN
-126  | cliente-i-limpfeirao.shop                     | nutrao.shop               |   36.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-127  | svrbancolombianeg.vercel.app                  | bancolombia.com           |   46.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'bancolombia') | 🟢 AN TOÀN
-128  | dejadirsbm-intereccanad.replit.app            | replit.app                |   29.4% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'replit')      | 🟢 AN TOÀN
-129  | aifreebie.top                                 | freebie.games             |   46.2% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'freebie')     | 🟢 AN TOÀN
-130  | instagramcom-instagramcom.blogspot.com        | instagramci.com           |   39.5% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-131  | roblox.com.bi                                 | roblox.com                |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-132  | web-git-05-20-featwebshowread-onlytokeninfofo | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-133  | web-git-05-20-featwebshowread-onlytokeninfofo | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-134  | web-git-05-20-featwebshowread-onlytokeninfofo | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-135  | eliaruizwork.com                              | drizwork.com              |   68.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-136  | 03365pay.com                                  | 365pay.cash               |   58.3% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa '365pay')      | 🟢 AN TOÀN
-137  | us-east-005.backblazeb2.com                   | backblazeb2.com           |   55.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'backblazeb2') | 🟢 AN TOÀN
-138  | robiox.com.gr                                 | robiox.com.py             |   84.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'robiox')      | 🟢 AN TOÀN
-139  | luxurylifebrand.com                           | luxurylife.com.tw         |   57.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'luxurylife')  | 🟢 AN TOÀN
-140  | borderclick.com                               | borderclick.com           |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-141  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-142  | webcindario.com                               | webcindario.com           |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-143  | enlineaecuadorcredito-2026-enlinea--servicios | replit.app                |   16.7% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'replit')      | 🟢 AN TOÀN
-144  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'paypal')      | 🟢 AN TOÀN
-145  | ig.do                                         | song.do                   |   57.1% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-146  | icloud.com.gr                                 | icloud.com                |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'icloud')      | 🟢 AN TOÀN
-147  | icloud.com.gr                                 | icloud.com                |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'icloud')      | 🟢 AN TOÀN
-148  | kapsalontulp.nl                               | hulp.nl                   |   40.0% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-149  | zeqaw.xyz                                     | tldraw.xyz                |   60.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-150  | kronosquantity.vip                            | kronosquartet.org         |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-151  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'paypal')      | 🟢 AN TOÀN
-152  | metamasklogino.webflow.io                     | webflow.io                |   40.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'webflow')     | 🟢 AN TOÀN
-153  | expensestatus.com                             | vexpenses.com             |   64.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-154  | bancolaumentatucupo-net.vercel.app            | vercel.app                |   29.4% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-155  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'ma-net')      | 🟢 AN TOÀN
-156  | oraclecloud.com                               | oraclecloud.com           |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-157  | hl.cn                                         | hl.com                    |   66.7% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'hl')          | 🟢 AN TOÀN
-158  | mrmmhung-cpu.github.io                        | github.io                 |   40.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-159  | pub-e3f0c19d1dcd408e98de83be89036299.r2.dev   | r2.dev                    |   14.0% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'r2')          | 🟢 AN TOÀN
-160  | raj0854.github.io                             | github.io                 |   52.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-161  | anshuchourasia.github.io                      | github.io                 |   37.5% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-162  | fapr.mom                                      | sapr.mil                  |   62.5% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-163  | 4webshare.com                                 | webshare.cz               |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'webshare')    | 🟢 AN TOÀN
-164  | pragati0405.github.io                         | github.io                 |   42.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-165  | square.site                                   | square.site               |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-166  | roblox.et                                     | roblox.et                 |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-167  | ig.do                                         | song.do                   |   57.1% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-168  | org.uk                                        | frg.org.uk                |   60.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-169  | s4w.in                                        | k7w.in                    |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-170  | rroblox.wf                                    | roblox.com                |   60.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-171  | us-east-005.backblazeb2.com                   | backblazeb2.com           |   55.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'backblazeb2') | 🟢 AN TOÀN
-172  | us-east-005.backblazeb2.com                   | backblazeb2.com           |   55.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'backblazeb2') | 🟢 AN TOÀN
-173  | contaboserver.net                             | contaboserver.net         |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-174  | myxfinityclientcommunicatonlogin.framer.websi | framer.website            |   29.8% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'framer')      | 🟢 AN TOÀN
-175  | 20-228-132-238.cpanel.site                    | cpanel.site               |   42.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'cpanel')      | 🟢 AN TOÀN
-176  | 20-228-132-238.cpanel.site                    | cpanel.site               |   42.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'cpanel')      | 🟢 AN TOÀN
-177  | 20-228-132-238.cpanel.site                    | cpanel.site               |   42.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'cpanel')      | 🟢 AN TOÀN
-178  | zedelivery-online.vercel.app                  | vercel.app                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-179  | 8579.org                                      | bet879.org                |   60.0% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-180  | axvddjww.icu                                  | nww.ir                    |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-181  | biz.id                                        | idebiz.id                 |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-182  | affinityc2penterpris.com                      | affinity.com              |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'affinity')    | 🟢 AN TOÀN
-183  | neocities.org                                 | neocities.org             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-184  | qrsu.io                                       | resu.io                   |   71.4% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-185  | cuj.temporary.site                            | temporary.site            |   77.8% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'temporary')   | 🟢 AN TOÀN
-186  | kucoinaii.top                                 | kucoin.com                |   61.5% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'kucoin')      | 🟢 AN TOÀN
-187  | cuj.temporary.site                            | temporary.site            |   77.8% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'temporary')   | 🟢 AN TOÀN
-188  | cuj.temporary.site                            | temporary.site            |   77.8% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'temporary')   | 🟢 AN TOÀN
-189  | iil12.my.id                                   | el12.com                  |   36.4% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-190  | pruebabancoltarjeta1.vercel.app               | vercel.app                |   32.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-191  | learnbridgetrezz.typedream.app                | typedream.app             |   43.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'typedream')   | 🟢 AN TOÀN
-192  | bridgeengteozr.typedream.app                  | typedream.app             |   46.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'typedream')   | 🟢 AN TOÀN
-193  | layer-bridgetrezr.typedream.app               | typedream.app             |   41.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'typedream')   | 🟢 AN TOÀN
-194  | ch5-wanmeiworld.com                           | ieiworld.com              |   57.9% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-195  | web-git-06-09-fixwebtdpallnetworksoptionupdat | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-196  | toki-gov-tr-fatih.vercel.app                  | vercel.app                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-197  | coderhub-one.vercel.app                       | vercel.app                |   43.5% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-198  | kunishe.com                                   | venishe.com               |   81.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-199  | krstoragecompare.com                          | compare.com               |   55.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'compare')     | 🟢 AN TOÀN
-200  | phgm1.com                                     | m1.com                    |   66.7% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'm1')          | 🟢 AN TOÀN
-201  | imokentv.com                                  | rentv.com                 |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-202  | yorklonltd.com.cn                             | ltd.com                   |   41.2% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'ltd')         | 🟢 AN TOÀN
-203  | s4w.in                                        | k7w.in                    |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-204  | ig.do                                         | song.do                   |   57.1% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-205  | pancake.run                                   | pancake.id                |   72.7% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'pancake')     | 🟢 AN TOÀN
-206  | kunishe.com                                   | venishe.com               |   81.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-207  | instagram-gamma.vercel.app                    | vercel.app                |   38.5% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-208  | sushilvatane.github.io                        | github.io                 |   40.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-209  | uditrsahani-ship-it.github.io                 | github.io                 |   31.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-210  | coco-dog.jp                                   | idog.jp                   |   54.5% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-211  | gohelpdesk.co.uk                              | helpdesk.com              |   68.8% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'helpdesk')    | 🟢 AN TOÀN
-212  | virtualnegbancolo.vercel.app                  | vercel.app                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-213  | sso-ca-netcoins-com-auth.webflow.io           | webflow.io                |   28.6% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'webflow')     | 🟢 AN TOÀN
-214  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-215  | devhouda.github.io                            | github.io                 |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-216  | roblox.com.bi                                 | roblox.com                |   76.9% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'roblox')      | 🟢 AN TOÀN
-217  | mail-security-world--eduardoperez65.replit.ap | replit.app                |   21.7% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'replit')      | 🟢 AN TOÀN
-218  | bitmartlugins.webflow.io                      | webflow.io                |   41.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'webflow')     | 🟢 AN TOÀN
-219  | aileveevlilikfonu.com                         | elitislamievlilik.com     |   42.9% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-220  | hr-rewards.com                                | e-rewards.com             |   85.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-221  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-222  | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-223  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-224  | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-225  | com.ps                                        | m.ps                      |   66.7% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'm')           | 🟢 AN TOÀN
-226  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-227  | binanceuz.co                                  | binanceuz.co              |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-228  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-229  | scooke-work.github.io                         | github.io                 |   42.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-230  | web-git-erin-update-numericalinputs-uniswap.v | vercel.app                |   18.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-231  | tony-f61.workers.dev                          | workers.dev               |   55.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'workers')     | 🟢 AN TOÀN
-232  | business-for-brynvero-8jq.pages.dev           | pages.dev                 |   25.7% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'pages')       | 🟢 AN TOÀN
-233  | business-blue-tick-confirmed-000052026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-234  | business-blue-tick-confirmed-000222026.pages. | 200226.casino             |   16.7% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-235  | meera-r27.github.io                           | github.io                 |   47.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-236  | business-blue-tick-confirmed-000082026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-237  | business-blue-tick-confirmed-000192026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-238  | business-blue-tick-confirmed-000122026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-239  | business-blue-tick-confirmed-000102026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-240  | business-blue-tick-confirmed-000392026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-241  | business-blue-tick-confirmed-000252026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-242  | business-blue-tick-confirmed-000352026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-243  | business-blue-tick-confirmed-000272026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-244  | business-blue-tick-confirmed-000232026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-245  | business-blue-tick-confirmed-000202026.pages. | 202020.net                |   14.6% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-246  | business-blue-tick-confirmed-000212026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-247  | business-blue-tick-confirmed-000372026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-248  | business-blue-tick-confirmed-000332026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-249  | business-blue-tick-confirmed-000262026.pages. | 002620.cn                 |   14.6% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa '002620')      | 🟢 AN TOÀN
-250  | business-blue-tick-confirmed-000362026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-251  | business-blue-tick-confirmed-000312026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-252  | clonmove.vercel.app                           | vercel.app                |   52.6% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-253  | business-blue-tick-confirmed-000022026.pages. | 200226.casino             |   16.7% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-254  | business-blue-tick-confirmed-000342026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-255  | business-blue-tick-confirmed-000242026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-256  | business-blue-tick-confirmed-000072026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-257  | business-blue-tick-confirmed-000282026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-258  | business-blue-tick-confirmed-000142026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-259  | business-blue-tick-confirmed-000182026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-260  | business-blue-tick-confirmed-000112026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-261  | business-blue-tick-confirmed-000092026.pages. | 920-0092.ru               |   12.5% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-262  | business-blue-tick-confirmed-000322026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-263  | business-blue-tick-confirmed-000062026.pages. | business-tickets.com      |   33.3% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-264  | qr.link                                       | qr.link                   |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-265  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-266  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-267  | web-git-05-20-featwebshowread-onlytokeninfofo | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-268  | com.kz                                        | mi.com.kz                 |   66.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🔴 CẢNH BÁO (chứa 'roblox')
-269  | eshang168.com                                 | rwang168.com              |   76.9% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-270  | trezorbridge-device.typedream.app             | typedream.app             |   39.4% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'typedream')   | 🟢 AN TOÀN
-271  | web-git-05-20-featwebshowread-onlytokeninfofo | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-272  | web-git-05-20-featwebshowread-onlytokeninfofo | vercel.app                |   13.5% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-273  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-274  | er-priyanshishukla.github.io                  | github.io                 |   32.1% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-275  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-276  | hyperinteract.com                             | cinteract.com             |   70.6% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-277  | business-blue-tick-authorized-0000120262x1.pa | business-tickets.com      |   30.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-278  | business-blue-tick-authorized-000012026324vsx | business-tickets.com      |   28.6% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-279  | business-blue-tick-authorized-0000120261x2a.p | business-tickets.com      |   30.2% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-280  | business-blue-tick-authorized-000012026v34.pa | business-tickets.com      |   30.8% | 🟡 VÀNG (Trung bình)    | 🟢 KHÔNG                   | 🟢 AN TOÀN
-281  | business-blue-tick-authorized-000012026zxc2q. | business-tickets.com      |   29.6% | 🟢 XANH (Thấp)          | 🟢 KHÔNG                   | 🟢 AN TOÀN
-282  | mmetaworld.com                                | shotaworld.com            |   78.6% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-283  | rakeshdubey4.github.io                        | github.io                 |   40.9% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'github')      | 🟢 AN TOÀN
-284  | 20-228-132-238.cpanel.site                    | cpanel.site               |   42.3% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'cpanel')      | 🟢 AN TOÀN
-285  | toki-gov-tr-fatih.vercel.app                  | vercel.app                |   35.7% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'vercel')      | 🟢 AN TOÀN
-286  | com.ml                                        | com.com.mx                |   50.0% | 🟡 VÀNG (Trung bình)    | 🔴 CÓ (chứa 'com')         | 🔴 CẢNH BÁO (chứa 'roblox')
-287  | todored.net                                   | todored.net               |  100.0% | 🟢 CHÍNH THỨC (Khớp 100%) | 🟢 KHÔNG                   | 🟢 AN TOÀN
-288  | fortes.my                                     | nortes.me                 |   77.8% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🟢 AN TOÀN
-289  | alina-ciorba-duncantoplis-co-uk-s-account.wor | workers.dev               |   20.8% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'workers')     | 🟢 AN TOÀN
-290  | alina-ciorba-duncantoplis-co-uk-s-account.wor | workers.dev               |   20.8% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'workers')     | 🟢 AN TOÀN
-291  | digitalizer.in                                | digitalir.in              |   85.7% | 🔴 ĐỎ (Cao)             | 🟢 KHÔNG                   | 🔴 CẢNH BÁO (chứa 'cloud')
-292  | alina-ciorba-duncantoplis-co-uk-s-account.wor | workers.dev               |   20.8% | 🟢 XANH (Thấp)          | 🔴 CÓ (chứa 'workers')     | 🟢 AN TOÀN
-293  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🔴 ĐỎ (Cao)             | 🔴 CÓ (chứa 'ma-net')      | 🟢 AN TOÀN
+1    | advana.lat                                    | pona.la                   |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+2    | httpp-roblox.co                               | roblox.com                |   53.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+3    | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+4    | paguesempararbr.site                          | semparar.com.br           |   40.0% | 🟢 An toàn (Độ tương đồng thấp: 40.00%)
+5    | systeme.io                                    | systeme.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+6    | rodoviasabr.site                              | ecorodovias.com.br        |   38.9% | 🟢 An toàn (Độ tương đồng thấp: 38.89%)
+7    | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+8    | rodovlas-freeflow-2vla.online                 | casinovla.online          |   44.8% | 🟢 An toàn (Độ tương đồng thấp: 44.83%)
+9    | br-rodovias.shop                              | ecorodovias.com.br        |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+10   | ckuygfdr.icu                                  | fdmr.icu                  |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+11   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+12   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+13   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+14   | sillomoo.site                                 | fimoo.site                |   69.2% | 🟢 An toàn (Độ tương đồng thấp: 69.23%)
+15   | ipfs.io                                       | ipfs.io                   |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+16   | rbxmulti.net                                  | multi.ne.jp               |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+17   | borderclick.com                               | borderclick.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+18   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+19   | 8h723810.xyz                                  | tracker810.xyz            |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+20   | imztoken.com                                  | latoken.com               |   75.0% | 🟢 An toàn (Độ tương đồng thấp: 75.00%)
+21   | bp-web-whatsapp.com.cn                        | whatsapp-web.com          |   40.9% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: whatsapp.com)
+22   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+23   | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+24   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+25   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+26   | xfinityrefunds.com                            | efunds.com                |   55.6% | 🟢 An toàn (Độ tương đồng thấp: 55.56%)
+27   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+28   | iconce.com                                    | once.com                  |   80.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+29   | ilpendolo.it                                  | ilpendolaremagazine.it    |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+30   | tribu-tax.cl                                  | tax.com                   |   33.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: tax.com)
+31   | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+32   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+33   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+34   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+35   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+36   | qzz.io                                        | qzz.io                    |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+37   | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
+38   | galaxypedals.com                              | galaxypush.com            |   68.8% | 🟢 An toàn (Độ tương đồng thấp: 68.75%)
+39   | dgyuehuiwan.com                               | iwan.com                  |   53.3% | 🟢 An toàn (Độ tương đồng thấp: 53.33%)
+40   | twineapp.com                                  | chaineapp.com             |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+41   | exodus-authorized.com                         | authorized.by             |   52.4% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: exodus.com)
+42   | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+43   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+44   | 1adt42o0cbo5.com                              | mo5.com                   |   37.5% | 🟢 An toàn (Độ tương đồng thấp: 37.50%)
+45   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+46   | authia-rule.xyz                               | mafia-rules.net           |   46.7% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: paypal.com)
+47   | dlnllc.com                                    | pllc.ca                   |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: docusign.com)
+48   | https-www-roblox.cc                           | roblox.cc                 |   47.4% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+49   | yeni-lisans.icu                               | uni-lions.com.tw          |   37.5% | 🟢 An toàn (Độ tương đồng thấp: 37.50%)
+50   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+51   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+52   | bm03.ru                                       | 03.ru                     |   71.4% | 🟢 An toàn (Độ tương đồng thấp: 71.43%)
+53   | r2.dev                                        | r2.dev                    |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+54   | roblox.com.ug                                 | roblox.com.ug             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+55   | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+56   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+57   | grayku.com                                    | payku.cl                  |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+58   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+59   | shoptkpro.com                                 | hkpro.com                 |   69.2% | 🟢 An toàn (Độ tương đồng thấp: 69.23%)
+60   | is.gd                                         | is.gd                     |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+61   | xptspecielty.com                              | rtspecialty.com           |   81.2% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống rtspecialty.com tại 81.25%)
+62   | ssusshi.com                                   | sushi.com                 |   81.8% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống sushi.com tại 81.82%)
+63   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+64   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+65   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+66   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+67   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+68   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+69   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+70   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+71   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+72   | 1188xinpujing.com                             | xinpujing9956888.com      |   45.0% | 🟢 An toàn (Độ tương đồng thấp: 45.00%)
+73   | salathebox.com                                | thebox.com.pe             |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+74   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống roblox.com.ml tại 92.31%)
+75   | funtrip360.com                                | acevip360.com             |   64.3% | 🟢 An toàn (Độ tương đồng thấp: 64.29%)
+76   | darlic.com                                    | garlic.com                |   90.0% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống garlic.com tại 90.00%)
+77   | darlic.com                                    | garlic.com                |   90.0% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống garlic.com tại 90.00%)
+78   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+79   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+80   | webtrafficguard2.com                          | trafficguard.ai           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+81   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+82   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống roblox.com.ml tại 92.31%)
+83   | securityreview.casa                           | thecityreview.com         |   63.2% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: linkedin.com)
+84   | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+85   | crosss.top                                    | crosss.top                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+86   | qes.my.id                                     | sis.my.id                 |   77.8% | 🟢 An toàn (Độ tương đồng thấp: 77.78%)
+87   | framer.website                                | framer.website            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+88   | amzonin.com                                   | siamzone.com              |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+89   | vwk.my.id                                     | sis.my.id                 |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+90   | edgeone.app                                   | edgeone.app               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+91   | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+92   | webcindario.com                               | webcindario.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+93   | fnworth.com                                   | lvnworth.com              |   83.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống lvnworth.com tại 83.33%)
+94   | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+95   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+96   | pricefn.top                                   | pricefx.com               |   72.7% | 🟢 An toàn (Độ tương đồng thấp: 72.73%)
+97   | google.com                                    | google.com                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+98   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+99   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+100  | hjc23.net                                     | 123.net                   |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+101  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+102  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+103  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+104  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+105  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+106  | fortinatexpress.shop                          | seoexpress.shop           |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+107  | oblox.com.et                                  | roblox.com.et             |   92.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống roblox.com.et tại 92.31%)
+108  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+109  | rbxliy.com                                    | rbx.com                   |   70.0% | 🟢 An toàn (Độ tương đồng thấp: 70.00%)
+110  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
+111  | servernotification.events                     | mailserver-notification.c |   59.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: spotify.com)
+112  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+113  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+114  | citibankonlline.com                           | citibankonline.com        |   94.7% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống citibankonline.com tại 94.74%)
+115  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+116  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+117  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+118  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+119  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+120  | roblox.com.bn                                 | roblox.com.bn             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+121  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+122  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+123  | recargabundles.com                            | adabundle.com             |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+124  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+125  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+126  | cliente-i-limpfeirao.shop                     | nutrao.shop               |   36.0% | 🟢 An toàn (Độ tương đồng thấp: 36.00%)
+127  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+128  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+129  | aifreebie.top                                 | freebie.games             |   46.2% | 🟢 An toàn (Độ tương đồng thấp: 46.15%)
+130  | blogspot.com                                  | blogspot.com              |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+131  | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+132  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+133  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+134  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+135  | eliaruizwork.com                              | drizwork.com              |   68.8% | 🟢 An toàn (Độ tương đồng thấp: 68.75%)
+136  | 03365pay.com                                  | 365pay.cash               |   58.3% | 🟢 An toàn (Độ tương đồng thấp: 58.33%)
+137  | backblazeb2.com                               | backblazeb2.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+138  | robiox.com.gr                                 | robiox.com.py             |   84.6% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống robiox.com.py tại 84.62%)
+139  | luxurylifebrand.com                           | luxurylife.com.tw         |   57.9% | 🟢 An toàn (Độ tương đồng thấp: 57.89%)
+140  | borderclick.com                               | borderclick.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+141  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+142  | webcindario.com                               | webcindario.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+143  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+144  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: payme.io)
+145  | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
+146  | icloud.com.gr                                 | icloud.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+147  | icloud.com.gr                                 | icloud.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+148  | kapsalontulp.nl                               | hulp.nl                   |   40.0% | 🟢 An toàn (Độ tương đồng thấp: 40.00%)
+149  | zeqaw.xyz                                     | tldraw.xyz                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+150  | kronosquantity.vip                            | kronosquartet.org         |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+151  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: payme.io)
+152  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+153  | expensestatus.com                             | vexpenses.com             |   64.7% | 🟢 An toàn (Độ tương đồng thấp: 64.71%)
+154  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+155  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+156  | oraclecloud.com                               | oraclecloud.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+157  | hl.cn                                         | hl.com                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+158  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+159  | r2.dev                                        | r2.dev                    |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+160  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+161  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+162  | fapr.mom                                      | sapr.mil                  |   62.5% | 🟢 An toàn (Độ tương đồng thấp: 62.50%)
+163  | 4webshare.com                                 | webshare.cz               |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+164  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+165  | square.site                                   | square.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+166  | roblox.et                                     | roblox.et                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+167  | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
+168  | org.uk                                        | frg.org.uk                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+169  | s4w.in                                        | k7w.in                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+170  | rroblox.wf                                    | roblox.com                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+171  | backblazeb2.com                               | backblazeb2.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+172  | backblazeb2.com                               | backblazeb2.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+173  | contaboserver.net                             | contaboserver.net         |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+174  | framer.website                                | framer.website            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+175  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+176  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+177  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+178  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+179  | 8579.org                                      | bet879.org                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+180  | axvddjww.icu                                  | nww.ir                    |   33.3% | 🟢 An toàn (Độ tương đồng thấp: 33.33%)
+181  | biz.id                                        | idebiz.id                 |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+182  | affinityc2penterpris.com                      | affinity.com              |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
+183  | neocities.org                                 | neocities.org             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+184  | qrsu.io                                       | resu.io                   |   71.4% | 🟢 An toàn (Độ tương đồng thấp: 71.43%)
+185  | temporary.site                                | temporary.site            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+186  | kucoinaii.top                                 | kucoin.com                |   61.5% | 🟢 An toàn (Độ tương đồng thấp: 61.54%)
+187  | temporary.site                                | temporary.site            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+188  | temporary.site                                | temporary.site            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+189  | iil12.my.id                                   | el12.com                  |   36.4% | 🟢 An toàn (Độ tương đồng thấp: 36.36%)
+190  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+191  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+192  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+193  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+194  | ch5-wanmeiworld.com                           | ieiworld.com              |   57.9% | 🟢 An toàn (Độ tương đồng thấp: 57.89%)
+195  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+196  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+197  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+198  | kunishe.com                                   | venishe.com               |   81.8% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống venishe.com tại 81.82%)
+199  | krstoragecompare.com                          | compare.com               |   55.0% | 🟢 An toàn (Độ tương đồng thấp: 55.00%)
+200  | phgm1.com                                     | m1.com                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+201  | imokentv.com                                  | rentv.com                 |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+202  | yorklonltd.com.cn                             | ltd.com                   |   41.2% | 🟢 An toàn (Độ tương đồng thấp: 41.18%)
+203  | s4w.in                                        | k7w.in                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+204  | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
+205  | pancake.run                                   | pancake.id                |   72.7% | 🟢 An toàn (Độ tương đồng thấp: 72.73%)
+206  | kunishe.com                                   | venishe.com               |   81.8% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống venishe.com tại 81.82%)
+207  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+208  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+209  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+210  | coco-dog.jp                                   | idog.jp                   |   54.5% | 🟢 An toàn (Độ tương đồng thấp: 54.55%)
+211  | gohelpdesk.co.uk                              | helpdesk.com              |   68.8% | 🟢 An toàn (Độ tương đồng thấp: 68.75%)
+212  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+213  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+214  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+215  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+216  | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+217  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+218  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+219  | aileveevlilikfonu.com                         | elitislamievlilik.com     |   42.9% | 🟢 An toàn (Độ tương đồng thấp: 42.86%)
+220  | hr-rewards.com                                | e-rewards.com             |   85.7% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống e-rewards.com tại 85.71%)
+221  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+222  | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+223  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+224  | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+225  | com.ps                                        | m.ps                      |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
+226  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+227  | binanceuz.co                                  | binanceuz.co              |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+228  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+229  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+230  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+231  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+232  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+233  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+234  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+235  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+236  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+237  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+238  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+239  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+240  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+241  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+242  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+243  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+244  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+245  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+246  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+247  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+248  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+249  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+250  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+251  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+252  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+253  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+254  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+255  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+256  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+257  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+258  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+259  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+260  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+261  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+262  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+263  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+264  | qr.link                                       | qr.link                   |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+265  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+266  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+267  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+268  | com.kz                                        | mi.com.kz                 |   66.7% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+269  | eshang168.com                                 | rwang168.com              |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
+270  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+271  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+272  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+273  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+274  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+275  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+276  | hyperinteract.com                             | cinteract.com             |   70.6% | 🟢 An toàn (Độ tương đồng thấp: 70.59%)
+277  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+278  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+279  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+280  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+281  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+282  | mmetaworld.com                                | shotaworld.com            |   78.6% | 🟢 An toàn (Độ tương đồng thấp: 78.57%)
+283  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+284  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+285  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+286  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+287  | todored.net                                   | todored.net               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+288  | fortes.my                                     | nortes.me                 |   77.8% | 🟢 An toàn (Độ tương đồng thấp: 77.78%)
+289  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+290  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+291  | digitalizer.in                                | digitalir.in              |   85.7% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống digitalir.in tại 85.71%)
+292  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
+293  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
 ================================================================================================================================================================
