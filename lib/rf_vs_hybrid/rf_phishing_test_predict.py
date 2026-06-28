@@ -1,14 +1,3 @@
-"""
-rf_phishing_test_predict.py
-=============================
-Script dự đoán thời gian thực sử dụng mô hình Random Forest trên tập dữ liệu Hybrid.
-Đặc trưng đặc biệt: 
-  - Trích xuất đặc trưng lexical từ URL.
-  - Tự động cào HTML (Scrape) trực tiếp nếu URL online để lấy đặc trưng webpage thực tế (Line of Code, Image, JS, CSS, References...).
-  - Tự động fallback sang giá trị trung vị (Median) nếu URL offline.
-  - Tích hợp Whitelist tên miền uy tín để tránh False Positive.
-"""
-
 import os
 import sys
 import re
@@ -22,7 +11,6 @@ import numpy as np
 
 warnings.filterwarnings('ignore')
 
-# Thêm thư mục lib vào Python path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(BASE_DIR, 'lib'))
 
@@ -31,13 +19,8 @@ MODEL_PATH = os.path.join(OUTPUT_DIR, 'rf_phishing_model.pkl')
 
 
 def load_model():
-    """Load mô hình Random Forest và danh sách đặc trưng đã lưu."""
     if not os.path.exists(MODEL_PATH):
-        print("\n❌ LỖI: Chưa có mô hình huấn luyện!")
-        print("  → Vui lòng thực hiện huấn luyện mô hình mới bằng cách chạy:")
-        print("    1. python lib/rf_vs_hybrid/rf_feature_importance_train_selection.py")
-        print("    2. python lib/rf_vs_hybrid/rf_optimal_trees_train_tuning.py")
-        print("    3. python lib/rf_vs_hybrid/rf_model_train_final.py")
+        print("Loi: Thieu model!")
         sys.exit(1)
 
     with open(MODEL_PATH, 'rb') as f:
@@ -50,7 +33,7 @@ def load_model():
     return model, features, params
 
 
-# Whitelist các tên miền uy tín
+# huyny - whitelist domain
 REPUTABLE_DOMAINS = {
     'google.com', 'google.com.vn', 'youtube.com', 'facebook.com', 'instagram.com', 
     'twitter.com', 'linkedin.com', 'github.com', 'gitlab.com', 'microsoft.com', 
@@ -62,7 +45,6 @@ REPUTABLE_DOMAINS = {
 
 
 def get_registered_domain(domain):
-    """Trích xuất tên miền đăng ký (registered domain) để kiểm tra danh sách trắng."""
     if not domain:
         return ""
     domain = domain.lower()
@@ -75,12 +57,6 @@ def get_registered_domain(domain):
 
 
 def extract_hybrid_features(url):
-    """
-    Trích xuất đặc trưng Hybrid:
-      - Các đặc trưng cấu trúc URL (Lexical).
-      - Live scraping lấy thông số HTML (nếu online, nếu không dùng fallback trung vị).
-    """
-    # 1. Khởi tạo giá trị mặc định (trung vị từ dataset)
     feats = {
         'URLLength': len(url),
         'DomainLength': 20.0,
@@ -134,7 +110,6 @@ def extract_hybrid_features(url):
         'NoOfExternalRef': 10.0
     }
 
-    # 2. Phân tích Lexical từ chuỗi URL
     try:
         parsed = urllib.parse.urlparse(url)
         domain = parsed.netloc
@@ -143,15 +118,12 @@ def extract_hybrid_features(url):
             
         feats['DomainLength'] = len(domain)
         
-        # Check IP
         ip_pattern = re.compile(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$')
         feats['IsDomainIP'] = 1.0 if ip_pattern.match(domain) else 0.0
         
-        # Subdomains
         dots = domain.count('.')
         feats['NoOfSubDomain'] = float(max(0, dots - 1))
         
-        # Letters & Digits
         letters = sum(1 for c in url if c.isalpha())
         digits = sum(1 for c in url if c.isdigit())
         feats['NoOfLettersInURL'] = float(letters)
@@ -159,7 +131,6 @@ def extract_hybrid_features(url):
         feats['NoOfDegitsInURL'] = float(digits)
         feats['DegitRatioInURL'] = digits / len(url) if len(url) > 0 else 0.0
         
-        # Special chars
         specials = sum(1 for c in url if not c.isalnum() and c not in ('/', '.', ':', '-'))
         feats['NoOfOtherSpecialCharsInURL'] = float(specials)
         feats['SpacialCharRatioInURL'] = specials / len(url) if len(url) > 0 else 0.0
@@ -167,8 +138,8 @@ def extract_hybrid_features(url):
     except Exception:
         pass
 
-    # 3. Live Web Scraping lấy thông số HTML (nếu online)
-    print("🌐 Đang kiểm tra trạng thái online và phân tích HTML...")
+    # huyny - cao html
+    print("Check online & cao HTML...")
     is_online = False
     try:
         req = urllib.request.Request(
@@ -177,10 +148,9 @@ def extract_hybrid_features(url):
         )
         with urllib.request.urlopen(req, timeout=3.0) as response:
             html = response.read().decode('utf-8', errors='ignore')
-            print("  ✓ Tải trang thành công! Đang phân tích mã HTML...")
+            print("Scrape ok, dang parse...")
             is_online = True
             
-            # Cập nhật thông số HTML thực tế
             lines = html.split('\n')
             feats['LineOfCode'] = float(len(lines))
             feats['LargestLineLength'] = float(max(len(line) for line in lines) if lines else 0)
@@ -189,7 +159,6 @@ def extract_hybrid_features(url):
             feats['NoOfJS'] = float(len(re.findall(r'<script\s+', html, re.I)))
             feats['NoOfCSS'] = float(len(re.findall(r'<link\s+[^>]*rel=["\']stylesheet["\']|<style\s+', html, re.I)))
             
-            # Links/References
             all_links = re.findall(r'href=["\'](https?://[^"\']+|/[^"\']+|#[^"\']*)["\']', html, re.I)
             external = 0
             self_ref = 0
@@ -217,14 +186,12 @@ def extract_hybrid_features(url):
             feats['HasCopyrightInfo'] = 1.0 if any(c in html.lower() for c in ['copyright', '©', '&copy;']) else 0.0
             
     except Exception as e:
-        print(f"  ⚠️  Không thể cào HTML thời gian thực ({e}). Sử dụng chế độ Fallback trung vị (Offline).")
+        print(f"Loi HTML ({e}). Fallback offline.")
 
     return feats, is_online
 
 
 def predict_url(url, model, model_features):
-    """Dự đoán nhãn độc hại cho 1 URL sử dụng đặc trưng Hybrid."""
-    # Trích xuất tên miền đăng ký để kiểm tra whitelist danh tiếng
     try:
         parsed = urllib.parse.urlparse(url)
         domain = parsed.netloc
@@ -239,19 +206,16 @@ def predict_url(url, model, model_features):
     if is_whitelisted:
         prediction = 0
         probabilities = [1.0, 0.0]
-        label = 'LEGITIMATE ✅ (Danh tiếng uy tín - Whitelisted)'
-        feats_all, is_online = extract_hybrid_features(url) # Vẫn trích xuất để hiển thị cấu trúc
-    else:
-        # Trích xuất đặc trưng Hybrid
+        label = 'LEGITIMATE (Whitelisted)'
         feats_all, is_online = extract_hybrid_features(url)
-        
-        # Lọc ra vector theo đúng thứ tự đặc trưng mô hình yêu cầu
+    else:
+        feats_all, is_online = extract_hybrid_features(url)
         feature_vector = [feats_all[name] for name in model_features]
         
         X = np.array([feature_vector])
         prediction = model.predict(X)[0]
         probabilities = model.predict_proba(X)[0]
-        label = 'PHISHING 🚨' if prediction == 1 else 'LEGITIMATE ✅'
+        label = 'PHISHING' if prediction == 1 else 'LEGITIMATE'
 
     result = {
         'url': url,
@@ -272,59 +236,42 @@ def predict_url(url, model, model_features):
 
 
 def display_result(result):
-    """Hiển thị bảng kết quả dự đoán trực quan và chi tiết đặc trưng."""
-    print("\n" + "╔" + "═" * 68 + "╗")
-    print(f"║  🎯 KẾT QUẢ PHÂN TÍCH URL (HYBRID - RF){'':>30}║")
-    print("╠" + "═" * 68 + "╣")
-    url_trimmed = result['url'][:60] + ('...' if len(result['url']) > 60 else '')
-    print(f"║  🔗 URL: {url_trimmed:<58}║")
-    print("╠" + "═" * 68 + "╣")
+    print("\nKET QUA PHAN TICH URL:")
+    print(f"URL: {result['url']}")
 
     if not result.get('is_online', True):
-        print(f"║  ❌ TRẠNG THÁI: TRANG WEB ĐÃ BỊ SẬP (OFFLINE){'':>22}║")
-        print("╚" + "═" * 68 + "╝")
+        print("TRANG THAI: OFFLINE")
         return
 
+    print(f"KET QUA: {result['label']}")
     if result['prediction'] == 1:
-        print(f"║  ⚠️  KẾT QUẢ: {result['label']:<47}║")
-        print(f"║  📈 Xác suất Phishing:   {result['probability_phishing']:.2%}{'':>37}║")
+        print(f"Xac suat Phishing:   {result['probability_phishing']:.2%}")
     else:
-        print(f"║  ✅ KẾT QUẢ: {result['label']:<47}║")
-        print(f"║  📈 Xác suất An toàn:    {result['probability_legitimate']:.2%}{'':>37}║")
+        print(f"Xac suat An toan:    {result['probability_legitimate']:.2%}")
 
-    print(f"║  🔥 Độ tin cậy:          {result['confidence']:.2%}{'':>37}║")
-    print("╠" + "═" * 68 + "╣")
-    print(f"║  📊 Số đặc trưng Hybrid sử dụng: {result['features_used_count']:<33}║")
-    print("╚" + "═" * 68 + "╝")
+    print(f"Do tin cay:          {result['confidence']:.2%}")
+    print(f"So dac trung su dung: {result['features_used_count']}")
 
-    # Hiển thị đặc trưng chính
-    print(f"\n  📊 CHI TIẾT CÁC ĐẶC TRƯNG ĐÃ TRÍCH XUẤT:")
-    print("  " + "─" * 60)
+    print("\nCHI TIET CAC DAC TRUNG:")
     features = result['features_extracted']
     for i, (name, val) in enumerate(features.items(), 1):
         if isinstance(val, float):
-            print(f"    {i:>2}. {name:<35} = {val:.4f}")
+            print(f"  {i:>2}. {name:<35} = {val:.4f}")
         else:
-            print(f"    {i:>2}. {name:<35} = {val}")
+            print(f"  {i:>2}. {name:<35} = {val}")
 
 
 def interactive_mode(model, model_features):
-    """Chế độ nhập URL trực tiếp tương tác liên tục."""
-    print("\n╔══════════════════════════════════════════════════════════╗")
-    print("║  RANDOM FOREST - HYBRID PHISHING DETECTOR                ║")
-    print("║  Nhập URL cần kiểm tra (Nhập 'quit' để thoát)           ║")
-    print("╚══════════════════════════════════════════════════════════╝")
+    print("\nRANDOM FOREST - HYBRID PHISHING DETECTOR")
+    print("Nhap 'quit' de thoat")
 
     while True:
-        print("\n" + "─" * 70)
-        url = input("🔗 Nhập URL: ").strip()
+        url = input("\nNhap URL: ").strip()
 
         if url.lower() in ('quit', 'exit', 'q'):
-            print("\n👋 Tạm biệt!")
             break
 
         if not url:
-            print("⚠ Vui lòng nhập chuỗi URL hợp lệ!")
             continue
 
         if not url.startswith(('http://', 'https://')):
@@ -334,7 +281,7 @@ def interactive_mode(model, model_features):
             result = predict_url(url, model, model_features)
             display_result(result)
         except Exception as e:
-            print(f"❌ Lỗi xử lý URL: {e}")
+            print(f"Loi: {e}")
 
 
 def main():
@@ -342,9 +289,9 @@ def main():
     parser.add_argument('--url', type=str, help='Đường dẫn URL cần kiểm tra')
     args = parser.parse_args()
 
-    print("📦 Đang load mô hình...")
+    print("Load model...")
     model, model_features, params = load_model()
-    print(f"  ✓ Đã load thành công mô hình ({len(model_features)} đặc trưng Hybrid)")
+    print(f"Loaded model ({len(model_features)} features)")
 
     if args.url:
         result = predict_url(args.url, model, model_features)
