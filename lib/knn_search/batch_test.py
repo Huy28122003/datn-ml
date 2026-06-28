@@ -1,10 +1,3 @@
-"""
-batch_test.py
-=============
-Chương trình kiểm thử hàng loạt danh sách URL bằng mô hình KNN và thuật toán Heuristic theo luồng phân cấp và quy tắc cảnh báo chính xác.
-Ghi kết quả ra tệp output/knn_search/batch_test_report.txt.
-"""
-
 import os
 import sys
 import pickle
@@ -12,12 +5,10 @@ import time
 import urllib.parse
 from collections import Counter
 
-# Cấu hình đường dẫn
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MODEL_PATH = os.path.join(BASE_DIR, 'output', 'knn_search', 'knn_model.pkl')
 REPORT_PATH = os.path.join(BASE_DIR, 'output', 'knn_search', 'batch_test_report.txt')
 
-# Danh sách URL cần kiểm thử
 URL_LIST = [
     "https://advana.lat/",
     "https://httpp-roblox.co/users/1704538081/profile",
@@ -173,159 +164,11 @@ URL_LIST = [
     "http://metamasklogino.webflow.io/",
     "https://expensestatus.com/2513501.doc/18a80a/fad0f483-81b2-45c6-ad47-7272058d9cb6/",
     "http://bancolaumentatucupo-net.vercel.app/",
-    "https://www.sonomama-net.jp/Aeroplan/shaw/index.html?id=033",
-    "https://objectstorage.us-chicago-1.oraclecloud.com/n/ax3xhmwuxcne/b/bucket-securemessage-6976/o/index9836867.htm?e=janis@c3d55c7fa428f8dfdce2b9cb4cfb2b3558f0.org",
-    "http://novae-whatapt.hl.cn/",
-    "https://mrmmhung-cpu.github.io/fictional-octo-meme/",
-    "https://pub-e3f0c19d1dcd408e98de83be89036299.r2.dev/index.html",
-    "https://raj0854.github.io/Netflix-clone/",
-    "https://anshuchourasia.github.io/netflix/",
-    "https://fapr.mom/",
-    "https://itsoft-dkcxp.4webshare.com/jdo65cmixmjmh45fcr6g2gbjdcmcephyvpwbjdo65cmixmjmh45fcr6g2gbjdcr6g2wcycgt/?4FsgpvOb",
-    "https://pragati0405.github.io/amazon-clone",
-    "http://trazor-iiostart.square.site/",
-    "http://www.roblox.et/communities/3869778285/Synoxis/",
-    "http://ig.do/robloxuser8898154689profile",
-    "https://www.talksurrey.org.uk/bin/y746z.php/",
-    "https://s4w.in/https-roblox-com-users-1618119589-profile",
-    "https://rroblox.wf/users/1618139589/profile",
-    "https://aumentoka06.s3.us-east-005.backblazeb2.com/aumento.html",
-    "https://primepremium.s3.us-east-005.backblazeb2.com/aumento.html",
-    "https://vmi3340884.contaboserver.net/crt/corres/COR/COR/corr.php",
-    "https://myxfinityclientcommunicatonlogin.framer.website/",
-    "https://www.20-228-132-238.cpanel.site/login",
-    "https://www.20-228-132-238.cpanel.site/",
-    "https://20-228-132-238.cpanel.site/",
-    "https://www.zedelivery-online.vercel.app/",
-    "http://8579.org/",
-    "https://axvddjww.icu/",
-    "https://vxa-ld.insidex.biz.id/cxxv/",
-    "https://digitalsolutionsagt.affinityc2penterpris.com/",
-    "https://koylu-bot.neocities.org/cvcvv/",
-    "https://qrsu.io/eoXdO",
-    "https://rcb.cuj.temporary.site/banmro/app-vernieuwen/loading.html",
-    "https://www.kucoinaii.top/",
-    "https://rcb.cuj.temporary.site/banmro/app-vernieuwen/card.html",
-    "https://rcb.cuj.temporary.site/banmro/app-vernieuwen/reader.html",
-    "https://iil12.my.id/Pemulihan-Akun-Dana/nohp/index.html",
-    "http://pruebabancoltarjeta1.vercel.app/",
-    "https://learnbridgetrezz.typedream.app/",
-    "https://bridgeengteozr.typedream.app/",
-    "https://layer-bridgetrezr.typedream.app/",
-    "https://ch5-wanmeiworld.com/?DefineDeliver",
-    "https://web-git-06-09-fixwebtdpallnetworksoptionupdatest-619c96-uniswap.vercel.app/swap",
-    "http://toki-gov-tr-fatih.vercel.app/",
-    "https://www.coderhub-one.vercel.app/",
-    "https://kunishe.com/yz/Adobe___Installer.html",
-    "https://www.krstoragecompare.com/",
-    "https://phgm1.com/",
-    "http://imokentv.com/",
-    "https://yorklonltd.com.cn/",
-    "https://s4w.in/www-roblox-com-users-31112117154-profile",
-    "http://ig.do/robloxusers-7142260661-profile",
-    "http://web2.pancake.run/add/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d/0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d/100?chain=bsc",
-    "https://kunishe.com/cic/Adobe_Installer.html",
-    "https://www.instagram-gamma.vercel.app/",
-    "https://sushilvatane.github.io/amazon-clone/checkout.html",
-    "http://uditrsahani-ship-it.github.io/coins",
-    "https://coco-dog.jp/ae/index.php?id=033",
-    "https://gohelpdesk.co.uk/?r=97e1f909-ba59-450b-a216-5420767f00a9&rg=eu",
-    "https://virtualnegbancolo.vercel.app/",
-    "https://sso-ca-netcoins-com-auth.webflow.io/",
-    "https://www.roblox.com.ml/users/448452184626/profile",
-    "https://devhouda.github.io/amazon-clone/checkout.html",
-    "https://www.roblox.com.bi/users/576024904941/profile",
-    "https://mail-security-world--eduardoperez65.replit.app/mail-security-world--eduardoperez65.replit.app:443",
-    "https://bitmartlugins.webflow.io/",
-    "https://aileveevlilikfonu.com/hizligirisiniz.php",
-    "https://hr-rewards.com/s/63BZGFSVBWSFCDX7Y9/584dd8/90eab167-7429-489f-99f6-ce86e8d0d81a/",
-    "https://www.roblox.com.ml/users/203678123810/profile",
-    "https://www.roblox.com.et/users/108230131369/profilefri",
-    "https://www.roblox.com.ml/users/386713055953/profile",
-    "https://www.robiox.com.py/users/446672786657/profile",
-    "https://www.robiox.com.ps/users/2536277850/profile",
-    "https://www.roblox.com.ml/games/134593989811059/X15-DESKBUCKS-Desk-Chairs-Exhibition?privateServerLinkCode=215900685832640978043791274209",
-    "https://accounts.binanceuz.co/ru/login/password",
-    "https://www.roblox.com.ml/users/259537489336/profile",
-    "https://scooke-work.github.io/sc-demo-platform/",
-    "https://web-git-erin-update-numericalinputs-uniswap.vercel.app/explore/pools/base/0xd0b53D9277642d899DF5C87A3966A349A798F224",
-    "https://https-544nddedc44342442442423232342-e3a8.tony-f61.workers.dev/f34a24b1-c121-4110-82ce-b94fbaa34be4",
-    "https://business-for-brynvero-8jq.pages.dev/login/",
-    "https://business-blue-tick-confirmed-000052026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000222026.pages.dev/privacy-centers",
-    "https://meera-r27.github.io/netflix-frontend/",
-    "https://business-blue-tick-confirmed-000082026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000192026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000122026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000102026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000392026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000252026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000352026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000272026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000232026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000202026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000212026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000372026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000332026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000262026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000362026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000312026.pages.dev/privacy-centers",
-    "https://clonmove.vercel.app/",
-    "https://business-blue-tick-confirmed-000022026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000342026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000242026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000072026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000282026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000142026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000182026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000112026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000092026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000322026.pages.dev/privacy-centers",
-    "https://business-blue-tick-confirmed-000062026.pages.dev/privacy-centers",
-    "https://qr.link/TiLg0v",
-    "https://www.roblox.com.ml/users/282135862115/profile",
-    "https://www.roblox.com.ml/users/237385467763/profile",
-    "https://web-git-05-20-featwebshowread-onlytokeninfoforex-4642a4-uniswap.vercel.app/portfolio",
-    "https://roblox.com.kz/users/70810559/profile",
-    "https://eshang168.com/",
-    "https://trezorbridge-device.typedream.app/",
-    "https://web-git-05-20-featwebshowread-onlytokeninfoforex-4642a4-uniswap.vercel.app/sell",
-    "https://web-git-05-20-featwebshowread-onlytokeninfoforex-4642a4-uniswap.vercel.app/portfolio/activity",
-    "https://www.roblox.com.ml/users/204348537145/profile",
-    "https://er-priyanshishukla.github.io/netflix-clone",
-    "https://roblox.com.ml/users/296109340766/profile",
-    "https://hyperinteract.com/rTggdWycgx/Korea.html",
-    "https://business-blue-tick-authorized-0000120262x1.pages.dev/privacy-centers",
-    "https://business-blue-tick-authorized-000012026324vsxc.pages.dev/privacy-centers",
-    "https://business-blue-tick-authorized-0000120261x2a.pages.dev/privacy-centers",
-    "https://business-blue-tick-authorized-000012026v34.pages.dev/privacy-centers",
-    "https://business-blue-tick-authorized-000012026zxc2q.pages.dev/privacy-centers",
-    "http://app.mmetaworld.com/campaigns/av595k41ghebc/track-url/eq23815asm867/4c41e60f265bdd05002225ec9e8bcfc65d53bb67/",
-    "https://rakeshdubey4.github.io/amazonClone/",
-    "https://20-228-132-238.cpanel.site/login",
-    "https://toki-gov-tr-fatih.vercel.app/giris.php",
-    "https://www.roblox.com.ml/users/119446771872/profile",
-    "https://todored.net/blkcjaom",
-    "https://www.fortes.my/",
-    "https://01sw-bdg8-oxmc.alina-ciorba-duncantoplis-co-uk-s-account.workers.dev/b5d982ce4a6b22d3?email=user@example.com",
-    "https://01sw-bdg8-oxmc.alina-ciorba-duncantoplis-co-uk-s-account.workers.dev/8b7ec8c660309969?email=user@example.com",
-    "https://cloud.digitalizer.in/men/",
-    "https://01sw-bdg8-oxmc.alina-ciorba-duncantoplis-co-uk-s-account.workers.dev/3a4712a9d42cd176?email=user@example.com",
     "https://www.sonomama-net.jp/Aeroplan/shaw/index.html?id=033"
 ]
-
 PUBLIC_SUFFIXES = {
-    'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
-}
-
-GENERIC_SUBDOMAINS = {
-    'com', 'net', 'org', 'gov', 'edu', 'pages', 'vercel', 'workers', 'api', 'app', 'cdn', 
-    'dev', 'mail', 'www', 'web', 'login', 'admin', 'portal', 'secure', 'support', 'status', 
-    'info', 'service', 'blog', 'shop', 'test', 'demo', 'doc', 'docs', 'files', 'account', 
-    'accounts', 'user', 'users', 'client', 'clients', 'server', 'servers', 'update', 'updates', 
-    'security', 'download', 'downloads', 'git', 'auth', 'media', 'static', 'images', 'image', 
-    'video', 'videos', 'chat', 'help', 'jobs', 'careers', 'about', 'contact', 'privacy', 'terms', 
-    'legal', 'm', 'mobile', 'sys', 'system'
+    'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 
+    'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
 }
 
 def extract_domain_parts(url_str):
@@ -350,17 +193,16 @@ def extract_domain_parts(url_str):
     if len(labels) <= 1:
         return hostname, []
 
-    suffix_found = ""
     suffix_len = 1
     if len(labels) >= 2:
         last_2 = ".".join(labels[-2:])
         if last_2 in PUBLIC_SUFFIXES:
-            suffix_found = last_2
             suffix_len = 2
-
-    if not suffix_found:
-        suffix_found = labels[-1]
-        suffix_len = 1
+        elif len(labels) >= 3:
+            last_label = labels[-1]
+            prev_label = labels[-2]
+            if len(last_label) == 2 and prev_label in {'com', 'co', 'net', 'org', 'edu', 'gov', 'ac'}:
+                suffix_len = 2
 
     reg_labels = labels[-(suffix_len + 1):]
     registered_domain = ".".join(reg_labels)
@@ -392,12 +234,8 @@ def levenshtein_similarity(s1, s2):
     return (1.0 - dist / max_len)
 
 def main():
-    print("=================================================================")
-    print("🚀 BẮT ĐẦU CHẠY THỬ NGHIỆM HÀNG LOẠT THEO LUỒNG PHÂN CẤP (200+ URLS)")
-    print("=================================================================")
-    
     if not os.path.exists(MODEL_PATH):
-        print(f"❌ LỖI: Chưa tìm thấy mô hình tại {MODEL_PATH}")
+        print(f"Chưa tìm thấy mô hình tại {MODEL_PATH}")
         sys.exit(1)
         
     with open(MODEL_PATH, 'rb') as f:
@@ -407,14 +245,11 @@ def main():
     knn = model_data['knn']
     domains = model_data['domains']
 
-    # Rút trích danh sách thương hiệu uy tín từ top 100,000 tên miền sạch
-    clean_brands = {d.split('.')[0] for d in domains[:100000]}
-    clean_brands = {b for b in clean_brands if len(b) > 2 and b not in GENERIC_SUBDOMAINS}
+    clean_brands = {d.split('.')[0] for d in domains if len(d.split('.')[0]) > 3}
 
     results = []
     counter_types = Counter()
     
-    print(f"⌛ Đang xử lý {len(URL_LIST)} URLs...")
     t_start = time.time()
     
     for idx, url in enumerate(URL_LIST, 1):
@@ -422,31 +257,26 @@ def main():
         if not reg_domain:
             continue
             
-        # Tìm KNN Top 1 cho Domain chính
         X = vectorizer.transform([reg_domain])
         distances, indices = knn.kneighbors(X, n_neighbors=1)
         matched_domain = domains[indices[0][0]]
         
-        # Tính Levenshtein
         lev_score = levenshtein_similarity(reg_domain, matched_domain) * 100.0
         
         if lev_score == 100.0:
-            # Quy tắc 1
             status = "🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín"
             counter_types['legit'] += 1
         else:
-            # Quy tắc 2: Quét subdomain xem có khớp 100% thương hiệu uy tín không
             triggered_sub_brand = None
             triggered_matched_domain = None
             
             for label in sub_labels:
-                if label in GENERIC_SUBDOMAINS or len(label) <= 2:
+                if len(label) <= 3:
                     continue
                     
                 X_sub = vectorizer.transform([label])
                 sub_distances, sub_indices = knn.kneighbors(X_sub, n_neighbors=1)
-                sub_match_idx = sub_indices[0][0]
-                sub_matched_domain = domains[sub_match_idx]
+                sub_matched_domain = domains[sub_indices[0][0]]
                 sub_matched_brand = sub_matched_domain.split('.')[0]
                 
                 if label == sub_matched_brand and sub_matched_brand in clean_brands:
@@ -454,13 +284,12 @@ def main():
                     triggered_matched_domain = sub_matched_domain
                     break
             
-            # Quy tắc 2.5: Nếu subdomain không khớp thương hiệu uy tín, nhưng domain chính có dấu '-'
             if not triggered_sub_brand:
                 reg_domain_brand = reg_domain.split('.')[0]
                 domain_words = reg_domain_brand.split('-')
                 if len(domain_words) >= 2:
                     for word in domain_words:
-                        if word in GENERIC_SUBDOMAINS or len(word) <= 2:
+                        if len(word) <= 3:
                             continue
                         
                         X_word = vectorizer.transform([word])
@@ -477,7 +306,6 @@ def main():
                 status = f"🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: {triggered_matched_domain})"
                 counter_types['sub_spoof'] += 1
             else:
-                # Quy tắc 3: Kiểm tra tỷ lệ tương đồng
                 if lev_score >= 80.0:
                     status = f"🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống {matched_domain} tại {lev_score:.2f}%)"
                     counter_types['typo_danger'] += 1
@@ -495,13 +323,11 @@ def main():
         })
             
     elapsed = time.time() - t_start
-    print(f"✓ Xử lý hoàn tất trong {elapsed:.2f} giây.")
     
-    # Tạo nội dung báo cáo
     report = []
     report.append("=========================================================================================================")
     report.append("          BÁO CÁO PHÂN TÍCH GIẢ MẠO DOMAIN HÀNG LOẠT (THEO QUY TẮC PHÂN CẤP)")
-    report.append("=========================================================================================================")
+    report.append
     report.append(f"Tổng số URL thử nghiệm:              {len(URL_LIST)}")
     report.append(f"Thời gian thực thi:                  {elapsed:.2f} giây")
     report.append("-" * 105)
@@ -530,9 +356,7 @@ def main():
     with open(REPORT_PATH, 'w', encoding='utf-8') as f:
         f.write(report_text)
         
-    print(f"\n💾 Báo cáo kiểm thử hàng loạt đã được ghi ra tệp thành công!")
     print(f"  ➔ Tệp báo cáo: {REPORT_PATH}")
-    print("=================================================================")
 
 if __name__ == '__main__':
     main()

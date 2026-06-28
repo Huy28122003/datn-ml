@@ -1,15 +1,3 @@
-"""
-test_knn.py
-===========
-Kiểm thử mô hình KNN tương tác kết hợp đánh giá Heuristic theo các quy tắc giả mạo phân cấp:
-1. Nếu domain chính khớp 100% với tên miền chính thống trong dataset:
-   -> Báo cáo: "đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín"
-2. Nếu domain chính không khớp 100%, quét các nhãn subdomain:
-   -> Nếu có nhãn trùng khớp 100% với 1 thương hiệu uy tín trong dataset:
-      -> Cảnh báo: "website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn"
-3. Nếu cả domain và sub đều không khớp 100% với thương hiệu nào, nhưng độ tương đồng của domain chính >= 80%:
-   -> Cảnh báo: "không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó"
-"""
 
 import os
 import sys
@@ -17,24 +5,14 @@ import time
 import pickle
 import urllib.parse
 
-# Cấu hình đường dẫn
+# huynq - Cấu hình đường dẫn
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MODEL_PATH = os.path.join(BASE_DIR, 'output', 'knn_search', 'knn_model.pkl')
 
-# Danh sách các Public Suffixes đuôi kép phổ biến
+# huynq - Danh sách so khớp các hậu tố ccTLD quốc gia phổ biến trên thế giới
 PUBLIC_SUFFIXES = {
-    'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
-}
-
-# Bộ lọc các từ khóa kỹ thuật chung để tránh cảnh báo sai
-GENERIC_SUBDOMAINS = {
-    'com', 'net', 'org', 'gov', 'edu', 'pages', 'vercel', 'workers', 'api', 'app', 'cdn', 
-    'dev', 'mail', 'www', 'web', 'login', 'admin', 'portal', 'secure', 'support', 'status', 
-    'info', 'service', 'blog', 'shop', 'test', 'demo', 'doc', 'docs', 'files', 'account', 
-    'accounts', 'user', 'users', 'client', 'clients', 'server', 'servers', 'update', 'updates', 
-    'security', 'download', 'downloads', 'git', 'auth', 'media', 'static', 'images', 'image', 
-    'video', 'videos', 'chat', 'help', 'jobs', 'careers', 'about', 'contact', 'privacy', 'terms', 
-    'legal', 'm', 'mobile', 'sys', 'system'
+    'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 
+    'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
 }
 
 def extract_domain_parts(url_str):
@@ -61,18 +39,19 @@ def extract_domain_parts(url_str):
     if len(labels) <= 1:
         return hostname, []
 
-    suffix_found = ""
     suffix_len = 1
-    
     if len(labels) >= 2:
         last_2 = ".".join(labels[-2:])
+        # huynq - 1. So khớp danh sách ccTLD chuẩn
         if last_2 in PUBLIC_SUFFIXES:
-            suffix_found = last_2
             suffix_len = 2
-
-    if not suffix_found:
-        suffix_found = labels[-1]
-        suffix_len = 1
+        # huynq - 2. Quy luật thuật toán ccTLD quốc gia dự phòng
+        elif len(labels) >= 3:
+            last_label = labels[-1]
+            prev_label = labels[-2]
+            # huynq - Quy luật ccTLD quốc gia đuôi kép (Ví dụ: .com.vn, .co.uk)
+            if len(last_label) == 2 and prev_label in {'com', 'co', 'net', 'org', 'edu', 'gov', 'ac'}:
+                suffix_len = 2
 
     reg_labels = labels[-(suffix_len + 1):]
     registered_domain = ".".join(reg_labels)
@@ -106,75 +85,70 @@ def levenshtein_similarity(s1, s2):
 
 def main():
     print("================================================================")
-    print("🔍 HỆ THỐNG TRUY VẤN KNN & PHÂN TÍCH GIẢ MẠO DOMAIN PHÂN CẤP")
-    print("================================================================")
+    print("HỆ THỐNG TRUY VẤN KNN & PHÂN TÍCH GIẢ MẠO DOMAIN PHÂN CẤP (LAI)")
     
     if not os.path.exists(MODEL_PATH):
-        print(f"❌ LỖI: Chưa tìm thấy mô hình tại {MODEL_PATH}")
+        print(f" Chưa tìm thấy mô hình tại {MODEL_PATH}")
         sys.exit(1)
         
-    print("📖 Đang nạp mô hình KNN và cơ sở dữ liệu tên miền...")
+    print(" Đang nạp mô hình KNN và cơ sở dữ liệu tên miền...")
     with open(MODEL_PATH, 'rb') as f:
         model_data = pickle.load(f)
         
     vectorizer = model_data['vectorizer']
     knn = model_data['knn']
     domains = model_data['domains']
-    print(f"✓ Nạp thành công mô hình. Tổng số tên miền: {len(domains):,}")
+    print(f" Nạp thành công mô hình. Tổng số tên miền: {len(domains):,}")
     
-    # Rút trích danh sách thương hiệu uy tín từ top 100,000 tên miền sạch
-    clean_brands = {d.split('.')[0] for d in domains[:100000]}
-    clean_brands = {b for b in clean_brands if len(b) > 2 and b not in GENERIC_SUBDOMAINS}
-    print(f"✓ Trích xuất {len(clean_brands):,} thương hiệu uy tín.")
+    # huynq - Rút trích danh sách thương hiệu uy tín từ toàn bộ 1 triệu tên miền sạch để làm quy chuẩn đối sánh
+    clean_brands = {d.split('.')[0] for d in domains if len(d.split('.')[0]) > 3}
+    print(f" danh sách {len(clean_brands):,} thương hiệu uy tín từ dữ liệu huấn luyện.")
     print("-" * 64)
-    print("💡 Hướng dẫn: Paste một URL đầy đủ hoặc tên miền cần kiểm tra.")
-    print("💡 Nhập 'exit' hoặc 'quit' để dừng.")
+    print(" Nhập 'exit' hoặc 'quit' để dừng.")
     print("-" * 64)
     
     while True:
         try:
-            user_input = input("\n📥 Nhập URL / Domain cần kiểm tra: ").strip()
+            user_input = input("\n Nhập URL / Domain cần kiểm tra: ").strip()
             if not user_input:
                 continue
             if user_input.lower() in ('exit', 'quit'):
-                print("👋 Tạm biệt!")
                 break
                 
             t_query_start = time.time()
             
-            # 1. Phân tích Registered Domain và các nhãn Subdomain
+            # huynq - 1. Phân tích Registered Domain và các nhãn Subdomain
             reg_domain, sub_labels = extract_domain_parts(user_input)
             if not reg_domain:
-                print("⚠️ Lỗi: Không thể trích xuất tên miền.")
                 continue
                 
-            print(f"🌐 Domain chính (Registered Domain): '{reg_domain}'")
+            print(f"Domain chính (Registered Domain): '{reg_domain}'")
             if sub_labels:
-                print(f"🏷️ Subdomains phân tích: {sub_labels}")
+                print(f"Subdomains phân tích: {sub_labels}")
                 
-            # 2. Đưa domain chính vào KNN
+            # huynq - Đưa domain chính vào KNN
             X_input = vectorizer.transform([reg_domain])
             distances, indices = knn.kneighbors(X_input, n_neighbors=1)
             matched_domain = domains[indices[0][0]]
             
-            # Tính độ tương đồng Levenshtein của Domain chính
+            # huynq - Tính độ tương đồng Levenshtein của Domain chính
             lev_score = levenshtein_similarity(reg_domain, matched_domain) * 100.0
             
-            # 3. Phán quyết phân cấp theo các quy tắc giả mạo của người dùng
+            # huynq - 3.  phân cấp theo các quy tắc giả mạo
             print("-" * 55)
-            print("📊 KẾT QUẢ ĐÁNH GIÁ:")
             
             if lev_score == 100.0:
-                # Quy tắc 1: Domain chính khớp 100%
-                print(f"  🥇 Tên miền chính thống khớp: {matched_domain}")
-                print(f"  🟢 Trạng thái: đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín")
+                # huynq - 1
+                print(f"Tên miền chính thống khớp: {matched_domain}")
+                print(f"Trạng thái: đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín")
             else:
-                # Quy tắc 2: Domain chính không khớp 100%, quét các nhãn subdomain
+                # huynq - 2. Quét các nhãn subdomain
                 triggered_sub_brand = None
                 triggered_matched_domain = None
                 
                 for label in sub_labels:
-                    if label in GENERIC_SUBDOMAINS or len(label) <= 2:
+                    # huynq - Loại bỏ các nhãn kỹ thuật chung theo quy luật độ dài (<= 3 ký tự)
+                    if len(label) <= 3:
                         continue
                         
                     X_sub = vectorizer.transform([label])
@@ -182,18 +156,19 @@ def main():
                     sub_matched_domain = domains[sub_indices[0][0]]
                     sub_matched_brand = sub_matched_domain.split('.')[0]
                     
+                    # huynq - Kiểm tra trùng khớp 100% với nhãn thương hiệu uy tín phổ biến
                     if label == sub_matched_brand and sub_matched_brand in clean_brands:
                         triggered_sub_brand = label
                         triggered_matched_domain = sub_matched_domain
                         break
                 
-                # Quy tắc 2.5: Nếu subdomain không khớp thương hiệu uy tín, nhưng domain chính có dấu '-'
+                # huynq - 2.5: Nếu subdomain không khớp thương hiệu uy tín, nhưng domain chính có dấu '-'
                 if not triggered_sub_brand:
                     reg_domain_brand = reg_domain.split('.')[0]
                     domain_words = reg_domain_brand.split('-')
                     if len(domain_words) >= 2:
                         for word in domain_words:
-                            if word in GENERIC_SUBDOMAINS or len(word) <= 2:
+                            if len(word) <= 3:
                                 continue
                             
                             X_word = vectorizer.transform([word])
@@ -207,29 +182,23 @@ def main():
                                 break
                 
                 if triggered_sub_brand:
-                    # Kích hoạt Cảnh báo Quy tắc 2
-                    print(f"  🥇 So khớp từ khóa thương hiệu: {triggered_sub_brand} ➔ {triggered_matched_domain}")
-                    print(f"  🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn")
+                    print(f"So khớp từ khóa thương hiệu: {triggered_sub_brand} ➔ {triggered_matched_domain}")
+                    print(f"Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn")
                 else:
-                    # Quy tắc 3: Cả domain chính và sub đều không khớp 100%, kiểm tra tỷ lệ tương đồng domain chính
+                    # huynq - 3: Kiểm tra tỷ lệ tương đồng
                     if lev_score >= 80.0:
-                        # Kích hoạt Cảnh báo Quy tắc 3 (giống trên 80%)
-                        print(f"  🥇 Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
-                        print(f"  🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó")
+                        print(f" Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
+                        print(f" Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó")
                     else:
-                        # Các trường hợp an toàn hoặc khác biệt hoàn toàn
-                        print(f"  🥇 Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
-                        print(f"  🟢 Trạng thái: An toàn. Không phát hiện hành vi mạo danh rõ rệt.")
+                        print(f"Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
+                        print(f" Trạng thái: An toàn. Không phát hiện hành vi mạo danh rõ rệt.")
                     
             query_time_ms = (time.time() - t_query_start) * 1000.0
-            print(f"⚡ Thời gian xử lý:                      {query_time_ms:.2f} ms")
-            print("-" * 55)
             
         except KeyboardInterrupt:
-            print("\n👋 Tạm biệt!")
             break
         except Exception as e:
-            print(f"⚠️ Đã xảy ra lỗi: {e}")
+            print(f" Đã xảy ra lỗi: {e}")
 
 if __name__ == '__main__':
     main()

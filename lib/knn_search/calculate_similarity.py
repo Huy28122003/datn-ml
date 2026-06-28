@@ -1,9 +1,7 @@
-"""
-calculate_similarity.py
-=======================
-Tính toán và so sánh phần trăm tương đồng giữa hai tên miền
-bằng các thuật toán Heuristic khác nhau (Jaro-Winkler, Levenshtein, và Sub-string).
-"""
+# Thử nghiệm thuật toán Heuristic khác nhau (Jaro-Winkler, Levenshtein, và Sub-string).
+ #Nó dùng để so sánh xem 2 text giống nhau bao nhiêu %
+# file này được thử nghiệm bởi AI để tìm ra thuật toàn thích hợp
+# huynq
 
 import sys
 
@@ -46,7 +44,6 @@ def jaro_winkler_similarity(s1, s2):
 
     jaro = (match / len1 + match / len2 + (match - t) / match) / 3.0
     
-    # Winkler bonus
     prefix_limit = min(4, min(len1, len2))
     prefix = 0
     for i in range(prefix_limit):
@@ -86,7 +83,7 @@ def levenshtein_similarity(s1, s2):
 def clean_domain(domain):
     domain = domain.strip().lower()
     if domain.startswith(('http://', 'https://')):
-        # Tách lấy netloc sơ bộ
+        # huynq - Tách lấy netloc sơ bộ
         from urllib.parse import urlparse
         try:
             domain = urlparse(domain).netloc
@@ -99,11 +96,7 @@ def clean_domain(domain):
     return domain
 
 def main():
-    print("=================================================================")
-    print("🔬 HỆ THỐNG SO SÁNH HEURISTIC ĐỘ TƯƠNG ĐỒNG GIỮA HAI TÊN MIỀN")
-    print("=================================================================")
-    
-    # Cho phép nhập qua dòng lệnh hoặc hỏi trực tiếp
+    # huynq - Cho phép nhập qua dòng lệnh hoặc hỏi trực tiếp
     if len(sys.argv) >= 3:
         dom_legit = sys.argv[1]
         dom_user = sys.argv[2]
@@ -115,7 +108,7 @@ def main():
         print("❌ LỖI: Hãy nhập đầy đủ cả hai tên miền!")
         return
 
-    # Làm sạch dữ liệu
+    # huynq - Làm sạch dữ liệu
     clean_legit = clean_domain(dom_legit)
     clean_user = clean_domain(dom_user)
 
@@ -124,14 +117,15 @@ def main():
     print(f"Domain người dùng (đã làm sạch):   {clean_user}")
     print("-" * 65)
 
-    # 1. Tính Jaro-Winkler
+    # huynq - 1. Tính Jaro-Winkler
     jw_score = jaro_winkler_similarity(clean_legit, clean_user) * 100.0
 
-    # 2. Tính Levenshtein
+    # huynq - 2. Tính Levenshtein
     lev_score = levenshtein_similarity(clean_legit, clean_user) * 100.0
 
-    # 3. Kiểm tra Combosquatting (tên miền phụ hoặc tên miền gốc chứa hoàn toàn brand name chính thống)
-    brand_name = clean_legit.split('.')[0] # Lấy thương hiệu ví dụ "business" từ "business.com"
+    # huynq - 3. Kiểm tra Combosquatting (tên miền phụ hoặc tên miền gốc chứa hoàn toàn brand name chính thống)
+    # huynq - Lấy thương hiệu ví dụ "business" từ "business.com"
+    brand_name = clean_legit.split('.')[0] 
     contains_brand = brand_name in clean_user
     
     print("📊 KẾT QUẢ ĐO LƯỜNG HEURISTIC:")

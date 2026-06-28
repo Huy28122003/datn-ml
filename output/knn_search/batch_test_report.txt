@@ -1,14 +1,14 @@
 =========================================================================================================
           BÁO CÁO PHÂN TÍCH GIẢ MẠO DOMAIN HÀNG LOẠT (THEO QUY TẮC PHÂN CẤP)
 =========================================================================================================
-Tổng số URL thử nghiệm:              293
-Thời gian thực thi:                  57.42 giây
+Tổng số URL thử nghiệm:              155
+Thời gian thực thi:                  30.28 giây
 ---------------------------------------------------------------------------------------------------------
 📊 THỐNG KÊ PHÂN LOẠI:
-  🟢 Đơn vị uy tín chính thức (Khớp 100%):            161 URLs
-  🔴 Mạo danh thương hiệu ở subdomain:                24 URLs
-  🔴 Quá giống đơn vị uy tín (Độ tương đồng >= 80%):  14 URLs
-  🟢 Khác biệt hoàn toàn / An toàn:                   94 URLs
+  🟢 Đơn vị uy tín chính thức (Khớp 100%):            71 URLs
+  🔴 Mạo danh thương hiệu ở subdomain:                12 URLs
+  🔴 Quá giống đơn vị uy tín (Độ tương đồng >= 80%):  10 URLs
+  🟢 Khác biệt hoàn toàn / An toàn:                   62 URLs
 =========================================================================================================
 
 STT  | Domain chính                                  | Tên miền sạch giống nhất  | Lev Sim  | Trạng thái & Cảnh báo phân cấp
@@ -42,7 +42,7 @@ STT  | Domain chính                                  | Tên miền sạch giố
 27   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
 28   | iconce.com                                    | once.com                  |   80.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
 29   | ilpendolo.it                                  | ilpendolaremagazine.it    |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-30   | tribu-tax.cl                                  | tax.com                   |   33.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: tax.com)
+30   | tribu-tax.cl                                  | tax.com                   |   33.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: tribu.com)
 31   | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 32   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 33   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
@@ -60,7 +60,7 @@ STT  | Domain chính                                  | Tên miền sạch giố
 45   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 46   | authia-rule.xyz                               | mafia-rules.net           |   46.7% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: paypal.com)
 47   | dlnllc.com                                    | pllc.ca                   |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: docusign.com)
-48   | https-www-roblox.cc                           | roblox.cc                 |   47.4% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+48   | https-www-roblox.cc                           | roblox.cc                 |   47.4% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: https.com)
 49   | yeni-lisans.icu                               | uni-lions.com.tw          |   37.5% | 🟢 An toàn (Độ tương đồng thấp: 37.50%)
 50   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
 51   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
@@ -153,7 +153,7 @@ STT  | Domain chính                                  | Tên miền sạch giố
 138  | robiox.com.gr                                 | robiox.com.py             |   84.6% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống robiox.com.py tại 84.62%)
 139  | luxurylifebrand.com                           | luxurylife.com.tw         |   57.9% | 🟢 An toàn (Độ tương đồng thấp: 57.89%)
 140  | borderclick.com                               | borderclick.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-141  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
+141  | roblox.com.ml                                 | roblox.com.ml             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 142  | webcindario.com                               | webcindario.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 143  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 144  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: payme.io)
@@ -168,142 +168,4 @@ STT  | Domain chính                                  | Tên miền sạch giố
 153  | expensestatus.com                             | vexpenses.com             |   64.7% | 🟢 An toàn (Độ tương đồng thấp: 64.71%)
 154  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
 155  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-156  | oraclecloud.com                               | oraclecloud.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-157  | hl.cn                                         | hl.com                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-158  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-159  | r2.dev                                        | r2.dev                    |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-160  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-161  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-162  | fapr.mom                                      | sapr.mil                  |   62.5% | 🟢 An toàn (Độ tương đồng thấp: 62.50%)
-163  | 4webshare.com                                 | webshare.cz               |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-164  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-165  | square.site                                   | square.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-166  | roblox.et                                     | roblox.et                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-167  | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
-168  | org.uk                                        | frg.org.uk                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-169  | s4w.in                                        | k7w.in                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-170  | rroblox.wf                                    | roblox.com                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-171  | backblazeb2.com                               | backblazeb2.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-172  | backblazeb2.com                               | backblazeb2.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-173  | contaboserver.net                             | contaboserver.net         |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-174  | framer.website                                | framer.website            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-175  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-176  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-177  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-178  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-179  | 8579.org                                      | bet879.org                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-180  | axvddjww.icu                                  | nww.ir                    |   33.3% | 🟢 An toàn (Độ tương đồng thấp: 33.33%)
-181  | biz.id                                        | idebiz.id                 |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-182  | affinityc2penterpris.com                      | affinity.com              |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-183  | neocities.org                                 | neocities.org             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-184  | qrsu.io                                       | resu.io                   |   71.4% | 🟢 An toàn (Độ tương đồng thấp: 71.43%)
-185  | temporary.site                                | temporary.site            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-186  | kucoinaii.top                                 | kucoin.com                |   61.5% | 🟢 An toàn (Độ tương đồng thấp: 61.54%)
-187  | temporary.site                                | temporary.site            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-188  | temporary.site                                | temporary.site            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-189  | iil12.my.id                                   | el12.com                  |   36.4% | 🟢 An toàn (Độ tương đồng thấp: 36.36%)
-190  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-191  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-192  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-193  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-194  | ch5-wanmeiworld.com                           | ieiworld.com              |   57.9% | 🟢 An toàn (Độ tương đồng thấp: 57.89%)
-195  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-196  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-197  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-198  | kunishe.com                                   | venishe.com               |   81.8% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống venishe.com tại 81.82%)
-199  | krstoragecompare.com                          | compare.com               |   55.0% | 🟢 An toàn (Độ tương đồng thấp: 55.00%)
-200  | phgm1.com                                     | m1.com                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-201  | imokentv.com                                  | rentv.com                 |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-202  | yorklonltd.com.cn                             | ltd.com                   |   41.2% | 🟢 An toàn (Độ tương đồng thấp: 41.18%)
-203  | s4w.in                                        | k7w.in                    |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-204  | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
-205  | pancake.run                                   | pancake.id                |   72.7% | 🟢 An toàn (Độ tương đồng thấp: 72.73%)
-206  | kunishe.com                                   | venishe.com               |   81.8% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống venishe.com tại 81.82%)
-207  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-208  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-209  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-210  | coco-dog.jp                                   | idog.jp                   |   54.5% | 🟢 An toàn (Độ tương đồng thấp: 54.55%)
-211  | gohelpdesk.co.uk                              | helpdesk.com              |   68.8% | 🟢 An toàn (Độ tương đồng thấp: 68.75%)
-212  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-213  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-214  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-215  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-216  | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-217  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-218  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-219  | aileveevlilikfonu.com                         | elitislamievlilik.com     |   42.9% | 🟢 An toàn (Độ tương đồng thấp: 42.86%)
-220  | hr-rewards.com                                | e-rewards.com             |   85.7% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống e-rewards.com tại 85.71%)
-221  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-222  | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-223  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-224  | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-225  | com.ps                                        | m.ps                      |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-226  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-227  | binanceuz.co                                  | binanceuz.co              |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-228  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-229  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-230  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-231  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-232  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-233  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-234  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-235  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-236  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-237  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-238  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-239  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-240  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-241  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-242  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-243  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-244  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-245  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-246  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-247  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-248  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-249  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-250  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-251  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-252  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-253  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-254  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-255  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-256  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-257  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-258  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-259  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-260  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-261  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-262  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-263  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-264  | qr.link                                       | qr.link                   |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-265  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-266  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-267  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-268  | com.kz                                        | mi.com.kz                 |   66.7% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-269  | eshang168.com                                 | rwang168.com              |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-270  | typedream.app                                 | typedream.app             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-271  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-272  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-273  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-274  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-275  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-276  | hyperinteract.com                             | cinteract.com             |   70.6% | 🟢 An toàn (Độ tương đồng thấp: 70.59%)
-277  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-278  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-279  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-280  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-281  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-282  | mmetaworld.com                                | shotaworld.com            |   78.6% | 🟢 An toàn (Độ tương đồng thấp: 78.57%)
-283  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-284  | cpanel.site                                   | cpanel.site               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-285  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-286  | com.ml                                        | com.com.mx                |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-287  | todored.net                                   | todored.net               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-288  | fortes.my                                     | nortes.me                 |   77.8% | 🟢 An toàn (Độ tương đồng thấp: 77.78%)
-289  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-290  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-291  | digitalizer.in                                | digitalir.in              |   85.7% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống digitalir.in tại 85.71%)
-292  | workers.dev                                   | workers.dev               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-293  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
 ================================================================================================================================================================
