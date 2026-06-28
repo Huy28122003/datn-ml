@@ -5,11 +5,11 @@ import time
 import pickle
 import urllib.parse
 
-# huynq - Cấu hình đường dẫn
+# huynq - Cau hinh duong dan
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MODEL_PATH = os.path.join(BASE_DIR, 'output', 'knn_search', 'knn_model.pkl')
 
-# huynq - Danh sách so khớp các hậu tố ccTLD quốc gia phổ biến trên thế giới
+# huynq - Danh sach so khop cac hau to ccTLD quoc gia pho bien tren the gioi
 PUBLIC_SUFFIXES = {
     'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 
     'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
@@ -42,14 +42,14 @@ def extract_domain_parts(url_str):
     suffix_len = 1
     if len(labels) >= 2:
         last_2 = ".".join(labels[-2:])
-        # huynq - 1. So khớp danh sách ccTLD chuẩn
+        # huynq - 1. So khop danh sach ccTLD chuan
         if last_2 in PUBLIC_SUFFIXES:
             suffix_len = 2
-        # huynq - 2. Quy luật thuật toán ccTLD quốc gia dự phòng
+        # huynq - 2. Quy luat thuat toan ccTLD quoc gia du phong
         elif len(labels) >= 3:
             last_label = labels[-1]
             prev_label = labels[-2]
-            # huynq - Quy luật ccTLD quốc gia đuôi kép (Ví dụ: .com.vn, .co.uk)
+            # huynq - Quy luat ccTLD quoc gia duoi kep (Vi du: .com.vn, .co.uk)
             if len(last_label) == 2 and prev_label in {'com', 'co', 'net', 'org', 'edu', 'gov', 'ac'}:
                 suffix_len = 2
 
@@ -85,31 +85,31 @@ def levenshtein_similarity(s1, s2):
 
 def main():
     print("================================================================")
-    print("HỆ THỐNG TRUY VẤN KNN & PHÂN TÍCH GIẢ MẠO DOMAIN PHÂN CẤP (LAI)")
+    print("HE THONG TRUY VAN KNN & PHAN TICH GIA MAO DOMAIN PHAN CAP (LAI)")
     
     if not os.path.exists(MODEL_PATH):
-        print(f" Chưa tìm thấy mô hình tại {MODEL_PATH}")
+        print(f" Chua tim thay mo hinh tai {MODEL_PATH}")
         sys.exit(1)
         
-    print(" Đang nạp mô hình KNN và cơ sở dữ liệu tên miền...")
+    print(" Dang nap mo hinh KNN va co so du lieu ten mien...")
     with open(MODEL_PATH, 'rb') as f:
         model_data = pickle.load(f)
         
     vectorizer = model_data['vectorizer']
     knn = model_data['knn']
     domains = model_data['domains']
-    print(f" Nạp thành công mô hình. Tổng số tên miền: {len(domains):,}")
+    print(f" Nap thanh cong mo hinh. Tong so ten mien: {len(domains):,}")
     
-    # huynq - Rút trích danh sách thương hiệu uy tín từ toàn bộ 1 triệu tên miền sạch để làm quy chuẩn đối sánh
+    # huynq - Rut trich danh sach thuong hieu uy tin tu toan bo 1 trieu ten mien sach de lam quy chuan doi sanh
     clean_brands = {d.split('.')[0] for d in domains if len(d.split('.')[0]) > 3}
-    print(f" danh sách {len(clean_brands):,} thương hiệu uy tín từ dữ liệu huấn luyện.")
+    print(f" danh sach {len(clean_brands):,} thuong hieu uy tin tu du lieu huan luyen.")
     print("-" * 64)
-    print(" Nhập 'exit' hoặc 'quit' để dừng.")
+    print(" Nhap 'exit' hoac 'quit' de dung.")
     print("-" * 64)
     
     while True:
         try:
-            user_input = input("\n Nhập URL / Domain cần kiểm tra: ").strip()
+            user_input = input("\n Nhap URL / Domain can kiem tra: ").strip()
             if not user_input:
                 continue
             if user_input.lower() in ('exit', 'quit'):
@@ -117,37 +117,37 @@ def main():
                 
             t_query_start = time.time()
             
-            # huynq - 1. Phân tích Registered Domain và các nhãn Subdomain
+            # huynq - 1. Phan tich Registered Domain va cac nhan Subdomain
             reg_domain, sub_labels = extract_domain_parts(user_input)
             if not reg_domain:
                 continue
                 
-            print(f"Domain chính (Registered Domain): '{reg_domain}'")
+            print(f"Domain chinh (Registered Domain): '{reg_domain}'")
             if sub_labels:
-                print(f"Subdomains phân tích: {sub_labels}")
+                print(f"Nhan phu phan tich: {sub_labels}")
                 
-            # huynq - Đưa domain chính vào KNN
+            # huynq - Dua domain chinh vao KNN
             X_input = vectorizer.transform([reg_domain])
             distances, indices = knn.kneighbors(X_input, n_neighbors=1)
             matched_domain = domains[indices[0][0]]
             
-            # huynq - Tính độ tương đồng Levenshtein của Domain chính
+            # huynq - Tinh do tuong dong Levenshtein cua Domain chinh
             lev_score = levenshtein_similarity(reg_domain, matched_domain) * 100.0
             
-            # huynq - 3.  phân cấp theo các quy tắc giả mạo
+            # huynq - 3.  phan cap theo cac quy tac gia mao
             print("-" * 55)
             
             if lev_score == 100.0:
                 # huynq - 1
-                print(f"Tên miền chính thống khớp: {matched_domain}")
-                print(f"Trạng thái: đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín")
+                print(f"Ten mien chinh thong khop: {matched_domain}")
+                print(f"Trang thai: day la website cua 1 don vi uy tin hoac 1 thanh phan thuoc don vi uy tin")
             else:
-                # huynq - 2. Quét các nhãn subdomain
+                # huynq - 2. Quet cac nhan subdomain
                 triggered_sub_brand = None
                 triggered_matched_domain = None
                 
                 for label in sub_labels:
-                    # huynq - Loại bỏ các nhãn kỹ thuật chung theo quy luật độ dài (<= 3 ký tự)
+                    # huynq - Loai bo cac nhan ky thuat chung theo quy luat do dai (<= 3 ky tu)
                     if len(label) <= 3:
                         continue
                         
@@ -156,13 +156,13 @@ def main():
                     sub_matched_domain = domains[sub_indices[0][0]]
                     sub_matched_brand = sub_matched_domain.split('.')[0]
                     
-                    # huynq - Kiểm tra trùng khớp 100% với nhãn thương hiệu uy tín phổ biến
+                    # huynq - Kiem tra trung khop 100% voi nhan thuong hieu uy tin pho bien
                     if label == sub_matched_brand and sub_matched_brand in clean_brands:
                         triggered_sub_brand = label
                         triggered_matched_domain = sub_matched_domain
                         break
                 
-                # huynq - 2.5: Nếu subdomain không khớp thương hiệu uy tín, nhưng domain chính có dấu '-'
+                # huynq - 2.5: Neu subdomain khong khop thuong hieu uy tin, nhung domain chinh co dau '-'
                 if not triggered_sub_brand:
                     reg_domain_brand = reg_domain.split('.')[0]
                     domain_words = reg_domain_brand.split('-')
@@ -182,23 +182,23 @@ def main():
                                 break
                 
                 if triggered_sub_brand:
-                    print(f"So khớp từ khóa thương hiệu: {triggered_sub_brand} ➔ {triggered_matched_domain}")
-                    print(f"Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn")
+                    print(f"So khop tu khoa thuong hieu: {triggered_sub_brand} ➔ {triggered_matched_domain}")
+                    print(f"Canh bao: website khong thuoc thuong hieu uy tin nhung lai dang co tinh chen thuong hieu do vao duong dan")
                 else:
-                    # huynq - 3: Kiểm tra tỷ lệ tương đồng
+                    # huynq - 3: Kiem tra ty le tuong dong
                     if lev_score >= 80.0:
-                        print(f" Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
-                        print(f" Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó")
+                        print(f" Ten mien chinh thong giong nhat: {matched_domain} (Do tuong dong: {lev_score:.2f}%)")
+                        print(f" Canh bao: khong nam trong danh sach don vi uy tin da duoc xac thuc nhung lai qua giong don vi do")
                     else:
-                        print(f"Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
-                        print(f" Trạng thái: An toàn. Không phát hiện hành vi mạo danh rõ rệt.")
+                        print(f"Ten mien chinh thong giong nhat: {matched_domain} (Do tuong dong: {lev_score:.2f}%)")
+                        print(f" Trang thai: An toan. Khong phat hien hanh vi mao danh ro ret.")
                     
             query_time_ms = (time.time() - t_query_start) * 1000.0
             
         except KeyboardInterrupt:
             break
         except Exception as e:
-            print(f" Đã xảy ra lỗi: {e}")
+            print(f" Da xay ra loi: {e}")
 
 if __name__ == '__main__':
     main()

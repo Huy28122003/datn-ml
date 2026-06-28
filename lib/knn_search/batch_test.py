@@ -235,7 +235,7 @@ def levenshtein_similarity(s1, s2):
 
 def main():
     if not os.path.exists(MODEL_PATH):
-        print(f"Chưa tìm thấy mô hình tại {MODEL_PATH}")
+        print(f"Chua tim thay mo hinh tai {MODEL_PATH}")
         sys.exit(1)
         
     with open(MODEL_PATH, 'rb') as f:
@@ -264,7 +264,7 @@ def main():
         lev_score = levenshtein_similarity(reg_domain, matched_domain) * 100.0
         
         if lev_score == 100.0:
-            status = "🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín"
+            status = " day la website cua 1 don vi uy tin hoac 1 thanh phan thuoc don vi uy tin"
             counter_types['legit'] += 1
         else:
             triggered_sub_brand = None
@@ -303,14 +303,14 @@ def main():
                             break
             
             if triggered_sub_brand:
-                status = f"🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: {triggered_matched_domain})"
+                status = f" Canh bao: website khong thuoc thuong hieu uy tin nhung lai dang co tinh chen thuong hieu do vao duong dan (mao danh: {triggered_matched_domain})"
                 counter_types['sub_spoof'] += 1
             else:
                 if lev_score >= 80.0:
-                    status = f"🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống {matched_domain} tại {lev_score:.2f}%)"
+                    status = f"Canh bao: khong nam trong danh sach don vi uy tin da duoc xac thuc nhung lai qua giong don vi do (giong {matched_domain} tai {lev_score:.2f}%)"
                     counter_types['typo_danger'] += 1
                 else:
-                    status = f"🟢 An toàn (Độ tương đồng thấp: {lev_score:.2f}%)"
+                    status = f" An toan (Do tuong dong thap: {lev_score:.2f}%)"
                     counter_types['safe'] += 1
                 
         results.append({
@@ -326,19 +326,19 @@ def main():
     
     report = []
     report.append("=========================================================================================================")
-    report.append("          BÁO CÁO PHÂN TÍCH GIẢ MẠO DOMAIN HÀNG LOẠT (THEO QUY TẮC PHÂN CẤP)")
+    report.append("          BAO CAO PHAN TICH GIA MAO DOMAIN HANG LOAT (THEO QUY TAC PHAN CAP)")
     report.append
-    report.append(f"Tổng số URL thử nghiệm:              {len(URL_LIST)}")
-    report.append(f"Thời gian thực thi:                  {elapsed:.2f} giây")
+    report.append(f"Tong so URL thu nghiem:              {len(URL_LIST)}")
+    report.append(f"Thoi gian thuc thi:                  {elapsed:.2f} giay")
     report.append("-" * 105)
-    report.append("📊 THỐNG KÊ PHÂN LOẠI:")
-    report.append(f"  🟢 Đơn vị uy tín chính thức (Khớp 100%):            {counter_types['legit']} URLs")
-    report.append(f"  🔴 Mạo danh thương hiệu ở subdomain:                {counter_types['sub_spoof']} URLs")
-    report.append(f"  🔴 Quá giống đơn vị uy tín (Độ tương đồng >= 80%):  {counter_types['typo_danger']} URLs")
-    report.append(f"  🟢 Khác biệt hoàn toàn / An toàn:                   {counter_types['safe']} URLs")
+    report.append(" THONG KE PHAN LOAI:")
+    report.append(f"   Don vi uy tin chinh thuc (Khop 100%):            {counter_types['legit']} URL")
+    report.append(f"   Mao danh thuong hieu o subdomain:                {counter_types['sub_spoof']} URL")
+    report.append(f"  Qua giong don vi uy tin (Do tuong dong >= 80%):  {counter_types['typo_danger']} URL")
+    report.append(f"   Khac biet hoan toan / An toan:                   {counter_types['safe']} URL")
     report.append("=========================================================================================================")
     report.append("")
-    report.append(f"{'STT':<4} | {'Domain chính':<45} | {'Tên miền sạch giống nhất':<25} | {'Lev Sim':<8} | {'Trạng thái & Cảnh báo phân cấp'}")
+    report.append(f"{'STT':<4} | {'Domain chinh':<45} | {'Ten mien sach giong nhat':<25} | {'Do Lev':<8} | {'Trang thai & Canh bao phan cap'}")
     report.append("-" * 160)
     
     for r in results:
@@ -356,7 +356,7 @@ def main():
     with open(REPORT_PATH, 'w', encoding='utf-8') as f:
         f.write(report_text)
         
-    print(f"  ➔ Tệp báo cáo: {REPORT_PATH}")
+    print(f"  ➔ Tep bao cao: {REPORT_PATH}")
 
 if __name__ == '__main__':
     main()

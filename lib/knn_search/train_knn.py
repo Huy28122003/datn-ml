@@ -19,9 +19,9 @@ def clean_domain(domain_str):
     return d
 
 def train():
-    # huynq - Đọc dữ liệu từ top-1m.csv
+    # huynq - Doc du lieu tu top-1m.csv
     if not os.path.exists(TOP1M_PATH):
-        print(f"Không tìm thấy file dữ liệu tại {TOP1M_PATH}")
+        print(f"Khong tim thay file du lieu tai {TOP1M_PATH}")
         return
         
     t_start = time.time()
@@ -38,7 +38,7 @@ def train():
             if cleaned:
                 domains.append(cleaned)
                 
-    print(f"✓ Đọc thành công {len(domains):,} tên miền trong {time.time() - t_start:.2f} giây.")
+    print(f"✓ Doc thanh cong {len(domains):,} ten mien trong {time.time() - t_start:.2f} giay.")
 
     t_feat = time.time()
     vectorizer = TfidfVectorizer(
@@ -49,12 +49,12 @@ def train():
     )
     
     X = vectorizer.fit_transform(domains)
-    print(f"✓ Trích xuất đặc trưng hoàn tất trong {time.time() - t_feat:.2f} giây.")
-    print(f"  ➔ Kích thước ma trận đặc trưng: {X.shape[0]:,} x {X.shape[1]:,}")
+    print(f"✓ Trich xuat dac trung hoan tat trong {time.time() - t_feat:.2f} giay.")
+    print(f"  ➔ Kich thuoc ma tran dac trung: {X.shape[0]:,} x {X.shape[1]:,}")
 
-    # huynq -  Huấn luyện mô hình NearestNeighbors
+    # huynq -  Huan luyen mo hinh NearestNeighbors
     t_train = time.time()
-    # huynq - Dùng thuật toán 'brute' tối ưu cho ma trận thưa (sparse matrix) cực lớn
+    # huynq - Dung thuat toan 'brute' toi uu cho ma tran thua (sparse matrix) cuc lon
     knn = NearestNeighbors(
         n_neighbors=1,
         metric='cosine',

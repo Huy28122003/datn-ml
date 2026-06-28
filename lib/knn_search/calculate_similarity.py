@@ -1,6 +1,6 @@
-# Thử nghiệm thuật toán Heuristic khác nhau (Jaro-Winkler, Levenshtein, và Sub-string).
- #Nó dùng để so sánh xem 2 text giống nhau bao nhiêu %
-# file này được thử nghiệm bởi AI để tìm ra thuật toàn thích hợp
+# Thu nghiem thuat toan suy luan khac nhau (Jaro-Winkler, Levenshtein, va chuoi con).
+# No dung de so sanh xem 2 text giong nhau bao nhieu %
+# File nay duoc thu nghiem boi AI de tim ra thuat toan thich hop
 # huynq
 
 import sys
@@ -83,7 +83,7 @@ def levenshtein_similarity(s1, s2):
 def clean_domain(domain):
     domain = domain.strip().lower()
     if domain.startswith(('http://', 'https://')):
-        # huynq - Tách lấy netloc sơ bộ
+        # huynq - Tach lay netloc so bo
         from urllib.parse import urlparse
         try:
             domain = urlparse(domain).netloc
@@ -96,55 +96,55 @@ def clean_domain(domain):
     return domain
 
 def main():
-    # huynq - Cho phép nhập qua dòng lệnh hoặc hỏi trực tiếp
+    # huynq - Cho phep nhap qua dong lenh hoac hoi truc tiep
     if len(sys.argv) >= 3:
         dom_legit = sys.argv[1]
         dom_user = sys.argv[2]
     else:
-        dom_legit = input("1. Nhập tên miền chính thống (ví dụ: business.com): ").strip()
-        dom_user = input("2. Nhập URL/Domain cần đối chiếu: ").strip()
+        dom_legit = input("1. Nhap ten mien chinh thong (vi du: business.com): ").strip()
+        dom_user = input("2. Nhap URL/Domain can doi chieu: ").strip()
 
     if not dom_legit or not dom_user:
-        print("❌ LỖI: Hãy nhập đầy đủ cả hai tên miền!")
+        print(" LOI: Hay nhap day du ca hai ten mien!")
         return
 
-    # huynq - Làm sạch dữ liệu
+    # huynq - Lam sach du lieu
     clean_legit = clean_domain(dom_legit)
     clean_user = clean_domain(dom_user)
 
     print("-" * 65)
-    print(f"Domain chính thống (đã làm sạch): {clean_legit}")
-    print(f"Domain người dùng (đã làm sạch):   {clean_user}")
+    print(f"Domain chinh thong (da lam sach): {clean_legit}")
+    print(f"Domain nguoi dung (da lam sach):   {clean_user}")
     print("-" * 65)
 
-    # huynq - 1. Tính Jaro-Winkler
+    # huynq - 1. Tinh Jaro-Winkler
     jw_score = jaro_winkler_similarity(clean_legit, clean_user) * 100.0
 
-    # huynq - 2. Tính Levenshtein
+    # huynq - 2. Tinh Levenshtein
     lev_score = levenshtein_similarity(clean_legit, clean_user) * 100.0
 
-    # huynq - 3. Kiểm tra Combosquatting (tên miền phụ hoặc tên miền gốc chứa hoàn toàn brand name chính thống)
-    # huynq - Lấy thương hiệu ví dụ "business" từ "business.com"
+    # huynq - 3. Kiem tra Combosquatting (ten mien phu hoac ten mien goc chua hoan toan brand name chinh thong)
+    # huynq - Lay thuong hieu vi du "business" tu "business.com"
     brand_name = clean_legit.split('.')[0] 
     contains_brand = brand_name in clean_user
     
-    print("📊 KẾT QUẢ ĐO LƯỜNG HEURISTIC:")
-    print(f"🟢 Jaro-Winkler Similarity:   {jw_score:.2f}%")
-    print(f"🟢 Levenshtein Similarity:    {lev_score:.2f}%")
-    print(f"🟢 Chứa thương hiệu gốc ({brand_name}): {'CÓ (Combosquatting)' if contains_brand else 'KHÔNG'}")
+    print("📊 KET QUA DO LUONG HEURISTIC:")
+    print(f" Jaro-Winkler Similarity:   {jw_score:.2f}%")
+    print(f" Levenshtein Similarity:    {lev_score:.2f}%")
+    print(f" Chua thuong hieu goc ({brand_name}): {'CO (Combosquatting)' if contains_brand else 'KHONG'}")
     print("-" * 65)
     
-    print("💡 NHẬN XÉT HỌC THUẬT:")
+    print(" NHAN XET HOC THUAT:")
     if contains_brand and lev_score < 40.0:
-        print("➔ Đây là kiểu tấn công COMBOSQUATTING. Kẻ xấu chèn nguyên chữ")
-        print(f"  '{brand_name}' vào một tên miền phụ rất dài để đánh lừa thị giác.")
-        print("  Gợi ý: Jaro-Winkler phù hợp phát hiện dạng này hơn Levenshtein.")
+        print("➔ Day la kieu tan cong COMBOSQUATTING. Ke xau chen nguyen chu")
+        print(f"  '{brand_name}' vao mot ten mien phu rat dai de danh lua thi giac.")
+        print("  Goi y: Jaro-Winkler phu hop phat hien dang nay hon Levenshtein.")
     elif lev_score > 75.0:
-        print("➔ Đây là kiểu tấn công TYPOSQUATTING (gõ sai). Tên miền cực kỳ")
-        print("  giống nhau về mặt ký tự và chiều dài.")
-        print("  Gợi ý: Cả Jaro-Winkler và Levenshtein đều hoạt động rất tốt.")
+        print("➔ Day la kieu tan cong TYPOSQUATTING (go sai). Ten mien cuc ky")
+        print("  giong nhau ve mat ky tu va chieu dai.")
+        print("  Goi y: Ca Jaro-Winkler va Levenshtein deu hoat dong rat tot.")
     else:
-        print("➔ Mức độ tương đồng ký tự thấp. Hai tên miền này ít có khả năng giả mạo trực tiếp.")
+        print("➔ Muc do tuong dong ky tu thap. Hai ten mien nay it co kha nang gia mao truc tiep.")
     print("=================================================================")
 
 if __name__ == '__main__':
