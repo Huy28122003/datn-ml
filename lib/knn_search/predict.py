@@ -1,15 +1,16 @@
-# Chương trình chính nơi kết nối model và phân tích đầu vòa
+# Chuong trinh predict
+# huynq
 
 import os
 import sys
 import pickle
 import urllib.parse
 
-# huynq - Cấu hình đường dẫn
+# huynq - cau hinh duong dan
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MODEL_PATH = os.path.join(BASE_DIR, 'output', 'knn_search', 'knn_model.pkl')
 
-# huynq - Danh sách so khớp các hậu tố ccTLD quốc gia phổ biến trên thế giới
+# huynq - danh sach ccTLD
 PUBLIC_SUFFIXES = {
     'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 
     'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
@@ -40,11 +41,10 @@ def extract_domain_parts(url_str):
     suffix_len = 1
     if len(labels) >= 2:
         last_2 = ".".join(labels[-2:])
-        # huynq - So khớp danh sách ccTLD chuẩn
+        # huynq - khop ccTLD
         if last_2 in PUBLIC_SUFFIXES:
             suffix_len = 2
-        # huynq - Quy luật thuật toán ccTLD quốc gia dự phòng
-        # tên miền kép bắt buộc đều có 2 chứ cái
+        # huynq - quy luat ccTLD du phong
         elif len(labels) >= 3:
             last_label = labels[-1]
             prev_label = labels[-2]
@@ -82,7 +82,7 @@ def levenshtein_similarity(s1, s2):
 
 def main():
     if not os.path.exists(MODEL_PATH):
-        print(f" Chưa tìm thấy mô hình tại {MODEL_PATH}")
+        print(f"Khong tim thay model tai {MODEL_PATH}")
         sys.exit(1)
 
     input_url = ""
@@ -90,18 +90,18 @@ def main():
         input_url = " ".join(sys.argv[1:])
     else:
         try:
-            input_url = input("Hãy paste URL cần kiểm tra vào đây: ").strip()
+            input_url = input("Nhap URL can check: ").strip()
         except (KeyboardInterrupt, EOFError):
-            print("\n Đã hủy thao tác.")
+            print("\nDa huy.")
             sys.exit(0)
 
     if not input_url:
-        print("Lỗi: Không nhận được URL đầu vào.")
+        print("Loi: Khong co URL.")
         sys.exit(1)
 
     reg_domain, sub_labels = extract_domain_parts(input_url)
     if not reg_domain:
-        print("Lỗi: Không thể trích xuất tên miền.")
+        print("Loi: Khong lay duoc domain.")
         sys.exit(1)
 
     with open(MODEL_PATH, 'rb') as f:
@@ -111,33 +111,33 @@ def main():
     knn = model_data['knn']
     domains = model_data['domains']
 
-    # huynq - Lấy thương hiệu uy tín từ toàn bộ 1 triệu tên miền sạch
+    # huynq - rut trich brand
     clean_brands = {d.split('.')[0] for d in domains if len(d.split('.')[0]) > 3}
 
     X = vectorizer.transform([reg_domain])
     distances, indices = knn.kneighbors(X, n_neighbors=1)
     matched_domain = domains[indices[0][0]]
 
-    # huynq - Tính Levenshtein
+    # huynq - tinh Levenshtein
     lev_score = levenshtein_similarity(reg_domain, matched_domain) * 100.0
 
     print("\n" + "=" * 55)
-    print(f"URL đầu vào:         {input_url}")
-    print(f"Domain chính:         {reg_domain}")
+    print(f"URL: {input_url}")
+    print(f"Domain: {reg_domain}")
     if sub_labels:
-        print(f"Subdomains:           {sub_labels}")
+        print(f"Subdomains: {sub_labels}")
     print("-" * 55)
-    print(" KẾT QUẢ ĐÁNH GIÁ:")
+    print("KET QUA:")
     
     if lev_score == 100.0:
-        print(f"  Tên miền chính thống khớp: {matched_domain}")
-        print("  Trạng thái: đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín")
+        print(f"  Khop domain: {matched_domain}")
+        print("  Trang thai: day la website cua don vi uy tin")
     else:
         triggered_sub_brand = None
         triggered_matched_domain = None
         
         for label in sub_labels:
-            # huynq - Quy luật độ dài để bỏ qua nhãn kỹ thuật ngắn
+            # huynq - bo nhan ngan
             if len(label) <= 3:
                 continue
                 
@@ -151,7 +151,7 @@ def main():
                 triggered_matched_domain = sub_matched_domain
                 break
                 
-        # huynq - Quy tắc 2.5: Phân tích từ khóa gạch ngang trong domain chính
+        # huynq - check gach ngang
         if not triggered_sub_brand:
             reg_domain_brand = reg_domain.split('.')[0]
             domain_words = reg_domain_brand.split('-')
@@ -171,15 +171,15 @@ def main():
                         break
                         
         if triggered_sub_brand:
-            print(f"  So khớp từ khóa thương hiệu: {triggered_sub_brand} ➔ {triggered_matched_domain}")
-            print("   Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn")
+            print(f"  Khop brand: {triggered_sub_brand} -> {triggered_matched_domain}")
+            print("  Canh bao: web co tinh chen brand uy tin vao duong dan")
         else:
             if lev_score >= 80.0:
-                print(f"   Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
-                print("   Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó")
+                print(f"   Ten mien giong nhat: {matched_domain} (Tuong dong: {lev_score:.2f}%)")
+                print("   Canh bao: khong uy tin nhung qua giong don vi uy tin")
             else:
-                print(f"   Tên miền chính thống giống nhất: {matched_domain} (Độ tương đồng: {lev_score:.2f}%)")
-                print("   Trạng thái: An toàn. Không phát hiện hành vi mạo danh rõ rệt.")
+                print(f"   Ten mien giong nhat: {matched_domain} (Tuong dong: {lev_score:.2f}%)")
+                print("   Trang thai: An toan. Khong phat hien gia mao ro ret.")
             
     print("=" * 55 + "\n")
 

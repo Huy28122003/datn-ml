@@ -85,6 +85,7 @@ URL_LIST = [
     "https://salathebox.com/wp-content/id.handel.mobile.de-login-service/",
     "https://www.roblox.com.mu/users/2814540882/profile",
     "https://pl.funtrip360.com/wp-content/uploads/2025/?ref=a8847c04c3ed737e6146c9bd98888cee-xcjrGmf1ZhrXqJAV99ehe4VUjlRLitHGeuJvGuWuS5I3",
+    "https://www.sonomama-net.jp/Aeroplan/shaw/index.html?id=033",
     "https://www.martumaswallt.darlic.com/",
     "https://martumaswallt.darlic.com/",
     "http://hulyacrk.github.io/edevlet",
@@ -156,7 +157,7 @@ URL_LIST = [
     "https://payme-paypal.com/login",
     "http://ig.do/usersroblox8898154689profile",
     "https://icloud.com.gr/njH/l/cnD",
-    "http://icloud.com.gr/njH/lcnD",
+    "https://icloud.com.gr/njH/lcnD",
     "https://nwp6qjrhd.kapsalontulp.nl/",
     "https://zeqaw.xyz/KKFzS/z6hwy2nfkrAeTezUP5w2F2ifVQP1vHpSNh7TFXqjmiWIeJwGVS6RQJTD0z9id54P8990hjm7A2DYnH0HjQ-Q/1782486964766/",
     "http://www.kronosquantity.vip/",
@@ -166,6 +167,7 @@ URL_LIST = [
     "http://bancolaumentatucupo-net.vercel.app/",
     "https://www.sonomama-net.jp/Aeroplan/shaw/index.html?id=033"
 ]
+
 PUBLIC_SUFFIXES = {
     'com.vn', 'co.uk', 'com.br', 'com.cn', 'com.tr', 'com.mu', 'com.ug', 'com.bi', 'com.py', 
     'com.gr', 'com.et', 'com.bn', 'net.cn', 'gov.tr', 'gov.vn', 'org.vn', 'my.id', 'ac.uk'
@@ -235,7 +237,7 @@ def levenshtein_similarity(s1, s2):
 
 def main():
     if not os.path.exists(MODEL_PATH):
-        print(f"Chưa tìm thấy mô hình tại {MODEL_PATH}")
+        print(f"Khong tim thay model tai {MODEL_PATH}")
         sys.exit(1)
         
     with open(MODEL_PATH, 'rb') as f:
@@ -264,7 +266,7 @@ def main():
         lev_score = levenshtein_similarity(reg_domain, matched_domain) * 100.0
         
         if lev_score == 100.0:
-            status = "🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín"
+            status = "Legit: website cua don vi uy tin"
             counter_types['legit'] += 1
         else:
             triggered_sub_brand = None
@@ -303,14 +305,14 @@ def main():
                             break
             
             if triggered_sub_brand:
-                status = f"🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: {triggered_matched_domain})"
+                status = f"Canh bao: web co tinh chen brand (mao danh: {triggered_matched_domain})"
                 counter_types['sub_spoof'] += 1
             else:
                 if lev_score >= 80.0:
-                    status = f"🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống {matched_domain} tại {lev_score:.2f}%)"
+                    status = f"Canh bao: khong uy tin nhung giong {matched_domain} tai {lev_score:.2f}%"
                     counter_types['typo_danger'] += 1
                 else:
-                    status = f"🟢 An toàn (Độ tương đồng thấp: {lev_score:.2f}%)"
+                    status = f"An toan (Tuong dong thap: {lev_score:.2f}%)"
                     counter_types['safe'] += 1
                 
         results.append({
@@ -326,19 +328,18 @@ def main():
     
     report = []
     report.append("=========================================================================================================")
-    report.append("          BÁO CÁO PHÂN TÍCH GIẢ MẠO DOMAIN HÀNG LOẠT (THEO QUY TẮC PHÂN CẤP)")
-    report.append
-    report.append(f"Tổng số URL thử nghiệm:              {len(URL_LIST)}")
-    report.append(f"Thời gian thực thi:                  {elapsed:.2f} giây")
+    report.append("          BAO CAO PHAN TICH GIA MAO DOMAIN HANG LOAT")
+    report.append(f"Tong so URL:                         {len(URL_LIST)}")
+    report.append(f"Thoi gian:                           {elapsed:.2f} giay")
     report.append("-" * 105)
-    report.append("📊 THỐNG KÊ PHÂN LOẠI:")
-    report.append(f"  🟢 Đơn vị uy tín chính thức (Khớp 100%):            {counter_types['legit']} URLs")
-    report.append(f"  🔴 Mạo danh thương hiệu ở subdomain:                {counter_types['sub_spoof']} URLs")
-    report.append(f"  🔴 Quá giống đơn vị uy tín (Độ tương đồng >= 80%):  {counter_types['typo_danger']} URLs")
-    report.append(f"  🟢 Khác biệt hoàn toàn / An toàn:                   {counter_types['safe']} URLs")
+    report.append("THONG KE:")
+    report.append(f"  Legit (Khop 100%):            {counter_types['legit']} URLs")
+    report.append(f"  Mao danh o subdomain:                {counter_types['sub_spoof']} URLs")
+    report.append(f"  Qua giong don vi uy tin (>= 80%):  {counter_types['typo_danger']} URLs")
+    report.append(f"  An toan:                   {counter_types['safe']} URLs")
     report.append("=========================================================================================================")
     report.append("")
-    report.append(f"{'STT':<4} | {'Domain chính':<45} | {'Tên miền sạch giống nhất':<25} | {'Lev Sim':<8} | {'Trạng thái & Cảnh báo phân cấp'}")
+    report.append(f"{'STT':<4} | {'Domain chinh':<45} | {'Ten mien sach giong nhat':<25} | {'Lev Sim':<8} | {'Trang thai & Canh bao'}")
     report.append("-" * 160)
     
     for r in results:
@@ -356,7 +357,7 @@ def main():
     with open(REPORT_PATH, 'w', encoding='utf-8') as f:
         f.write(report_text)
         
-    print(f"  ➔ Tệp báo cáo: {REPORT_PATH}")
+    print(f"Luu bao cao tai: {REPORT_PATH}")
 
 if __name__ == '__main__':
     main()

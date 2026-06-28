@@ -1,170 +1,171 @@
 =========================================================================================================
-          BÁO CÁO PHÂN TÍCH GIẢ MẠO DOMAIN HÀNG LOẠT (THEO QUY TẮC PHÂN CẤP)
-Tổng số URL thử nghiệm:              155
-Thời gian thực thi:                  30.09 giây
+          BAO CAO PHAN TICH GIA MAO DOMAIN HANG LOAT
+Tong so URL:                         156
+Thoi gian:                           30.70 giay
 ---------------------------------------------------------------------------------------------------------
-📊 THỐNG KÊ PHÂN LOẠI:
-  🟢 Đơn vị uy tín chính thức (Khớp 100%):            71 URLs
-  🔴 Mạo danh thương hiệu ở subdomain:                12 URLs
-  🔴 Quá giống đơn vị uy tín (Độ tương đồng >= 80%):  10 URLs
-  🟢 Khác biệt hoàn toàn / An toàn:                   62 URLs
+THONG KE:
+  Legit (Khop 100%):            71 URLs
+  Mao danh o subdomain:                12 URLs
+  Qua giong don vi uy tin (>= 80%):  10 URLs
+  An toan:                   63 URLs
 =========================================================================================================
 
-STT  | Domain chính                                  | Tên miền sạch giống nhất  | Lev Sim  | Trạng thái & Cảnh báo phân cấp
+STT  | Domain chinh                                  | Ten mien sach giong nhat  | Lev Sim  | Trang thai & Canh bao
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-1    | advana.lat                                    | pona.la                   |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-2    | httpp-roblox.co                               | roblox.com                |   53.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-3    | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-4    | paguesempararbr.site                          | semparar.com.br           |   40.0% | 🟢 An toàn (Độ tương đồng thấp: 40.00%)
-5    | systeme.io                                    | systeme.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-6    | rodoviasabr.site                              | ecorodovias.com.br        |   38.9% | 🟢 An toàn (Độ tương đồng thấp: 38.89%)
-7    | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-8    | rodovlas-freeflow-2vla.online                 | casinovla.online          |   44.8% | 🟢 An toàn (Độ tương đồng thấp: 44.83%)
-9    | br-rodovias.shop                              | ecorodovias.com.br        |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-10   | ckuygfdr.icu                                  | fdmr.icu                  |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-11   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-12   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-13   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-14   | sillomoo.site                                 | fimoo.site                |   69.2% | 🟢 An toàn (Độ tương đồng thấp: 69.23%)
-15   | ipfs.io                                       | ipfs.io                   |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-16   | rbxmulti.net                                  | multi.ne.jp               |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-17   | borderclick.com                               | borderclick.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-18   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-19   | 8h723810.xyz                                  | tracker810.xyz            |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-20   | imztoken.com                                  | latoken.com               |   75.0% | 🟢 An toàn (Độ tương đồng thấp: 75.00%)
-21   | bp-web-whatsapp.com.cn                        | whatsapp-web.com          |   40.9% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: whatsapp.com)
-22   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-23   | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-24   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-25   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-26   | xfinityrefunds.com                            | efunds.com                |   55.6% | 🟢 An toàn (Độ tương đồng thấp: 55.56%)
-27   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-28   | iconce.com                                    | once.com                  |   80.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: roblox.com)
-29   | ilpendolo.it                                  | ilpendolaremagazine.it    |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-30   | tribu-tax.cl                                  | tax.com                   |   33.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: tribu.com)
-31   | robiox.com.py                                 | robiox.com.py             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-32   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-33   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-34   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-35   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-36   | qzz.io                                        | qzz.io                    |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-37   | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
-38   | galaxypedals.com                              | galaxypush.com            |   68.8% | 🟢 An toàn (Độ tương đồng thấp: 68.75%)
-39   | dgyuehuiwan.com                               | iwan.com                  |   53.3% | 🟢 An toàn (Độ tương đồng thấp: 53.33%)
-40   | twineapp.com                                  | chaineapp.com             |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-41   | exodus-authorized.com                         | authorized.by             |   52.4% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: exodus.com)
-42   | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-43   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-44   | 1adt42o0cbo5.com                              | mo5.com                   |   37.5% | 🟢 An toàn (Độ tương đồng thấp: 37.50%)
-45   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-46   | authia-rule.xyz                               | mafia-rules.net           |   46.7% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: paypal.com)
-47   | dlnllc.com                                    | pllc.ca                   |   50.0% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: docusign.com)
-48   | https-www-roblox.cc                           | roblox.cc                 |   47.4% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: https.com)
-49   | yeni-lisans.icu                               | uni-lions.com.tw          |   37.5% | 🟢 An toàn (Độ tương đồng thấp: 37.50%)
-50   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-51   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-52   | bm03.ru                                       | 03.ru                     |   71.4% | 🟢 An toàn (Độ tương đồng thấp: 71.43%)
-53   | r2.dev                                        | r2.dev                    |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-54   | roblox.com.ug                                 | roblox.com.ug             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-55   | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-56   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-57   | grayku.com                                    | payku.cl                  |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-58   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-59   | shoptkpro.com                                 | hkpro.com                 |   69.2% | 🟢 An toàn (Độ tương đồng thấp: 69.23%)
-60   | is.gd                                         | is.gd                     |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-61   | xptspecielty.com                              | rtspecialty.com           |   81.2% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống rtspecialty.com tại 81.25%)
-62   | ssusshi.com                                   | sushi.com                 |   81.8% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống sushi.com tại 81.82%)
-63   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-64   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-65   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-66   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-67   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-68   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-69   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-70   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-71   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-72   | 1188xinpujing.com                             | xinpujing9956888.com      |   45.0% | 🟢 An toàn (Độ tương đồng thấp: 45.00%)
-73   | salathebox.com                                | thebox.com.pe             |   50.0% | 🟢 An toàn (Độ tương đồng thấp: 50.00%)
-74   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống roblox.com.ml tại 92.31%)
-75   | funtrip360.com                                | acevip360.com             |   64.3% | 🟢 An toàn (Độ tương đồng thấp: 64.29%)
-76   | darlic.com                                    | garlic.com                |   90.0% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống garlic.com tại 90.00%)
-77   | darlic.com                                    | garlic.com                |   90.0% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống garlic.com tại 90.00%)
-78   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-79   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-80   | webtrafficguard2.com                          | trafficguard.ai           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-81   | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-82   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống roblox.com.ml tại 92.31%)
-83   | securityreview.casa                           | thecityreview.com         |   63.2% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: linkedin.com)
-84   | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-85   | crosss.top                                    | crosss.top                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-86   | qes.my.id                                     | sis.my.id                 |   77.8% | 🟢 An toàn (Độ tương đồng thấp: 77.78%)
-87   | framer.website                                | framer.website            |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-88   | amzonin.com                                   | siamzone.com              |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-89   | vwk.my.id                                     | sis.my.id                 |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-90   | edgeone.app                                   | edgeone.app               |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-91   | roblox.com.et                                 | roblox.com.et             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-92   | webcindario.com                               | webcindario.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-93   | fnworth.com                                   | lvnworth.com              |   83.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống lvnworth.com tại 83.33%)
-94   | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-95   | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-96   | pricefn.top                                   | pricefx.com               |   72.7% | 🟢 An toàn (Độ tương đồng thấp: 72.73%)
-97   | google.com                                    | google.com                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-98   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-99   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-100  | hjc23.net                                     | 123.net                   |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-101  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-102  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-103  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-104  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-105  | pages.dev                                     | pages.dev                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-106  | fortinatexpress.shop                          | seoexpress.shop           |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-107  | oblox.com.et                                  | roblox.com.et             |   92.3% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống roblox.com.et tại 92.31%)
-108  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-109  | rbxliy.com                                    | rbx.com                   |   70.0% | 🟢 An toàn (Độ tương đồng thấp: 70.00%)
-110  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | 🟢 An toàn (Độ tương đồng thấp: 65.00%)
-111  | servernotification.events                     | mailserver-notification.c |   59.3% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: spotify.com)
-112  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-113  | github.io                                     | github.io                 |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-114  | citibankonlline.com                           | citibankonline.com        |   94.7% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống citibankonline.com tại 94.74%)
-115  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-116  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-117  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-118  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-119  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-120  | roblox.com.bn                                 | roblox.com.bn             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-121  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-122  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-123  | recargabundles.com                            | adabundle.com             |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-124  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-125  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-126  | cliente-i-limpfeirao.shop                     | nutrao.shop               |   36.0% | 🟢 An toàn (Độ tương đồng thấp: 36.00%)
-127  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-128  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-129  | aifreebie.top                                 | freebie.games             |   46.2% | 🟢 An toàn (Độ tương đồng thấp: 46.15%)
-130  | blogspot.com                                  | blogspot.com              |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-131  | roblox.com.bi                                 | roblox.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-132  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-133  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-134  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-135  | eliaruizwork.com                              | drizwork.com              |   68.8% | 🟢 An toàn (Độ tương đồng thấp: 68.75%)
-136  | 03365pay.com                                  | 365pay.cash               |   58.3% | 🟢 An toàn (Độ tương đồng thấp: 58.33%)
-137  | backblazeb2.com                               | backblazeb2.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-138  | robiox.com.gr                                 | robiox.com.py             |   84.6% | 🔴 Cảnh báo: không nằm trong danh sách đơn vị uy tín đã được xác thực nhưng lại quá giống đơn vị đó (giống robiox.com.py tại 84.62%)
-139  | luxurylifebrand.com                           | luxurylife.com.tw         |   57.9% | 🟢 An toàn (Độ tương đồng thấp: 57.89%)
-140  | borderclick.com                               | borderclick.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-141  | roblox.com.ml                                 | roblox.com.ml             |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-142  | webcindario.com                               | webcindario.com           |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-143  | replit.app                                    | replit.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-144  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: payme.io)
-145  | ig.do                                         | song.do                   |   57.1% | 🟢 An toàn (Độ tương đồng thấp: 57.14%)
-146  | icloud.com.gr                                 | icloud.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-147  | icloud.com.gr                                 | icloud.com                |   76.9% | 🟢 An toàn (Độ tương đồng thấp: 76.92%)
-148  | kapsalontulp.nl                               | hulp.nl                   |   40.0% | 🟢 An toàn (Độ tương đồng thấp: 40.00%)
-149  | zeqaw.xyz                                     | tldraw.xyz                |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
-150  | kronosquantity.vip                            | kronosquartet.org         |   66.7% | 🟢 An toàn (Độ tương đồng thấp: 66.67%)
-151  | payme-paypal.com                              | paypal.com                |   62.5% | 🔴 Cảnh báo: website không thuộc thương hiệu uy tín nhưng lại đang cố tình chèn thương hiệu đó vào đường dẫn (mạo danh: payme.io)
-152  | webflow.io                                    | webflow.io                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-153  | expensestatus.com                             | vexpenses.com             |   64.7% | 🟢 An toàn (Độ tương đồng thấp: 64.71%)
-154  | vercel.app                                    | vercel.app                |  100.0% | 🟢 đây là website của 1 đơn vị uy tín hoặc 1 thành phần thuộc đơn vị uy tín
-155  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | 🟢 An toàn (Độ tương đồng thấp: 60.00%)
+1    | advana.lat                                    | pona.la                   |   50.0% | An toan (Tuong dong thap: 50.00%)
+2    | httpp-roblox.co                               | roblox.com                |   53.3% | Canh bao: web co tinh chen brand (mao danh: roblox.com)
+3    | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+4    | paguesempararbr.site                          | semparar.com.br           |   40.0% | An toan (Tuong dong thap: 40.00%)
+5    | systeme.io                                    | systeme.io                |  100.0% | Legit: website cua don vi uy tin
+6    | rodoviasabr.site                              | ecorodovias.com.br        |   38.9% | An toan (Tuong dong thap: 38.89%)
+7    | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+8    | rodovlas-freeflow-2vla.online                 | casinovla.online          |   44.8% | An toan (Tuong dong thap: 44.83%)
+9    | br-rodovias.shop                              | ecorodovias.com.br        |   50.0% | An toan (Tuong dong thap: 50.00%)
+10   | ckuygfdr.icu                                  | fdmr.icu                  |   50.0% | An toan (Tuong dong thap: 50.00%)
+11   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+12   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+13   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+14   | sillomoo.site                                 | fimoo.site                |   69.2% | An toan (Tuong dong thap: 69.23%)
+15   | ipfs.io                                       | ipfs.io                   |  100.0% | Legit: website cua don vi uy tin
+16   | rbxmulti.net                                  | multi.ne.jp               |   50.0% | An toan (Tuong dong thap: 50.00%)
+17   | borderclick.com                               | borderclick.com           |  100.0% | Legit: website cua don vi uy tin
+18   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+19   | 8h723810.xyz                                  | tracker810.xyz            |   50.0% | An toan (Tuong dong thap: 50.00%)
+20   | imztoken.com                                  | latoken.com               |   75.0% | An toan (Tuong dong thap: 75.00%)
+21   | bp-web-whatsapp.com.cn                        | whatsapp-web.com          |   40.9% | Canh bao: web co tinh chen brand (mao danh: whatsapp.com)
+22   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+23   | pages.dev                                     | pages.dev                 |  100.0% | Legit: website cua don vi uy tin
+24   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+25   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+26   | xfinityrefunds.com                            | efunds.com                |   55.6% | An toan (Tuong dong thap: 55.56%)
+27   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+28   | iconce.com                                    | once.com                  |   80.0% | Canh bao: web co tinh chen brand (mao danh: roblox.com)
+29   | ilpendolo.it                                  | ilpendolaremagazine.it    |   50.0% | An toan (Tuong dong thap: 50.00%)
+30   | tribu-tax.cl                                  | tax.com                   |   33.3% | Canh bao: web co tinh chen brand (mao danh: tribu.com)
+31   | robiox.com.py                                 | robiox.com.py             |  100.0% | Legit: website cua don vi uy tin
+32   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+33   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+34   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+35   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+36   | qzz.io                                        | qzz.io                    |  100.0% | Legit: website cua don vi uy tin
+37   | ig.do                                         | song.do                   |   57.1% | An toan (Tuong dong thap: 57.14%)
+38   | galaxypedals.com                              | galaxypush.com            |   68.8% | An toan (Tuong dong thap: 68.75%)
+39   | dgyuehuiwan.com                               | iwan.com                  |   53.3% | An toan (Tuong dong thap: 53.33%)
+40   | twineapp.com                                  | chaineapp.com             |   76.9% | An toan (Tuong dong thap: 76.92%)
+41   | exodus-authorized.com                         | authorized.by             |   52.4% | Canh bao: web co tinh chen brand (mao danh: exodus.com)
+42   | roblox.com.et                                 | roblox.com.et             |  100.0% | Legit: website cua don vi uy tin
+43   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+44   | 1adt42o0cbo5.com                              | mo5.com                   |   37.5% | An toan (Tuong dong thap: 37.50%)
+45   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+46   | authia-rule.xyz                               | mafia-rules.net           |   46.7% | Canh bao: web co tinh chen brand (mao danh: paypal.com)
+47   | dlnllc.com                                    | pllc.ca                   |   50.0% | Canh bao: web co tinh chen brand (mao danh: docusign.com)
+48   | https-www-roblox.cc                           | roblox.cc                 |   47.4% | Canh bao: web co tinh chen brand (mao danh: https.com)
+49   | yeni-lisans.icu                               | uni-lions.com.tw          |   37.5% | An toan (Tuong dong thap: 37.50%)
+50   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+51   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+52   | bm03.ru                                       | 03.ru                     |   71.4% | An toan (Tuong dong thap: 71.43%)
+53   | r2.dev                                        | r2.dev                    |  100.0% | Legit: website cua don vi uy tin
+54   | roblox.com.ug                                 | roblox.com.ug             |  100.0% | Legit: website cua don vi uy tin
+55   | roblox.com.bi                                 | roblox.com                |   76.9% | An toan (Tuong dong thap: 76.92%)
+56   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+57   | grayku.com                                    | payku.cl                  |   60.0% | An toan (Tuong dong thap: 60.00%)
+58   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+59   | shoptkpro.com                                 | hkpro.com                 |   69.2% | An toan (Tuong dong thap: 69.23%)
+60   | is.gd                                         | is.gd                     |  100.0% | Legit: website cua don vi uy tin
+61   | xptspecielty.com                              | rtspecialty.com           |   81.2% | Canh bao: khong uy tin nhung giong rtspecialty.com tai 81.25%
+62   | ssusshi.com                                   | sushi.com                 |   81.8% | Canh bao: khong uy tin nhung giong sushi.com tai 81.82%
+63   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+64   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+65   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+66   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+67   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+68   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+69   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+70   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+71   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+72   | 1188xinpujing.com                             | xinpujing9956888.com      |   45.0% | An toan (Tuong dong thap: 45.00%)
+73   | salathebox.com                                | thebox.com.pe             |   50.0% | An toan (Tuong dong thap: 50.00%)
+74   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | Canh bao: khong uy tin nhung giong roblox.com.ml tai 92.31%
+75   | funtrip360.com                                | acevip360.com             |   64.3% | An toan (Tuong dong thap: 64.29%)
+76   | sonomama-net.jp                               | ma-net.jp                 |   60.0% | An toan (Tuong dong thap: 60.00%)
+77   | darlic.com                                    | garlic.com                |   90.0% | Canh bao: khong uy tin nhung giong garlic.com tai 90.00%
+78   | darlic.com                                    | garlic.com                |   90.0% | Canh bao: khong uy tin nhung giong garlic.com tai 90.00%
+79   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+80   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+81   | webtrafficguard2.com                          | trafficguard.ai           |   65.0% | An toan (Tuong dong thap: 65.00%)
+82   | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+83   | roblox.com.mu                                 | roblox.com.ml             |   92.3% | Canh bao: khong uy tin nhung giong roblox.com.ml tai 92.31%
+84   | securityreview.casa                           | thecityreview.com         |   63.2% | Canh bao: web co tinh chen brand (mao danh: linkedin.com)
+85   | roblox.com.bi                                 | roblox.com                |   76.9% | An toan (Tuong dong thap: 76.92%)
+86   | crosss.top                                    | crosss.top                |  100.0% | Legit: website cua don vi uy tin
+87   | qes.my.id                                     | sis.my.id                 |   77.8% | An toan (Tuong dong thap: 77.78%)
+88   | framer.website                                | framer.website            |  100.0% | Legit: website cua don vi uy tin
+89   | amzonin.com                                   | siamzone.com              |   66.7% | An toan (Tuong dong thap: 66.67%)
+90   | vwk.my.id                                     | sis.my.id                 |   66.7% | An toan (Tuong dong thap: 66.67%)
+91   | edgeone.app                                   | edgeone.app               |  100.0% | Legit: website cua don vi uy tin
+92   | roblox.com.et                                 | roblox.com.et             |  100.0% | Legit: website cua don vi uy tin
+93   | webcindario.com                               | webcindario.com           |  100.0% | Legit: website cua don vi uy tin
+94   | fnworth.com                                   | lvnworth.com              |   83.3% | Canh bao: khong uy tin nhung giong lvnworth.com tai 83.33%
+95   | pages.dev                                     | pages.dev                 |  100.0% | Legit: website cua don vi uy tin
+96   | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+97   | pricefn.top                                   | pricefx.com               |   72.7% | An toan (Tuong dong thap: 72.73%)
+98   | google.com                                    | google.com                |  100.0% | Legit: website cua don vi uy tin
+99   | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+100  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+101  | hjc23.net                                     | 123.net                   |   66.7% | An toan (Tuong dong thap: 66.67%)
+102  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+103  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+104  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+105  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+106  | pages.dev                                     | pages.dev                 |  100.0% | Legit: website cua don vi uy tin
+107  | fortinatexpress.shop                          | seoexpress.shop           |   60.0% | An toan (Tuong dong thap: 60.00%)
+108  | oblox.com.et                                  | roblox.com.et             |   92.3% | Canh bao: khong uy tin nhung giong roblox.com.et tai 92.31%
+109  | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+110  | rbxliy.com                                    | rbx.com                   |   70.0% | An toan (Tuong dong thap: 70.00%)
+111  | rhinomadeusainc.shop                          | rhinousainc.com           |   65.0% | An toan (Tuong dong thap: 65.00%)
+112  | servernotification.events                     | mailserver-notification.c |   59.3% | Canh bao: web co tinh chen brand (mao danh: spotify.com)
+113  | replit.app                                    | replit.app                |  100.0% | Legit: website cua don vi uy tin
+114  | github.io                                     | github.io                 |  100.0% | Legit: website cua don vi uy tin
+115  | citibankonlline.com                           | citibankonline.com        |   94.7% | Canh bao: khong uy tin nhung giong citibankonline.com tai 94.74%
+116  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+117  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+118  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+119  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+120  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+121  | roblox.com.bn                                 | roblox.com.bn             |  100.0% | Legit: website cua don vi uy tin
+122  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+123  | webflow.io                                    | webflow.io                |  100.0% | Legit: website cua don vi uy tin
+124  | recargabundles.com                            | adabundle.com             |   66.7% | An toan (Tuong dong thap: 66.67%)
+125  | replit.app                                    | replit.app                |  100.0% | Legit: website cua don vi uy tin
+126  | replit.app                                    | replit.app                |  100.0% | Legit: website cua don vi uy tin
+127  | cliente-i-limpfeirao.shop                     | nutrao.shop               |   36.0% | An toan (Tuong dong thap: 36.00%)
+128  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+129  | replit.app                                    | replit.app                |  100.0% | Legit: website cua don vi uy tin
+130  | aifreebie.top                                 | freebie.games             |   46.2% | An toan (Tuong dong thap: 46.15%)
+131  | blogspot.com                                  | blogspot.com              |  100.0% | Legit: website cua don vi uy tin
+132  | roblox.com.bi                                 | roblox.com                |   76.9% | An toan (Tuong dong thap: 76.92%)
+133  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+134  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+135  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+136  | eliaruizwork.com                              | drizwork.com              |   68.8% | An toan (Tuong dong thap: 68.75%)
+137  | 03365pay.com                                  | 365pay.cash               |   58.3% | An toan (Tuong dong thap: 58.33%)
+138  | backblazeb2.com                               | backblazeb2.com           |  100.0% | Legit: website cua don vi uy tin
+139  | robiox.com.gr                                 | robiox.com.py             |   84.6% | Canh bao: khong uy tin nhung giong robiox.com.py tai 84.62%
+140  | luxurylifebrand.com                           | luxurylife.com.tw         |   57.9% | An toan (Tuong dong thap: 57.89%)
+141  | borderclick.com                               | borderclick.com           |  100.0% | Legit: website cua don vi uy tin
+142  | roblox.com.ml                                 | roblox.com.ml             |  100.0% | Legit: website cua don vi uy tin
+143  | webcindario.com                               | webcindario.com           |  100.0% | Legit: website cua don vi uy tin
+144  | replit.app                                    | replit.app                |  100.0% | Legit: website cua don vi uy tin
+145  | payme-paypal.com                              | paypal.com                |   62.5% | Canh bao: web co tinh chen brand (mao danh: payme.io)
+146  | ig.do                                         | song.do                   |   57.1% | An toan (Tuong dong thap: 57.14%)
+147  | icloud.com.gr                                 | icloud.com                |   76.9% | An toan (Tuong dong thap: 76.92%)
+148  | icloud.com.gr                                 | icloud.com                |   76.9% | An toan (Tuong dong thap: 76.92%)
+149  | kapsalontulp.nl                               | hulp.nl                   |   40.0% | An toan (Tuong dong thap: 40.00%)
+150  | zeqaw.xyz                                     | tldraw.xyz                |   60.0% | An toan (Tuong dong thap: 60.00%)
+151  | kronosquantity.vip                            | kronosquartet.org         |   66.7% | An toan (Tuong dong thap: 66.67%)
+152  | payme-paypal.com                              | paypal.com                |   62.5% | Canh bao: web co tinh chen brand (mao danh: payme.io)
+153  | webflow.io                                    | webflow.io                |  100.0% | Legit: website cua don vi uy tin
+154  | expensestatus.com                             | vexpenses.com             |   64.7% | An toan (Tuong dong thap: 64.71%)
+155  | vercel.app                                    | vercel.app                |  100.0% | Legit: website cua don vi uy tin
+156  | sonomama-net.jp                               | ma-net.jp                 |   60.0% | An toan (Tuong dong thap: 60.00%)
 ================================================================================================================================================================

@@ -1,7 +1,7 @@
-# Thử nghiệm thuật toán Heuristic khác nhau (Jaro-Winkler, Levenshtein, và Sub-string).
- #Nó dùng để so sánh xem 2 text giống nhau bao nhiêu %
-# file này được thử nghiệm bởi AI để tìm ra thuật toàn thích hợp
+# Thu nghiem thuat toan Heuristic (Jaro-Winkler, Levenshtein, Sub-string)
 # huynq
+# No dung de so sanh xem 2 text giong nhau bao nhieu %
+
 
 import sys
 
@@ -83,7 +83,7 @@ def levenshtein_similarity(s1, s2):
 def clean_domain(domain):
     domain = domain.strip().lower()
     if domain.startswith(('http://', 'https://')):
-        # huynq - Tách lấy netloc sơ bộ
+        # huynq - tach netloc
         from urllib.parse import urlparse
         try:
             domain = urlparse(domain).netloc
@@ -96,55 +96,52 @@ def clean_domain(domain):
     return domain
 
 def main():
-    # huynq - Cho phép nhập qua dòng lệnh hoặc hỏi trực tiếp
+    # huynq - nhap tu dong lenh hoac console
     if len(sys.argv) >= 3:
         dom_legit = sys.argv[1]
         dom_user = sys.argv[2]
     else:
-        dom_legit = input("1. Nhập tên miền chính thống (ví dụ: business.com): ").strip()
-        dom_user = input("2. Nhập URL/Domain cần đối chiếu: ").strip()
+        dom_legit = input("Nhap domain chinh thong (business.com): ").strip()
+        dom_user = input("Nhap URL/Domain doi chieu: ").strip()
 
     if not dom_legit or not dom_user:
-        print("❌ LỖI: Hãy nhập đầy đủ cả hai tên miền!")
+        print("Loi: Hay nhap day du ca hai ten mien!")
         return
 
-    # huynq - Làm sạch dữ liệu
+    # huynq - lam sach data
     clean_legit = clean_domain(dom_legit)
     clean_user = clean_domain(dom_user)
 
     print("-" * 65)
-    print(f"Domain chính thống (đã làm sạch): {clean_legit}")
-    print(f"Domain người dùng (đã làm sạch):   {clean_user}")
+    print(f"Domain chinh thong: {clean_legit}")
+    print(f"Domain nguoi dung:   {clean_user}")
     print("-" * 65)
 
-    # huynq - 1. Tính Jaro-Winkler
+    # huynq - tinh jaro-winkler
     jw_score = jaro_winkler_similarity(clean_legit, clean_user) * 100.0
 
-    # huynq - 2. Tính Levenshtein
+    # huynq - tinh levenshtein
     lev_score = levenshtein_similarity(clean_legit, clean_user) * 100.0
 
-    # huynq - 3. Kiểm tra Combosquatting (tên miền phụ hoặc tên miền gốc chứa hoàn toàn brand name chính thống)
-    # huynq - Lấy thương hiệu ví dụ "business" từ "business.com"
+    # huynq - check combosquatting
     brand_name = clean_legit.split('.')[0] 
     contains_brand = brand_name in clean_user
     
-    print("📊 KẾT QUẢ ĐO LƯỜNG HEURISTIC:")
-    print(f"🟢 Jaro-Winkler Similarity:   {jw_score:.2f}%")
-    print(f"🟢 Levenshtein Similarity:    {lev_score:.2f}%")
-    print(f"🟢 Chứa thương hiệu gốc ({brand_name}): {'CÓ (Combosquatting)' if contains_brand else 'KHÔNG'}")
+    print("KET QUA HEURISTIC:")
+    print(f"Jaro-Winkler Similarity:   {jw_score:.2f}%")
+    print(f"Levenshtein Similarity:    {lev_score:.2f}%")
+    print(f"Chua thuong hieu goc ({brand_name}): {'CO (Combosquatting)' if contains_brand else 'KHONG'}")
     print("-" * 65)
     
-    print("💡 NHẬN XÉT HỌC THUẬT:")
+    print("NHAN XET:")
     if contains_brand and lev_score < 40.0:
-        print("➔ Đây là kiểu tấn công COMBOSQUATTING. Kẻ xấu chèn nguyên chữ")
-        print(f"  '{brand_name}' vào một tên miền phụ rất dài để đánh lừa thị giác.")
-        print("  Gợi ý: Jaro-Winkler phù hợp phát hiện dạng này hơn Levenshtein.")
+        print("Day la kieu tan cong COMBOSQUATTING.")
+        print(f" '{brand_name}' vao ten mien phu de danh lua.")
+        print(" Goi y: Dung Jaro-Winkler tot hon Levenshtein.")
     elif lev_score > 75.0:
-        print("➔ Đây là kiểu tấn công TYPOSQUATTING (gõ sai). Tên miền cực kỳ")
-        print("  giống nhau về mặt ký tự và chiều dài.")
-        print("  Gợi ý: Cả Jaro-Winkler và Levenshtein đều hoạt động rất tốt.")
+        print("Day la kieu tan cong TYPOSQUATTING.")
     else:
-        print("➔ Mức độ tương đồng ký tự thấp. Hai tên miền này ít có khả năng giả mạo trực tiếp.")
+        print("Tuong dong thap, it co kha nang gia mao.")
     print("=================================================================")
 
 if __name__ == '__main__':
