@@ -1,0 +1,91 @@
+Analyzing phising_detection...                                  
+
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:105:50 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:124:50 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:189:36 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:209:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:240:42 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:252:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:263:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:279:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/history/history_screen.dart:282:46 • deprecated_member_use
+warning • Unused import: 'package:phising_detection/models/prediction_result.dart' • lib/screens/phishing_scan/bloc/phishing_scan_bloc.dart:2:8 • unused_import
+warning • Unused import: 'package:phising_detection/models/prediction_label.dart' • lib/screens/phishing_scan/bloc/phishing_scan_bloc.dart:3:8 • unused_import
+warning • Unused import: 'package:phising_detection/models/model_vote.dart' • lib/screens/phishing_scan/bloc/phishing_scan_bloc.dart:4:8 • unused_import
+   info • Use 'const' with the constructor to improve performance • lib/screens/phishing_scan/bloc/quiz_bloc.dart:57:10 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:203:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:206:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:273:22 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:276:24 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:305:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:306:32 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:313:37 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:318:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:329:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:356:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:542:35 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:544:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:633:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:690:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:697:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:772:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:803:50 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:816:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:827:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:843:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/phishing_scan/phishing_scan_screen.dart:846:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:45:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:134:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:167:38 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:168:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:172:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:173:42 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:251:38 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:256:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:262:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:321:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/quiz/quiz_screen.dart:323:60 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/splash/splash_screen.dart:141:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/splash/splash_screen.dart:144:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/splash/splash_screen.dart:176:57 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/splash/splash_screen.dart:213:59 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/splash/splash_screen.dart:226:55 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/screens/splash/splash_screen.dart:276:64 • deprecated_member_use
+   info • Use interpolation to compose strings and values • lib/services/phising_predictor.dart:195:11 • prefer_interpolation_to_compose_strings
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:383:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:384:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:385:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:386:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:387:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:388:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:390:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:391:5 • avoid_print
+   info • Don't invoke 'print' in production code • lib/services/phising_predictor.dart:392:5 • avoid_print
+warning • The declaration '_runModelVote' isn't referenced • lib/services/phising_predictor.dart:474:13 • unused_element
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/gradient_background.dart:29:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/gradient_background.dart:34:53 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/knn_matching_card.dart:29:25 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/knn_matching_card.dart:33:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/knn_matching_card.dart:36:32 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/knn_matching_card.dart:50:38 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/knn_matching_card.dart:102:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/model_votes_list.dart:59:28 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/model_votes_list.dart:94:28 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/model_votes_list.dart:96:47 • deprecated_member_use
+   info • Use 'const' for final variables initialized to a constant value • lib/widgets/result_hero_card.dart:18:7 • prefer_const_declarations
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:28:21 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:32:43 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:35:28 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:48:30 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:49:49 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:90:19 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:94:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:97:26 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:122:28 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:123:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:162:30 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:201:64 • deprecated_member_use
+warning • A value for optional parameter 'isWarning' isn't ever given • lib/widgets/result_hero_card.dart:218:10 • unused_element_parameter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:224:38 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/widgets/result_hero_card.dart:226:38 • deprecated_member_use
+
