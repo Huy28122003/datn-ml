@@ -103,11 +103,9 @@ class ResultHeroCard extends StatelessWidget {
       child: Column(
         children: [
           if (result.rfLabel != null) ...[
-            Text(
-              result.modelVotes.any((v) => v.modelId == 'vt_scan')
-                  ? 'KẾT QUẢ QUÉT ONLINE (VIRUSTOTAL)'
-                  : 'MÔ HÌNH RANDOM FOREST (OFFLINE ONNX)',
-              style: const TextStyle(
+            const Text(
+              'MÔ HÌNH RANDOM FOREST (HYBRID)',
+              style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
                 color: AppColors.textSecondary,

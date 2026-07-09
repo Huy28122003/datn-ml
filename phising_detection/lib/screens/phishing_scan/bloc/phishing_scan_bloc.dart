@@ -6,7 +6,6 @@ import 'package:phising_detection/usecases/virus_total/scan_url_usecase.dart';
 import 'package:phising_detection/repositories/virus_total_repository_impl.dart';
 import '../../../models/phishing_service_exception.dart';
 import '../../../services/phising_predictor.dart';
-import '../../../services/history_service.dart';
 import 'phishing_scan_event.dart';
 import 'phishing_scan_state.dart';
 
@@ -20,8 +19,6 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
     on<PhishingScanSubmitted>(_onSubmitted);
     on<PhishingScanVirusTotalSubmitted>(_onVirusTotalSubmitted);
     on<PhishingScanClear>(_onClear);
-    on<PhishingScanHistoryRequested>(_onHistoryRequested);
-    on<PhishingScanHistoryCleared>(_onHistoryCleared);
   }
 
   Future<void> _onBootstrap(
@@ -31,10 +28,8 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
     emit(state.copyWith(status: PhishingScanStatus.loadingModel));
     try {
       await _service.initialize();
-      final history = await HistoryService().getHistory();
       emit(state.copyWith(
         status: PhishingScanStatus.ready,
-        history: history,
       ));
     } catch (e) {
       emit(state.copyWith(
@@ -63,52 +58,24 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
       error: () => null,
     ));
 
+    await Future.delayed(const Duration(seconds: 1));
+
     try {
       final result = await _service.analyzeUrlWithKnn(url, event.rs);
-
-      final resultType = result.isPhishing ? 'phishing' : 'safe';
-      final detailText =
-          result.detail ?? 'Được đánh giá là an toàn bởi các mô hình kiểm tra';
-
-      await HistoryService().saveScan(
-        url: url,
-        resultType: resultType,
-        detail: detailText,
-      );
-      final updatedHistory = await HistoryService().getHistory();
 
       emit(state.copyWith(
         status: PhishingScanStatus.success,
         result: () => result,
-        history: updatedHistory,
       ));
     } on PhishingServiceException catch (e) {
-      // Save failed scan to history
-      await HistoryService().saveScan(
-        url: url,
-        resultType: 'no_data',
-        detail: e.message,
-      );
-      final updatedHistory = await HistoryService().getHistory();
-
       emit(state.copyWith(
         status: PhishingScanStatus.failure,
         error: () => e.message,
-        history: updatedHistory,
       ));
     } catch (e) {
-      // Save failed/error scan to history
-      await HistoryService().saveScan(
-        url: url,
-        resultType: 'no_data',
-        detail: 'Lỗi không xác định: $e',
-      );
-      final updatedHistory = await HistoryService().getHistory();
-
       emit(state.copyWith(
         status: PhishingScanStatus.failure,
         error: () => 'Lỗi không xác định: $e',
-        history: updatedHistory,
       ));
     }
   }
@@ -132,6 +99,26 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
       error: () => null,
     ));
 
+    // huynq - Chay so khop KNN offline truoc (luon thuc hien)
+    late PhishingPredictionResult knnResult;
+    try {
+      knnResult = await _service.analyzeUrlWithKnn(url, null);
+    } catch (e) {
+      // huynq - Neu ca KNN cung loi (hiem gap vi chay offline)
+      emit(state.copyWith(
+        status: PhishingScanStatus.failure,
+        error: () => 'Không phân tích được dữ liệu trang web',
+      ));
+      return;
+    }
+
+    final knnVote = ModelVote(
+      modelId: 'knn_search',
+      displayName: 'KNN & Thuật toán so khớp (Offline)',
+      label: knnResult.consensusLabel,
+    );
+
+    // huynq - Gui request den VirusTotal API
     try {
       final scanUseCase = ScanUrlUseCase(VirusTotalRepositoryImpl());
       final vtReport = await scanUseCase(
@@ -150,53 +137,70 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
           vtReport.stats.undetected;
 
       final vtVote = ModelVote(
-        modelId: 'vt_scan',
-        displayName: 'VirusTotal API (${vtReport.stats.malicious}/$totalEngines engines)',
+        modelId: 'rf_hybrid',
+        displayName:
+            'Random Forest (Hybrid) (${vtReport.stats.malicious}/$totalEngines)',
         label: vtLabel,
       );
 
+      // huynq - Dong thuan: Canh bao neu mot trong hai mo hinh bao doc hai
+      final consensusLabel = (vtLabel == PredictionLabel.phishing ||
+              knnResult.consensusLabel == PredictionLabel.phishing)
+          ? PredictionLabel.phishing
+          : PredictionLabel.legitimate;
+
+      final totalVotes = (vtLabel == PredictionLabel.phishing ? 1 : 0) +
+          (knnResult.consensusLabel == PredictionLabel.phishing ? 1 : 0);
+
       final result = PhishingPredictionResult(
         url: url,
-        consensusLabel: vtLabel,
-        phishingVotes: vtReport.stats.malicious,
-        totalModels: totalEngines,
-        modelVotes: [vtVote],
+        consensusLabel: consensusLabel,
+        phishingVotes: totalVotes,
+        totalModels: 2,
+        modelVotes: [knnVote, vtVote],
         hybridFeaturesFromLiveFetch: true,
         isWhitelisted: false,
-        detail: 'VirusTotal phát hiện ${vtReport.stats.malicious}/$totalEngines công cụ báo độc hại.',
-        levScore: null,
-        matchedDomain: null,
-        rfLabel: vtLabel,
+        detail: knnResult
+            .detail, // huynq - Chi lay chi tiet so khop KNN de hien thi tren card KNN
+        levScore: knnResult.levScore,
+        matchedDomain: knnResult.matchedDomain,
+        rfLabel: vtLabel, // huynq - Hien thi ket qua VirusTotal o card duoi
       );
-
-      final resultType = result.isPhishing ? 'phishing' : 'safe';
-      final detailText = result.detail ?? '';
-
-      await HistoryService().saveScan(
-        url: url,
-        resultType: resultType,
-        detail: detailText,
-      );
-      final updatedHistory = await HistoryService().getHistory();
 
       emit(state.copyWith(
         status: PhishingScanStatus.success,
         result: () => result,
-        history: updatedHistory,
       ));
     } catch (e) {
-      // Save failed/error scan to history
-      await HistoryService().saveScan(
-        url: url,
-        resultType: 'no_data',
-        detail: 'Lỗi quét VirusTotal: $e',
+      // huynq - Khi call API loi: chi hien thi loi o card random forest/VirusTotal, KNN van chay binh thuong
+      final vtVoteFailure = const ModelVote(
+        modelId: 'rf_hybrid',
+        displayName: 'Random Forest (Hybrid) (Lỗi kết nối)',
+        label: PredictionLabel.failure,
       );
-      final updatedHistory = await HistoryService().getHistory();
+
+      final result = PhishingPredictionResult(
+        url: url,
+        consensusLabel:
+            knnResult.consensusLabel, // Lấy kết quả KNN làm kết quả chính
+        phishingVotes:
+            knnResult.consensusLabel == PredictionLabel.phishing ? 1 : 0,
+        totalModels: 2,
+        modelVotes: [knnVote, vtVoteFailure],
+        hybridFeaturesFromLiveFetch: true,
+        isWhitelisted: false,
+        detail: knnResult
+            .detail, // huynq - Giu nguyen chi tiet so khop KNN ke ca khi API loi
+        levScore: knnResult.levScore,
+        matchedDomain: knnResult.matchedDomain,
+        rfLabel:
+            PredictionLabel.failure, // Gan nhan loi de hien thi card duoi loi
+      );
 
       emit(state.copyWith(
-        status: PhishingScanStatus.failure,
-        error: () => 'Lỗi quét VirusTotal: $e',
-        history: updatedHistory,
+        status: PhishingScanStatus
+            .success, // Van phat ra success de giao dien hien thi
+        result: () => result,
       ));
     }
   }
@@ -210,22 +214,6 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
       result: () => null,
       error: () => null,
     ));
-  }
-
-  Future<void> _onHistoryRequested(
-    PhishingScanHistoryRequested event,
-    Emitter<PhishingScanState> emit,
-  ) async {
-    final history = await HistoryService().getHistory();
-    emit(state.copyWith(history: history));
-  }
-
-  Future<void> _onHistoryCleared(
-    PhishingScanHistoryCleared event,
-    Emitter<PhishingScanState> emit,
-  ) async {
-    await HistoryService().clearHistory();
-    emit(state.copyWith(history: const []));
   }
 
   @override

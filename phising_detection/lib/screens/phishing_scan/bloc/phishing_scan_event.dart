@@ -10,10 +10,6 @@ class PhishingScanSubmitted extends PhishingScanEvent {
 
 class PhishingScanClear extends PhishingScanEvent {}
 
-class PhishingScanHistoryRequested extends PhishingScanEvent {}
-
-class PhishingScanHistoryCleared extends PhishingScanEvent {}
-
 class PhishingScanVirusTotalSubmitted extends PhishingScanEvent {
   final String url;
   PhishingScanVirusTotalSubmitted(this.url);

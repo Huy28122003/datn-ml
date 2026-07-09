@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phising_detection/models/prediction_label.dart';
+import '../models/model_vote.dart';
 import '../models/prediction_result.dart';
 import '../theme/app_theme.dart';
 
@@ -11,8 +12,17 @@ class KnnMatchingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final matchedDomain = result.matchedDomain ?? 'N/A';
-    final isPhishing = result.consensusLabel.isPhishing;
-    
+    // huynq - Lay nhan thuc te cua model KNN de luon hien thi dung bat ke ket qua fake cua Random Forest
+    final knnVote = result.modelVotes.firstWhere(
+      (v) => v.modelId == 'knn_search',
+      orElse: () => ModelVote(
+        modelId: 'knn_search',
+        displayName: '',
+        label: result.consensusLabel,
+      ),
+    );
+    final isPhishing = knnVote.label.isPhishing;
+
     // huynq - Chon mau status theo nhan phishing
     final Color statusColor = isPhishing ? AppColors.danger : AppColors.safe;
 
@@ -50,7 +60,9 @@ class KnnMatchingCard extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  isPhishing ? Icons.warning_amber_rounded : Icons.check_circle_outline,
+                  isPhishing
+                      ? Icons.warning_amber_rounded
+                      : Icons.check_circle_outline,
                   color: statusColor,
                   size: 24,
                 ),

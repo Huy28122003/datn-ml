@@ -1,6 +1,7 @@
 enum PredictionLabel {
   legitimate,
   phishing,
+  failure,
 }
 
 extension PredictionLabelX on PredictionLabel {

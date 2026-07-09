@@ -285,10 +285,9 @@ class PhishingPredictorService {
 
     // 1. Kiểm tra khớp chính xác hoàn toàn (whitelist)
     if (_cleanDomains!.contains(regDomain)) {
-      consensusLabel = PredictionLabel.legitimate;
       bestMatchDomain = regDomain;
       maxSimilarity = 1.0;
-      detail = "Tên miền chính thống khớp: $regDomain.";
+      detail = "Đây là tên miền uy tín, kết quả sẽ được quyết định bởi mô hình Random Forest";
     } else {
       // huynq - Kiem tra combosquatting trong subdomain
       for (final label in parts.subdomainLabels) {
@@ -354,11 +353,17 @@ class PhishingPredictorService {
         : PredictionLabel.legitimate;
     final bool rfLiveFetch = forceRfRs != null;
 
+    // huynq - Neu khop 100% ten mien uy tin, ket qua dong thuan se do Random Forest quyet dinh
+    final isWhitelisted = _cleanDomains!.contains(regDomain);
+    if (isWhitelisted) {
+      consensusLabel = rfLabel;
+    }
+
     final votes = <ModelVote>[
       ModelVote(
         modelId: 'knn_search',
         displayName: 'KNN & Thuật toán so khớp (Offline)',
-        label: consensusLabel,
+        label: isWhitelisted ? PredictionLabel.legitimate : consensusLabel,
       ),
       ModelVote(
         modelId: 'rf_hybrid',
@@ -368,7 +373,7 @@ class PhishingPredictorService {
     ];
 
     // huynq - Tinh tong so phieu bau phishing tu cac mo hinh
-    int phishingVotes = (consensusLabel.isPhishing ? 1 : 0) + (rfLabel.isPhishing ? 1 : 0);
+    int phishingVotes = (isWhitelisted ? 0 : (consensusLabel.isPhishing ? 1 : 0)) + (rfLabel.isPhishing ? 1 : 0);
 
     return PhishingPredictionResult(
       url: normalizedUrl,
