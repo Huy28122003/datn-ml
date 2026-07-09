@@ -8,8 +8,6 @@ import '../../theme/app_theme.dart' show AppColors;
 import 'bloc/phishing_scan_bloc.dart';
 import 'bloc/phishing_scan_event.dart';
 import 'bloc/phishing_scan_state.dart';
-import 'bloc/quiz_bloc.dart';
-import 'bloc/quiz_state.dart';
 import '../../widgets/gradient_background.dart';
 import '../../widgets/model_votes_list.dart';
 import '../../widgets/result_hero_card.dart';
@@ -30,7 +28,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
   @override
   void initState() {
     super.initState();
-    // Initialize/Bootstrap the ONNX model via BLoC
+    // huynq - Khoi tao model ONNX qua BLoC
     context.read<PhishingScanBloc>().add(PhishingScanBootstrap());
   }
 
@@ -156,7 +154,6 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: _buildHeader()),
-        SliverToBoxAdapter(child: _buildQuizBannerCard()),
         SliverToBoxAdapter(child: _buildInputSection(scanning)),
         if (scanError != null)
           SliverToBoxAdapter(child: _buildErrorBanner(scanError)),
@@ -240,140 +237,9 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                   ],
                 ),
               ),
-              BlocBuilder<QuizBloc, QuizState>(
-                builder: (context, quizState) {
-                  return _buildHeaderBadge(quizState);
-                },
-              ),
             ],
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildHeaderBadge(QuizState state) {
-    String name = "Tân Binh";
-    String emoji = "🛡️";
-    Color color = AppColors.textSecondary;
-
-    if (state.status == QuizStatus.completed) {
-      name = state.badgeName;
-      emoji = state.badgeEmoji.runes.length > 2
-          ? String.fromCharCodes(state.badgeEmoji.runes.take(2))
-          : state.badgeEmoji;
-      if (state.score == state.questions.length) {
-        color = AppColors.accent;
-      } else if (state.score >= 2) {
-        color = AppColors.primary;
-      } else {
-        color = AppColors.danger;
-      }
-    }
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.12),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: color.withOpacity(0.35),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(emoji, style: const TextStyle(fontSize: 12)),
-          const SizedBox(width: 4),
-          Text(
-            name,
-            style: TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
-              color: color,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildQuizBannerCard() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.primary.withOpacity(0.15),
-              AppColors.accent.withOpacity(0.05),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: AppColors.accent.withOpacity(0.25),
-            width: 1.0,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.accent.withOpacity(0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: AppColors.accent.withOpacity(0.15),
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.emoji_events_outlined,
-                color: AppColors.accent,
-                size: 26,
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Thử thách nhận diện Phishing',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Chơi mini-game trắc nghiệm nhận ngay các danh hiệu bảo mật độc đáo!',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: AppColors.textSecondary.withOpacity(0.85),
-                      height: 1.35,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 8),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward_ios,
-                  size: 16, color: AppColors.accent),
-              onPressed: () {
-                context.router.push(const QuizRoute());
-              },
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -11,10 +11,9 @@ class KnnMatchingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final matchedDomain = result.matchedDomain ?? 'N/A';
-    final levScore = result.levScore ?? 0.0;
     final isPhishing = result.consensusLabel.isPhishing;
     
-    // Choose status color based on whether KNN flagged it as phishing
+    // huynq - Chon mau status theo nhan phishing
     final Color statusColor = isPhishing ? AppColors.danger : AppColors.safe;
 
     return Container(
@@ -84,15 +83,6 @@ class KnnMatchingCard extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           _buildInfoRow('Tên miền giống nó nhất:', matchedDomain),
-          const SizedBox(height: 10),
-          _buildInfoRow('Độ tương đồng:', '${levScore.toStringAsFixed(2)}%'),
-          const SizedBox(height: 10),
-          _buildInfoRow(
-            'Có cố tình làm giống không:',
-            isPhishing ? 'Có' : 'Không',
-            valueColor: statusColor,
-            isBoldValue: true,
-          ),
           if (result.detail != null && result.detail!.isNotEmpty) ...[
             const SizedBox(height: 14),
             Container(

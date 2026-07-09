@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes/app_router.dart';
 import 'screens/phishing_scan/bloc/phishing_scan_bloc.dart';
 import 'screens/phishing_scan/bloc/phishing_scan_event.dart';
-import 'screens/phishing_scan/bloc/quiz_bloc.dart';
 import 'theme/app_theme.dart';
 
 void main() {
@@ -30,9 +29,6 @@ class PhishGuardApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => QuizBloc(),
-        ),
         BlocProvider(
           create: (context) => PhishingScanBloc()..add(PhishingScanBootstrap()),
         ),

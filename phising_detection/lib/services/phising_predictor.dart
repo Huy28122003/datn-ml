@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:http/http.dart' as http;
 import 'package:onnxruntime/onnxruntime.dart';
+import 'package:public_suffix/public_suffix.dart';
 
 import '../models/model_vote.dart';
 import '../models/phishing_service_exception.dart';
@@ -115,6 +116,11 @@ class PhishingPredictorService {
         .where((b) => b.length > 3)
         .toSet();
 
+    // huynq - Khoi tao danh sach public suffix rules offline
+    final suffixRulesString =
+        await rootBundle.loadString('assets/models/public_suffix_list.dat');
+    DefaultSuffixRules.initFromString(suffixRulesString);
+
     _ready = true;
   }
 
@@ -186,7 +192,7 @@ class PhishingPredictorService {
     );
   }
 
-  /// Trích xuất bộ phận tên miền tương đương với logic Python
+  // huynq - Trich xuat registered domain va subdomain qua public_suffix
   _DomainParts _extractDomainParts(String urlStr) {
     var s = urlStr.trim();
     if (s.isEmpty) return _DomainParts("", []);
@@ -195,63 +201,26 @@ class PhishingPredictorService {
       s = 'http://' + s;
     }
 
-    String hostname = "";
     try {
-      final uri = Uri.parse(s);
-      hostname = uri.host.toLowerCase();
-      if (hostname.startsWith('www.')) {
-        hostname = hostname.substring(4);
-      }
+      final parsed = PublicSuffix(urlString: s);
+      final registeredDomain = parsed.domain ?? "";
+      final subdomainStr = parsed.subdomain ?? "";
+      final subdomainLabels = subdomainStr.isNotEmpty ? subdomainStr.split('.') : <String>[];
+      return _DomainParts(registeredDomain, subdomainLabels);
     } catch (_) {
-      hostname = urlStr.toLowerCase();
-    }
-
-    final labels = hostname.split('.');
-    if (labels.length <= 1) {
+      // huynq - Fallback dung Uri mac dinh neu bi loi parse
+      String hostname = "";
+      try {
+        final uri = Uri.parse(s);
+        hostname = uri.host.toLowerCase();
+        if (hostname.startsWith('www.')) {
+          hostname = hostname.substring(4);
+        }
+      } catch (_) {
+        hostname = urlStr.toLowerCase();
+      }
       return _DomainParts(hostname, []);
     }
-
-    const publicSuffixes = {
-      'com.vn',
-      'co.uk',
-      'com.br',
-      'com.cn',
-      'com.tr',
-      'com.mu',
-      'com.ug',
-      'com.bi',
-      'com.py',
-      'com.gr',
-      'com.et',
-      'com.bn',
-      'net.cn',
-      'gov.tr',
-      'gov.vn',
-      'org.vn',
-      'my.id',
-      'ac.uk'
-    };
-
-    int suffixLen = 1;
-    if (labels.length >= 2) {
-      final last2 = labels.sublist(labels.length - 2).join('.');
-      if (publicSuffixes.contains(last2)) {
-        suffixLen = 2;
-      } else if (labels.length >= 3) {
-        final lastLabel = labels.last;
-        final prevLabel = labels[labels.length - 2];
-        if (lastLabel.length == 2 &&
-            const {'com', 'co', 'net', 'org', 'edu', 'gov', 'ac'}
-                .contains(prevLabel)) {
-          suffixLen = 2;
-        }
-      }
-    }
-
-    final regLabels = labels.sublist(labels.length - (suffixLen + 1));
-    final registeredDomain = regLabels.join('.');
-    final subdomainLabels = labels.sublist(0, labels.length - (suffixLen + 1));
-    return _DomainParts(registeredDomain, subdomainLabels);
   }
 
   /// Thuật toán khoảng cách Levenshtein trong Dart
@@ -321,7 +290,7 @@ class PhishingPredictorService {
       maxSimilarity = 1.0;
       detail = "Tên miền chính thống khớp: $regDomain.";
     } else {
-      // 2. Kiểm tra combosquatting trong subdomain labels
+      // huynq - Kiem tra combosquatting trong subdomain
       for (final label in parts.subdomainLabels) {
         if (label.length <= 3) continue;
         if (_cleanBrands!.contains(label)) {
@@ -332,7 +301,7 @@ class PhishingPredictorService {
         }
       }
 
-      // 3. Kiểm tra combosquatting trong từ khoá gạch ngang của tên miền chính
+      // huynq - Kiem tra combosquatting trong tu khoa gach ngang
       if (triggeredSubBrand == null) {
         final regBrand = regDomain.split('.')[0];
         final domainWords = regBrand.split('-');
@@ -349,14 +318,14 @@ class PhishingPredictorService {
         }
       }
 
-      // 4. Nếu có mạo danh thương hiệu (Combosquatting)
+      // huynq - Neu phat hien ma danh thuong hieu
       if (triggeredSubBrand != null) {
         consensusLabel = PredictionLabel.phishing;
         bestMatchDomain = triggeredMatchedDomain!;
         detail =
-            "Cảnh báo combosquatting: Tên miền chứa thương hiệu uy tín '$triggeredSubBrand' (➔ $triggeredMatchedDomain) nhưng không thuộc sở hữu của thương hiệu này.";
+            "Trang web đang sử dụng tên miền uy tín, nổi tiếng để làm tên miền con - Nên cảnh giác";
       } else {
-        // 5. Tính độ tương đồng Levenshtein với 20.000 tên miền sạch để phát hiện Typosquatting
+        // huynq - Tinh do tuong dong Levenshtein voi whitelist de phat hien typosquatting
         for (final d in _cleanDomains!) {
           final sim = _levenshteinSimilarity(regDomain, d);
           if (sim > maxSimilarity) {
@@ -370,7 +339,7 @@ class PhishingPredictorService {
         if (levScorePercent >= 80.0) {
           consensusLabel = PredictionLabel.phishing;
           detail =
-              "Cảnh báo typosquatting: Tên miền giống $bestMatchDomain đến ${levScorePercent.toStringAsFixed(2)}% nhưng không nằm trong whitelist.";
+              "Tên miền chính của trang web không phải tên miền uy tín, nổi tiếng nhưng lại quá giống tên miền đó - Nên cảnh giác";
         } else {
           consensusLabel = PredictionLabel.legitimate;
           detail =
@@ -379,19 +348,7 @@ class PhishingPredictorService {
       }
     }
 
-    // Thực hiện in ra kết quả thật trên console của app theo yêu cầu
-    print("\n=======================================================");
-    print(" KẾT QUẢ SO KHỚP OFFLINE (KNN HEURISTIC):");
-    print(" URL đầu vào:          $url");
-    print(" Domain chính:         $regDomain");
-    print(" Nhãn phụ:             ${parts.subdomainLabels}");
-    print(
-        " Tên miền giống nhất:   $bestMatchDomain (${(maxSimilarity * 100).toStringAsFixed(2)}%)");
-    print(" Trạng thái:           ${consensusLabel.name.toUpperCase()}");
-    print(" Chi tiết:             $detail");
-    print("=======================================================\n");
-
-    // Force/Fake the Random Forest result based on forceRfRs parameter to support the 3 tapped zones
+    // huynq - Gia lap ket qua Random Forest theo tham so truyen vao tu UI
     final PredictionLabel rfLabel = forceRfRs == true
         ? PredictionLabel.phishing
         : PredictionLabel.legitimate;
@@ -410,7 +367,7 @@ class PhishingPredictorService {
       ),
     ];
 
-    // Số vote phishing bằng tổng vote của cả 2 model
+    // huynq - Tinh tong so phieu bau phishing tu cac mo hinh
     int phishingVotes = (consensusLabel.isPhishing ? 1 : 0) + (rfLabel.isPhishing ? 1 : 0);
 
     return PhishingPredictionResult(
