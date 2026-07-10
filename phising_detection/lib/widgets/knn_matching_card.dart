@@ -78,14 +78,6 @@ class KnnMatchingCard extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 2),
-                    Text(
-                      'Phân tích & so sánh với 20.000 tên miền sạch',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: Colors.white70,
-                      ),
-                    ),
                   ],
                 ),
               ),
