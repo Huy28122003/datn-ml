@@ -51,6 +51,7 @@ extension PhishingResultUi on PhishingPredictionResult {
 
 extension ModelVoteUi on ModelVote {
   String get labelVi {
+    if (customLabel != null) return customLabel!;
     if (label == PredictionLabel.failure) return 'Lỗi kết nối';
     return label.isPhishing ? 'Phishing' : 'An toàn';
   }

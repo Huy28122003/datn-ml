@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 import '../../theme/app_theme.dart' show AppColors;
 import 'bloc/phishing_scan_bloc.dart';
 import 'bloc/phishing_scan_event.dart';
@@ -40,7 +39,9 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
       return;
     }
     if (rs == null) {
-      context.read<PhishingScanBloc>().add(PhishingScanVirusTotalSubmitted(url));
+      context
+          .read<PhishingScanBloc>()
+          .add(PhishingScanVirusTotalSubmitted(url));
     } else {
       context.read<PhishingScanBloc>().add(PhishingScanSubmitted(url, rs));
     }
@@ -316,8 +317,8 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   child: scanning
                       ? const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -343,7 +344,8 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                       : const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.radar_rounded, size: 22, color: Colors.white),
+                            Icon(Icons.radar_rounded,
+                                size: 22, color: Colors.white),
                             SizedBox(width: 10),
                             Text(
                               'Quét URL',
@@ -390,12 +392,6 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
             ),
           ),
           const SizedBox(height: 8),
-          const Center(
-            child: Text(
-              'Mô hình Random Forest (Hybrid) phân tích',
-              style: TextStyle(fontSize: 12, color: Colors.white70),
-            ),
-          ),
         ],
       ),
     );

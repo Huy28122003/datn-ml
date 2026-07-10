@@ -79,7 +79,7 @@ class _ModelVoteTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  vote.modelId,
+                  vote.subtitle ?? vote.modelId,
                   style: const TextStyle(
                     fontSize: 12,
                     color: Colors.white70,

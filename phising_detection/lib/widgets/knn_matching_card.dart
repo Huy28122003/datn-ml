@@ -92,7 +92,7 @@ class KnnMatchingCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 18),
-          _buildInfoRow('Tên miền giống nó nhất:', matchedDomain),
+          _buildInfoRow('Tên miền giống nhất:', matchedDomain),
           if (result.detail != null && result.detail!.isNotEmpty) ...[
             const SizedBox(height: 14),
             Container(

@@ -363,14 +363,14 @@ class PhishingPredictorService {
         }
 
         final double levScorePercent = maxSimilarity * 100.0;
-        if (levScorePercent >= 80.0) {
+        if (levScorePercent >= 60.0) {
           consensusLabel = PredictionLabel.phishing;
           detail =
               "Tên miền chính của trang web không phải tên miền uy tín, nổi tiếng nhưng lại quá giống tên miền đó - Nên cảnh giác";
         } else {
           consensusLabel = PredictionLabel.legitimate;
           detail =
-              "An toàn. Tên miền giống nhất là $bestMatchDomain (${levScorePercent.toStringAsFixed(2)}%) nhưng không phát hiện hành vi mạo danh rõ rệt.";
+              "An toàn. Tên miền giống nhất là $bestMatchDomain nhưng không phát hiện hành vi mạo danh rõ rệt.";
         }
       }
     }

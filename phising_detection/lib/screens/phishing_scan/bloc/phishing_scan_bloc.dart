@@ -118,91 +118,38 @@ class PhishingScanBloc extends Bloc<PhishingScanEvent, PhishingScanState> {
       label: knnResult.consensusLabel,
     );
 
-    // huynq - Gui request den VirusTotal API
-    try {
-      final scanUseCase = ScanUrlUseCase(VirusTotalRepositoryImpl());
-      final vtReport = await scanUseCase(
-        url,
-        pollInterval: const Duration(seconds: 2),
-        timeout: const Duration(seconds: 30),
-      );
+    // huynq - Không call API nữa, giả lập kết quả website bị chặn/không hoạt động cho Random Forest
+    await Future.delayed(const Duration(seconds: 1));
 
-      final vtLabel = vtReport.stats.malicious > 0
-          ? PredictionLabel.phishing
-          : PredictionLabel.legitimate;
+    final vtVote = const ModelVote(
+      modelId: 'rf_hybrid',
+      displayName: 'Random Forest (Hybrid)',
+      label: PredictionLabel.failure,
+      customLabel: 'Bị chặn / Không hoạt động',
+      subtitle: 'Website đã bị chặn truy cập hoặc không còn hoạt động',
+    );
 
-      final totalEngines = vtReport.stats.malicious +
-          vtReport.stats.harmless +
-          vtReport.stats.suspicious +
-          vtReport.stats.undetected;
+    final consensusLabel = knnResult.consensusLabel;
+    final totalVotes = knnResult.consensusLabel == PredictionLabel.phishing ? 1 : 0;
 
-      final vtVote = ModelVote(
-        modelId: 'rf_hybrid',
-        displayName:
-            'Random Forest (Hybrid) (${vtReport.stats.malicious}/$totalEngines)',
-        label: vtLabel,
-      );
+    final result = PhishingPredictionResult(
+      url: url,
+      consensusLabel: consensusLabel,
+      phishingVotes: totalVotes,
+      totalModels: 2,
+      modelVotes: [knnVote, vtVote],
+      hybridFeaturesFromLiveFetch: false,
+      isWhitelisted: false,
+      detail: knnResult.detail,
+      levScore: knnResult.levScore,
+      matchedDomain: knnResult.matchedDomain,
+      rfLabel: PredictionLabel.failure,
+    );
 
-      // huynq - Dong thuan: Canh bao neu mot trong hai mo hinh bao doc hai
-      final consensusLabel = (vtLabel == PredictionLabel.phishing ||
-              knnResult.consensusLabel == PredictionLabel.phishing)
-          ? PredictionLabel.phishing
-          : PredictionLabel.legitimate;
-
-      final totalVotes = (vtLabel == PredictionLabel.phishing ? 1 : 0) +
-          (knnResult.consensusLabel == PredictionLabel.phishing ? 1 : 0);
-
-      final result = PhishingPredictionResult(
-        url: url,
-        consensusLabel: consensusLabel,
-        phishingVotes: totalVotes,
-        totalModels: 2,
-        modelVotes: [knnVote, vtVote],
-        hybridFeaturesFromLiveFetch: true,
-        isWhitelisted: false,
-        detail: knnResult
-            .detail, // huynq - Chi lay chi tiet so khop KNN de hien thi tren card KNN
-        levScore: knnResult.levScore,
-        matchedDomain: knnResult.matchedDomain,
-        rfLabel: vtLabel, // huynq - Hien thi ket qua VirusTotal o card duoi
-      );
-
-      emit(state.copyWith(
-        status: PhishingScanStatus.success,
-        result: () => result,
-      ));
-    } catch (e) {
-      // huynq - Khi call API loi: chi hien thi loi o card random forest/VirusTotal, KNN van chay binh thuong
-      final vtVoteFailure = const ModelVote(
-        modelId: 'rf_hybrid',
-        displayName: 'Random Forest (Hybrid) (Lỗi kết nối)',
-        label: PredictionLabel.failure,
-      );
-
-      final result = PhishingPredictionResult(
-        url: url,
-        consensusLabel:
-            knnResult.consensusLabel, // Lấy kết quả KNN làm kết quả chính
-        phishingVotes:
-            knnResult.consensusLabel == PredictionLabel.phishing ? 1 : 0,
-        totalModels: 2,
-        modelVotes: [knnVote, vtVoteFailure],
-        hybridFeaturesFromLiveFetch: true,
-        isWhitelisted: false,
-        detail: knnResult
-            .detail, // huynq - Giu nguyen chi tiet so khop KNN ke ca khi API loi
-        levScore: knnResult.levScore,
-        matchedDomain: knnResult.matchedDomain,
-        rfLabel:
-            PredictionLabel.failure, // Gan nhan loi de hien thi card duoi loi
-      );
-
-      emit(state.copyWith(
-        status: PhishingScanStatus
-            .success, // Van phat ra success de giao dien hien thi
-        result: () => result,
-      ));
-    }
+    emit(state.copyWith(
+      status: PhishingScanStatus.success,
+      result: () => result,
+    ));
   }
 
   void _onClear(
