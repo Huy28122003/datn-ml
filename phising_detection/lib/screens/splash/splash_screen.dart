@@ -46,7 +46,6 @@ class _SplashViewState extends State<SplashView>
       duration: const Duration(milliseconds: 2800),
     );
 
-    // Bounce and scale logo up
     _scaleAnimation = Tween<double>(begin: 0.5, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -54,7 +53,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Fade logo in
     _logoOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -62,7 +60,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Pulsing background glow animation
     _glowAnimation = Tween<double>(begin: 0.8, end: 1.25).animate(
       CurvedAnimation(
         parent: _controller,
@@ -70,7 +67,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Text fade-in
     _textOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -78,7 +74,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Text slide up
     _textSlideAnimation = Tween<Offset>(
       begin: const Offset(0.0, 0.4),
       end: Offset.zero,
@@ -89,7 +84,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Progress bar loader
     _progressAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -97,10 +91,8 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Trigger the BLoC timer event
     context.read<SplashBloc>().add(SplashStarted());
 
-    // Start local controller visual sequence
     _controller.forward();
   }
 
@@ -126,7 +118,15 @@ class _SplashViewState extends State<SplashView>
         backgroundColor: AppColors.background,
         body: Stack(
           children: [
-            // Background Tech Grid/Circles Glow
+            Positioned.fill(
+              child: Opacity(
+                opacity: 0.15,
+                child: Image.asset(
+                  'assets/images/tlu_bg.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
             Center(
               child: AnimatedBuilder(
                 animation: _glowAnimation,
@@ -152,15 +152,11 @@ class _SplashViewState extends State<SplashView>
                 },
               ),
             ),
-
-            // Core Content Layout
             SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(flex: 3),
-
-                  // Animated Logo
                   FadeTransition(
                     opacity: _logoOpacityAnimation,
                     child: ScaleTransition(
@@ -173,7 +169,7 @@ class _SplashViewState extends State<SplashView>
                             borderRadius: BorderRadius.circular(32),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.accent.withOpacity(0.3),
+                                color: AppColors.accent.withValues(alpha: 0.3),
                                 blurRadius: 25,
                                 spreadRadius: -5,
                                 offset: const Offset(0, 10),
@@ -191,10 +187,7 @@ class _SplashViewState extends State<SplashView>
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 32),
-
-                  // Animated App Name & Tagline
                   FadeTransition(
                     opacity: _textOpacityAnimation,
                     child: SlideTransition(
@@ -231,10 +224,7 @@ class _SplashViewState extends State<SplashView>
                       ),
                     ),
                   ),
-
                   const Spacer(flex: 2),
-
-                  // Animated Slim Progress Indicator
                   AnimatedBuilder(
                     animation: _progressAnimation,
                     builder: (context, child) {
@@ -273,7 +263,8 @@ class _SplashViewState extends State<SplashView>
                               'Securing connection...',
                               style: TextStyle(
                                 fontSize: 11,
-                                color: AppColors.textSecondary.withOpacity(0.7),
+                                color: AppColors.textSecondary
+                                    .withValues(alpha: 0.7),
                                 letterSpacing: 0.5,
                               ),
                             ),
@@ -282,7 +273,6 @@ class _SplashViewState extends State<SplashView>
                       );
                     },
                   ),
-
                   const Spacer(flex: 1),
                 ],
               ),

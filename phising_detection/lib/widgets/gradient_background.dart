@@ -23,6 +23,15 @@ class GradientBackground extends StatelessWidget {
       ),
       child: Stack(
         children: [
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.15,
+              child: Image.asset(
+                'assets/images/tlu_bg.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Positioned(
             top: -80,
             right: -40,

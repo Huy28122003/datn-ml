@@ -15,7 +15,7 @@ class ResultHeroCard extends StatelessWidget {
         !result.isWhitelisted;
 
     if (isOffline) {
-      final color = Colors.grey;
+      const color = Colors.grey;
       return Container(
         width: double.infinity,
         padding: const EdgeInsets.all(24),
