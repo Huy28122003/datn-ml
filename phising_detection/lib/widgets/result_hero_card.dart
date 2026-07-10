@@ -11,8 +11,8 @@ class ResultHeroCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isOffline = !result.hybridFeaturesFromLiveFetch &&
-        !result.isWhitelisted;
+    final isOffline =
+        !result.hybridFeaturesFromLiveFetch && !result.isWhitelisted;
 
     if (isOffline) {
       const color = Colors.grey;

@@ -12,7 +12,6 @@ import '../models/phishing_service_exception.dart';
 import '../models/prediction_label.dart';
 import '../models/prediction_result.dart';
 
-/// Service phát hiện phishing: load ONNX offline, trả DTO typed cho UI.
 class _HybridFeaturesResult {
   final Map<String, double> features;
   final bool liveFetchOk;
@@ -22,8 +21,6 @@ class _HybridFeaturesResult {
 }
 
 class PhishingPredictorService {
-  // Điền URL deploy Google Apps Script Web App của bạn vào đây để fetch HTML an toàn.
-  // Nếu để trống, app sẽ quét ở chế độ Tĩnh offline an toàn không gọi mạng.
   static String proxyUrl =
       'https://script.google.com/macros/s/AKfycbz58yjRxPGLmYR_KAYGuc8NNIgbGfj2Z9OtkViH3DNrKp3lZAvzF-M2lpnpf2-JEXkN/exec';
 
@@ -37,39 +34,78 @@ class PhishingPredictorService {
   List<String>? _cleanDomains;
   Set<String>? _cleanBrands;
 
-  // Danh sách tên miền uy tín hàng đầu loại bỏ False Positives (Thực tế công nghiệp)
   static const Set<String> _reputableDomains = {
-    // Toàn cầu
-    'google.com', 'google.com.vn', 'youtube.com', 'facebook.com',
+    'google.com',
+    'google.com.vn',
+    'youtube.com',
+    'facebook.com',
     'instagram.com',
-    'twitter.com', 'linkedin.com', 'github.com', 'gitlab.com', 'microsoft.com',
-    'apple.com', 'amazon.com', 'netflix.com', 'wikipedia.org', 'w3schools.com',
-    'stackoverflow.com', 'stackexchange.com', 'medium.com', 'docker.com',
+    'twitter.com',
+    'linkedin.com',
+    'github.com',
+    'gitlab.com',
+    'microsoft.com',
+    'apple.com',
+    'amazon.com',
+    'netflix.com',
+    'wikipedia.org',
+    'w3schools.com',
+    'stackoverflow.com',
+    'stackexchange.com',
+    'medium.com',
+    'docker.com',
     'docker.io',
-    'kubernetes.io', 'python.org', 'npmjs.com', 'cloudflare.com', 'mozilla.org',
-    'apache.org', 'spring.io', 'oracle.com', 'git-scm.com', 'bitbucket.org',
-    // Việt Nam - Báo chí & Cổng thông tin
-    'vnexpress.net', 'dantri.com.vn', 'tuoitre.vn', 'vietnamnet.vn',
+    'kubernetes.io',
+    'python.org',
+    'npmjs.com',
+    'cloudflare.com',
+    'mozilla.org',
+    'apache.org',
+    'spring.io',
+    'oracle.com',
+    'git-scm.com',
+    'bitbucket.org',
+    'vnexpress.net',
+    'dantri.com.vn',
+    'tuoitre.vn',
+    'vietnamnet.vn',
     'thanhnien.vn',
-    'vtv.vn', 'chinhphu.vn', 'moit.gov.vn', 'znews.vn', 'kenh14.vn', 'genk.vn',
-    'soha.vn', 'tinhte.vn', 'zalo.me',
-    // Việt Nam - Thương mại điện tử
-    'shopee.vn', 'tiki.vn', 'lazada.vn', 'sendo.vn',
-    // Việt Nam - Ngân hàng & Tài chính
-    'vietcombank.com.vn', 'techcombank.com', 'techcombank.com.vn',
+    'vtv.vn',
+    'chinhphu.vn',
+    'moit.gov.vn',
+    'znews.vn',
+    'kenh14.vn',
+    'genk.vn',
+    'soha.vn',
+    'tinhte.vn',
+    'zalo.me',
+    'shopee.vn',
+    'tiki.vn',
+    'lazada.vn',
+    'sendo.vn',
+    'vietcombank.com.vn',
+    'techcombank.com',
+    'techcombank.com.vn',
     'vietinbank.vn',
-    'bidv.com.vn', 'agribank.com.vn', 'mbbank.com.vn', 'vib.com.vn',
+    'bidv.com.vn',
+    'agribank.com.vn',
+    'mbbank.com.vn',
+    'vib.com.vn',
     'tpbank.vn',
-    'vpbank.com.vn', 'acb.com.vn', 'sacombank.com.vn',
-    // Việt Nam - Dịch vụ khác
-    'fpt.com.vn', 'fptplay.vn', 'viettel.com.vn', 'viettelpost.com.vn',
+    'vpbank.com.vn',
+    'acb.com.vn',
+    'sacombank.com.vn',
+    'fpt.com.vn',
+    'fptplay.vn',
+    'viettel.com.vn',
+    'viettelpost.com.vn',
     'vnpt.com.vn',
-    'vinaphone.com.vn', 'mobifone.vn'
+    'vinaphone.com.vn',
+    'mobifone.vn'
   };
 
   bool get isReady => _ready;
 
-  /// Trích xuất registered domain đơn giản để kiểm tra whitelist.
   String _getRegisteredDomain(String url) {
     var domain = url.toLowerCase();
     if (domain.contains('://')) {
@@ -89,7 +125,6 @@ class PhishingPredictorService {
     return domain;
   }
 
-  /// Khởi tạo ONNX sessions và config đặc trưng.
   Future<void> initialize() async {
     if (_ready) return;
 
@@ -116,7 +151,6 @@ class PhishingPredictorService {
         .where((b) => b.length > 3)
         .toSet();
 
-    // huynq - Khoi tao danh sach public suffix rules offline
     final suffixRulesString =
         await rootBundle.loadString('assets/models/public_suffix_list.dat');
     DefaultSuffixRules.initFromString(suffixRulesString);
@@ -124,7 +158,6 @@ class PhishingPredictorService {
     _ready = true;
   }
 
-  /// Phân tích URL và trả kết quả đồng thuận 2 mô hình.
   Future<PhishingPredictionResult> analyzeUrl(String url) async {
     if (!_ready || _rfHybridSession == null || _featuresConfig == null) {
       throw const PhishingServiceException(
@@ -142,7 +175,6 @@ class PhishingPredictorService {
       );
     }
 
-    // 1. Áp dụng Whitelist tên miền uy tín hàng đầu loại bỏ hoàn toàn False Positives
     final regDomain = _getRegisteredDomain(normalizedUrl);
     if (_reputableDomains.contains(regDomain)) {
       return PhishingPredictionResult(
@@ -192,7 +224,6 @@ class PhishingPredictorService {
     );
   }
 
-  // huynq - Trich xuat registered domain va subdomain qua public_suffix
   _DomainParts _extractDomainParts(String urlStr) {
     var s = urlStr.trim();
     if (s.isEmpty) return _DomainParts("", []);
@@ -205,10 +236,10 @@ class PhishingPredictorService {
       final parsed = PublicSuffix(urlString: s);
       final registeredDomain = parsed.domain ?? "";
       final subdomainStr = parsed.subdomain ?? "";
-      final subdomainLabels = subdomainStr.isNotEmpty ? subdomainStr.split('.') : <String>[];
+      final subdomainLabels =
+          subdomainStr.isNotEmpty ? subdomainStr.split('.') : <String>[];
       return _DomainParts(registeredDomain, subdomainLabels);
     } catch (_) {
-      // huynq - Fallback dung Uri mac dinh neu bi loi parse
       String hostname = "";
       try {
         final uri = Uri.parse(s);
@@ -223,7 +254,6 @@ class PhishingPredictorService {
     }
   }
 
-  /// Thuật toán khoảng cách Levenshtein trong Dart
   int _levenshteinDistance(String s1, String s2) {
     if (s1.length < s2.length) {
       return _levenshteinDistance(s2, s1);
@@ -248,7 +278,6 @@ class PhishingPredictorService {
     return previousRow.last;
   }
 
-  /// Tính độ tương đồng Levenshtein
   double _levenshteinSimilarity(String s1, String s2) {
     final dist = _levenshteinDistance(s1, s2);
     final maxLen = s1.length > s2.length ? s1.length : s2.length;
@@ -256,8 +285,8 @@ class PhishingPredictorService {
     return 1.0 - (dist / maxLen);
   }
 
-  /// Phân tích URL bằng thuật toán so khớp thương hiệu KNN chạy hoàn toàn offline on-device.
-  Future<PhishingPredictionResult> analyzeUrlWithKnn(String url, bool? forceRfRs) async {
+  Future<PhishingPredictionResult> analyzeUrlWithKnn(
+      String url, bool? forceRfRs) async {
     if (!_ready || _cleanDomains == null || _cleanBrands == null) {
       throw const PhishingServiceException(
         'not_initialized',
@@ -283,11 +312,11 @@ class PhishingPredictorService {
     String? triggeredSubBrand;
     String? triggeredMatchedDomain;
 
-    // 1. Kiểm tra khớp chính xác hoàn toàn (whitelist)
     if (_cleanDomains!.contains(regDomain)) {
       bestMatchDomain = regDomain;
       maxSimilarity = 1.0;
-      detail = "Đây là tên miền uy tín, kết quả sẽ được quyết định bởi mô hình Random Forest";
+      detail =
+          "Đây là tên miền uy tín, kết quả sẽ được quyết định bởi mô hình Random Forest";
     } else {
       // huynq - Kiem tra combosquatting trong subdomain
       for (final label in parts.subdomainLabels) {
@@ -317,7 +346,6 @@ class PhishingPredictorService {
         }
       }
 
-      // huynq - Neu phat hien ma danh thuong hieu
       if (triggeredSubBrand != null) {
         consensusLabel = PredictionLabel.phishing;
         bestMatchDomain = triggeredMatchedDomain!;
@@ -373,11 +401,13 @@ class PhishingPredictorService {
     ];
 
     // huynq - Tinh tong so phieu bau phishing tu cac mo hinh
-    int phishingVotes = (isWhitelisted ? 0 : (consensusLabel.isPhishing ? 1 : 0)) + (rfLabel.isPhishing ? 1 : 0);
+    int phishingVotes =
+        (isWhitelisted ? 0 : (consensusLabel.isPhishing ? 1 : 0)) +
+            (rfLabel.isPhishing ? 1 : 0);
 
     return PhishingPredictionResult(
       url: normalizedUrl,
-      consensusLabel: consensusLabel, // Mô hình KNN & so khớp quyết định kết quả chính theo yêu cầu
+      consensusLabel: consensusLabel,
       phishingVotes: phishingVotes,
       totalModels: 2,
       modelVotes: votes,
@@ -390,10 +420,8 @@ class PhishingPredictorService {
     );
   }
 
-  /// @deprecated Dùng [initialize].
   Future<void> initModels() => initialize();
 
-  /// @deprecated Dùng [analyzeUrl].
   Future<Map<String, dynamic>> predict(String url) async {
     final result = await analyzeUrl(url);
     return {
@@ -417,9 +445,7 @@ class PhishingPredictorService {
     if (_ortEnvInitialized) {
       try {
         OrtEnv.instance.release();
-      } catch (_) {
-        // Bỏ qua khi native runtime không có (ví dụ widget test).
-      }
+      } catch (_) {}
       _ortEnvInitialized = false;
     }
   }
@@ -431,30 +457,6 @@ class PhishingPredictorService {
       return 'https://$trimmed';
     }
     return trimmed;
-  }
-
-  ModelVote _runModelVote({
-    required OrtSession session,
-    required String modelId,
-    required String displayName,
-    required List<double> vector,
-    required int featureCount,
-  }) {
-    try {
-      final pred = _runInference(session, vector, featureCount);
-      return ModelVote(
-        modelId: modelId,
-        displayName: displayName,
-        label:
-            pred == 1 ? PredictionLabel.phishing : PredictionLabel.legitimate,
-      );
-    } catch (e) {
-      if (e is PhishingServiceException) rethrow;
-      throw PhishingServiceException(
-        'inference_failed',
-        'Lỗi suy luận mô hình $modelId: $e',
-      );
-    }
   }
 
   Future<_HybridFeaturesResult> _extractHybridFeatures(String url) async {
@@ -486,7 +488,6 @@ class PhishingPredictorService {
           url.isEmpty ? 0.0 : _countSpecialChars(url) / url.length,
       'CharContinuationRate': _calcCharContinuationRate(url),
       'URLCharProb': _calcUrlCharProb(url),
-      // Giá trị trung vị (fallback) cho các đặc trưng HTML động
       'LineOfCode': 429.0,
       'LargestLineLength': 1090.0,
       'NoOfImage': 8.0,
@@ -503,7 +504,6 @@ class PhishingPredictorService {
       'HasFavicon': 0.0,
     };
 
-    // Chỉ thực hiện tải trang khi có cấu hình Proxy URL để đảm bảo an toàn cho client
     if (proxyUrl.isNotEmpty) {
       try {
         final encodedUrl = Uri.encodeComponent(url);
@@ -529,7 +529,6 @@ class PhishingPredictorService {
               .length
               .toDouble();
 
-          // Đếm external/self/empty refs
           final anchors = doc.getElementsByTagName('a');
           int extRef = 0, selfRef = 0, emptyRef = 0;
           for (final a in anchors) {
@@ -546,7 +545,6 @@ class PhishingPredictorService {
           feats['NoOfSelfRef'] = selfRef.toDouble();
           feats['NoOfEmptyRef'] = emptyRef.toDouble();
 
-          // HasSocialNet
           final htmlLower = html.toLowerCase();
           final socialNets = [
             'facebook.com',
@@ -558,14 +556,12 @@ class PhishingPredictorService {
           feats['HasSocialNet'] =
               socialNets.any((s) => htmlLower.contains(s)) ? 1.0 : 0.0;
 
-          // HasDescription
           final metas = doc.getElementsByTagName('meta');
           feats['HasDescription'] = metas.any((m) =>
                   (m.attributes['name'] ?? '').toLowerCase() == 'description')
               ? 1.0
               : 0.0;
 
-          // HasSubmitButton
           final inputs = doc.getElementsByTagName('input');
           final buttons = doc.getElementsByTagName('button');
           feats['HasSubmitButton'] = (inputs.any((e) =>
@@ -574,19 +570,16 @@ class PhishingPredictorService {
               ? 1.0
               : 0.0;
 
-          // HasCopyrightInfo
           feats['HasCopyrightInfo'] =
               (htmlLower.contains('©') || htmlLower.contains('copyright'))
                   ? 1.0
                   : 0.0;
 
-          // IsResponsive
           feats['IsResponsive'] = metas.any((m) =>
                   (m.attributes['name'] ?? '').toLowerCase() == 'viewport')
               ? 1.0
               : 0.0;
 
-          // HasFavicon
           final links = doc.getElementsByTagName('link');
           feats['HasFavicon'] = links.any((l) =>
                   (l.attributes['rel'] ?? '').toLowerCase().contains('icon'))
@@ -599,7 +592,6 @@ class PhishingPredictorService {
     return _HybridFeaturesResult(features: feats, liveFetchOk: liveFetchOk);
   }
 
-  /// Đếm ký tự đặc biệt (không phải chữ cái, chữ số).
   double _countSpecialChars(String url) {
     int count = 0;
     for (final c in url.runes) {
@@ -612,7 +604,6 @@ class PhishingPredictorService {
     return count.toDouble();
   }
 
-  /// Tính tỉ lệ ký tự liên tục cùng loại (chữ/số/đặc biệt).
   double _calcCharContinuationRate(String url) {
     if (url.length <= 1) return 0.0;
     int continuations = 0;
@@ -625,12 +616,11 @@ class PhishingPredictorService {
   }
 
   int _charType(int c) {
-    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) return 0; // letter
-    if (c >= 48 && c <= 57) return 1; // digit
-    return 2; // special
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) return 0;
+    if (c >= 48 && c <= 57) return 1;
+    return 2;
   }
 
-  /// Tính xác suất ký tự URL (entropy-based).
   double _calcUrlCharProb(String url) {
     if (url.isEmpty) return 0.0;
     final freq = <int, int>{};
@@ -696,7 +686,6 @@ class PhishingPredictorService {
   }
 }
 
-/// Alias giữ tên cũ trong codebase.
 typedef PhishingPredictor = PhishingPredictorService;
 
 class _DomainParts {

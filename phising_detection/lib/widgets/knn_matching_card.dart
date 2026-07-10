@@ -12,7 +12,6 @@ class KnnMatchingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final matchedDomain = result.matchedDomain ?? 'N/A';
-    // huynq - Lay nhan thuc te cua model KNN de luon hien thi dung bat ke ket qua fake cua Random Forest
     final knnVote = result.modelVotes.firstWhere(
       (v) => v.modelId == 'knn_search',
       orElse: () => ModelVote(
@@ -23,7 +22,6 @@ class KnnMatchingCard extends StatelessWidget {
     );
     final isPhishing = knnVote.label.isPhishing;
 
-    // huynq - Chon mau status theo nhan phishing
     final Color statusColor = isPhishing ? AppColors.danger : AppColors.safe;
 
     return Container(
