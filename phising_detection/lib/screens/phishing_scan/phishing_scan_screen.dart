@@ -100,7 +100,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
           Text(
             'Đang tải mô hình AI...',
             style: TextStyle(
-              color: AppColors.textPrimary,
+              color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
@@ -108,7 +108,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
           SizedBox(height: 8),
           Text(
             'Random Forest (Hybrid)',
-            style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+            style: TextStyle(color: Colors.white70, fontSize: 13),
           ),
         ],
       ),
@@ -126,7 +126,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
           Text(
             error,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: AppColors.textSecondary, height: 1.5),
+            style: const TextStyle(color: Colors.white70, height: 1.5),
           ),
           const SizedBox(height: 24),
           SizedBox(
@@ -222,7 +222,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                        color: Colors.white,
                         letterSpacing: -0.5,
                       ),
                     ),
@@ -230,7 +230,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                       'Phát hiện URL lừa đảo — offline',
                       style: TextStyle(
                         fontSize: 13,
-                        color: AppColors.textSecondary,
+                        color: Colors.white70,
                       ),
                     ),
                   ],
@@ -254,7 +254,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: AppColors.textSecondary,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 10),
@@ -264,17 +264,17 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
             keyboardType: TextInputType.url,
             textInputAction: TextInputAction.go,
             autocorrect: false,
-            style: const TextStyle(color: AppColors.textPrimary),
+            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               hintText: 'https://example.com/login',
               prefixIcon: const Icon(
                 Icons.link_rounded,
-                color: AppColors.textSecondary,
+                color: Colors.white70,
               ),
               suffixIcon: _urlController.text.isNotEmpty
                   ? IconButton(
                       icon: const Icon(Icons.clear, size: 20),
-                      color: AppColors.textSecondary,
+                      color: Colors.white70,
                       onPressed: () {
                         _urlController.clear();
                         context
@@ -393,7 +393,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
           const Center(
             child: Text(
               'Mô hình Random Forest (Hybrid) phân tích',
-              style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 12, color: Colors.white70),
             ),
           ),
         ],
@@ -420,7 +420,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
               child: Text(
                 message,
                 style: const TextStyle(
-                  color: AppColors.textPrimary,
+                  color: Colors.white,
                   fontSize: 13,
                   height: 1.35,
                 ),
@@ -444,7 +444,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.language, size: 18, color: AppColors.textSecondary),
+          const Icon(Icons.language, size: 18, color: Colors.white70),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -454,7 +454,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                   'URL đã phân tích',
                   style: TextStyle(
                     fontSize: 11,
-                    color: AppColors.textSecondary,
+                    color: Colors.white70,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -462,7 +462,7 @@ class _PhishingScanScreenState extends State<PhishingScanScreen> {
                   url,
                   style: const TextStyle(
                     fontSize: 13,
-                    color: AppColors.textPrimary,
+                    color: Colors.white,
                     height: 1.35,
                   ),
                 ),
@@ -497,7 +497,7 @@ class _ExampleChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return ActionChip(
       label: Text(label),
-      labelStyle: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+      labelStyle: const TextStyle(fontSize: 12, color: Colors.white),
       backgroundColor: AppColors.surface,
       side: const BorderSide(color: AppColors.border),
       onPressed: onTap,

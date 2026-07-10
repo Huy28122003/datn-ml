@@ -20,7 +20,7 @@ class ModelVotesList extends StatelessWidget {
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
-            color: AppColors.textPrimary,
+            color: Colors.white,
           ),
         ),
         const SizedBox(height: 12),
@@ -74,7 +74,7 @@ class _ModelVoteTile extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.textPrimary,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -82,7 +82,7 @@ class _ModelVoteTile extends StatelessWidget {
                   vote.modelId,
                   style: const TextStyle(
                     fontSize: 12,
-                    color: AppColors.textSecondary,
+                    color: Colors.white70,
                   ),
                 ),
               ],

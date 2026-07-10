@@ -77,7 +77,7 @@ class KnnMatchingCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(height: 2),
@@ -85,7 +85,7 @@ class KnnMatchingCard extends StatelessWidget {
                       'Phân tích & so sánh với 20.000 tên miền sạch',
                       style: TextStyle(
                         fontSize: 11,
-                        color: AppColors.textSecondary,
+                        color: Colors.white70,
                       ),
                     ),
                   ],
@@ -109,7 +109,7 @@ class KnnMatchingCard extends StatelessWidget {
                 result.detail!,
                 style: const TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: Colors.white70,
                   height: 1.4,
                 ),
               ),
@@ -135,7 +135,7 @@ class KnnMatchingCard extends StatelessWidget {
             label,
             style: const TextStyle(
               fontSize: 13,
-              color: AppColors.textSecondary,
+              color: Colors.white70,
             ),
           ),
         ),
@@ -146,7 +146,7 @@ class KnnMatchingCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 13,
               fontWeight: isBoldValue ? FontWeight.bold : FontWeight.w500,
-              color: valueColor ?? AppColors.textPrimary,
+              color: valueColor ?? Colors.white,
             ),
             textAlign: TextAlign.right,
           ),

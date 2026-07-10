@@ -56,7 +56,7 @@ class ResultHeroCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
+                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
@@ -65,7 +65,7 @@ class ResultHeroCard extends StatelessWidget {
               'Không thể kết nối hoặc tải dữ liệu từ trang web này (Offline).',
               style: TextStyle(
                 fontSize: 14,
-                color: AppColors.textSecondary,
+                color: Colors.white70,
                 height: 1.4,
               ),
               textAlign: TextAlign.center,
@@ -108,7 +108,7 @@ class ResultHeroCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                color: AppColors.textSecondary,
+                color: Colors.white70,
                 letterSpacing: 0.5,
               ),
             ),
@@ -130,7 +130,7 @@ class ResultHeroCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
-              color: AppColors.textPrimary,
+              color: Colors.white,
             ),
             textAlign: TextAlign.center,
           ),
@@ -141,7 +141,7 @@ class ResultHeroCard extends StatelessWidget {
                 : (result.detail ?? label.subtitleVi),
             style: const TextStyle(
               fontSize: 14,
-              color: AppColors.textSecondary,
+              color: Colors.white70,
               height: 1.4,
             ),
             textAlign: TextAlign.center,
@@ -224,7 +224,7 @@ class _InfoChip extends StatelessWidget {
         isWarning ? AppColors.danger.withOpacity(0.12) : AppColors.surfaceLight;
     final borderColor =
         isWarning ? AppColors.danger.withOpacity(0.35) : AppColors.border;
-    final textColor = isWarning ? AppColors.danger : AppColors.textSecondary;
+    final textColor = isWarning ? AppColors.danger : Colors.white70;
     final iconColor = isWarning ? AppColors.danger : AppColors.accent;
 
     return Container(
